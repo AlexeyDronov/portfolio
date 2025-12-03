@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Hero() {
     return (
-        <section className="flex flex-col items-center sm:items-start gap-4">
+        <section className="flex w-full flex-col items-center sm:items-start gap-8">
             <h1 className="text-6xl font-bold text-center text-black sm:text-left">
                 Alexey Dronov
             </h1>
