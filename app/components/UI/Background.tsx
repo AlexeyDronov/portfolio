@@ -1,25 +1,7 @@
-"use client";
+import React from "react";
 
-import React from 'react';
-import styled from 'styled-components';
-
-const Pattern = () => {
+export default function Pattern() {
   return (
-    <StyledWrapper>
-      <div className="background" />
-    </StyledWrapper>
+    <div className="fixed inset-0 -z-10 h-full w-full bg-linear-to-br from-slate-950 via-purple-950 to-slate-950" />
   );
 }
-
-const StyledWrapper = styled.div`
-  .background {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #63e 100%);
-    z-index: -10;
-  }`;
-
-export default Pattern;

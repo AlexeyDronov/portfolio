@@ -32,14 +32,14 @@ export default function Sidebar({ activeSection }: SidebarProps) {
                     <button
                         key={item.id}
                         onClick={() => scrollToSection(item.id)}
-                        className={`group flex items-center gap-4 transition-all duration-300 ${isActive ? "scale-110" : "opacity-50 hover:opacity-100"
+                        className={`group flex items-center gap-4 transition-all duration-300 cursor-pointer ${isActive ? "scale-110" : "opacity-50 hover:opacity-100"
                             }`}
                         aria-label={item.label}
                     >
                         <div
                             className={`p-3 rounded-full transition-all duration-300 ${isActive
-                                    ? "bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)]"
-                                    : "bg-white/10 text-white hover:bg-white/20"
+                                ? "bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+                                : "bg-white/10 text-white hover:bg-white/20"
                                 }`}
                         >
                             <Icon size={24} />
