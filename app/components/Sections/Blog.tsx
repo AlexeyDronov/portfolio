@@ -11,7 +11,7 @@ export default function Blog({ posts }: BlogProps) {
 
     return (
         <div className="flex flex-col w-full gap-12">
-            <div className="flex flex-col md:flex-row justify-between items-end gap-4">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
                 <div className="flex flex-col gap-4">
                     <h2 className="text-4xl md:text-5xl font-bold text-white">Latest Posts</h2>
                 </div>
