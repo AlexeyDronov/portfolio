@@ -103,7 +103,7 @@ export default function Contact() {
                         <h3 className="text-2xl font-bold text-white">Connect</h3>
                         <div className="flex flex-col gap-4">
                             <a
-                                href="mailto:alexey@example.com"
+                                href="mailto:alexey.dronov@outlook.com"
                                 className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group"
                             >
                                 <div className="p-3 rounded-full bg-white/10 text-white group-hover:bg-white group-hover:text-black transition-all">
@@ -111,12 +111,12 @@ export default function Contact() {
                                 </div>
                                 <div className="flex flex-col">
                                     <span className="text-sm text-white/40">Email</span>
-                                    <span className="text-white font-medium">alexey@example.com</span>
+                                    <span className="text-white font-medium">alexey.dronov@outlook.com</span>
                                 </div>
                             </a>
 
                             <a
-                                href="https://github.com"
+                                href="https://github.com/alexeydronov"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group"

@@ -7,15 +7,25 @@ interface BlogProps {
 }
 
 export default function Blog({ posts }: BlogProps) {
+    const latestPosts = posts.slice(0, 3);
+
     return (
         <div className="flex flex-col w-full gap-12">
-            <div className="flex flex-col gap-4">
-                <h2 className="text-4xl md:text-5xl font-bold text-white">Latest Posts</h2>
+            <div className="flex flex-col md:flex-row justify-between items-end gap-4">
+                <div className="flex flex-col gap-4">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white">Latest Posts</h2>
+                </div>
+                <a
+                    href="/blog"
+                    className="text-white/60 hover:text-white border-b border-transparent hover:border-white transition-all pb-1"
+                >
+                    View All Posts &rarr;
+                </a>
             </div>
 
             <div className="flex flex-col gap-4">
-                {posts.length > 0 ? (
-                    posts.map((post) => (
+                {latestPosts.length > 0 ? (
+                    latestPosts.map((post) => (
                         <BlogCard
                             key={post.slug}
                             title={post.title}
