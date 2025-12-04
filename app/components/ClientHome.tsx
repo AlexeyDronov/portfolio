@@ -5,11 +5,13 @@ import Pattern from "./UI/Background";
 import Hero from "./Sections/Hero";
 import About from "./Sections/About";
 import Contact from "./Sections/Contact";
+
 import Sidebar from "./UI/Sidebar";
 import TopNav from "./UI/TopNav";
 import Projects from "./Sections/Projects";
 import Blog from "./Sections/Blog";
 import { BlogPost } from "../lib/blogUtils";
+import { navItems } from "../lib/navConfig";
 
 interface ClientHomeProps {
     posts: BlogPost[];
@@ -21,7 +23,7 @@ export default function ClientHome({ posts }: ClientHomeProps) {
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = ["hero", "projects", "blog", "contact"];
+            const sections = navItems.map(item => item.id);
             const scrollPosition = window.scrollY + window.innerHeight / 3;
 
             let currentSection = "hero";
@@ -46,7 +48,7 @@ export default function ClientHome({ posts }: ClientHomeProps) {
     return (
         <div className="relative flex min-h-screen w-full flex-col font-sans text-white items-center">
             <Pattern />
-            <TopNav activeSection={activeSection} visible={activeSection === "hero"} />
+            <TopNav activeSection={activeSection} />
             <Sidebar activeSection={activeSection} />
 
             <main className="flex w-6xl max-w-4xl flex-col items-center">
