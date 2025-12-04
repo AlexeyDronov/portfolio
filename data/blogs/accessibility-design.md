@@ -2,7 +2,7 @@
 title: "Designing for Accessibility"
 date: "2024-01-20"
 description: "Why accessibility matters and how to implement it in your web projects."
-tags: ["Design", "Accessibility", "UX"]
+tags: ["Design"]
 ---
 
 Accessibility ensures that your website is usable by everyone, including people with disabilities. It's not just a legal requirement; it's a moral imperative.

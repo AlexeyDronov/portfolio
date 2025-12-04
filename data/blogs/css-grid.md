@@ -2,7 +2,7 @@
 title: "Understanding CSS Grid"
 date: "2023-12-05"
 description: "A deep dive into CSS Grid Layout and how it simplifies complex web layouts."
-tags: ["CSS", "Web Design", "Frontend"]
+tags: ["Web Development"]
 ---
 
 CSS Grid is a powerful layout system for the web. It allows you to create complex two-dimensional layouts with ease.

@@ -9,10 +9,10 @@ interface BlogListProps {
     posts: BlogPost[];
 }
 
-type SortOption = "date" | "topic";
+type SortOption = "newest" | "oldest";
 
 export default function BlogList({ posts }: BlogListProps) {
-    const [sortBy, setSortBy] = useState<SortOption>("date");
+    const [sortBy, setSortBy] = useState<SortOption>("newest");
     const [selectedTopic, setSelectedTopic] = useState<string | "all">("all");
 
     // Extract all unique tags for the filter dropdown
@@ -34,13 +34,13 @@ export default function BlogList({ posts }: BlogListProps) {
 
         // Sort
         result.sort((a, b) => {
-            if (sortBy === "date") {
-                return new Date(b.date).getTime() - new Date(a.date).getTime();
+            const dateA = new Date(a.date).getTime();
+            const dateB = new Date(b.date).getTime();
+
+            if (sortBy === "newest") {
+                return dateB - dateA;
             } else {
-                // Sort by topic (primary tag)
-                const tagA = a.tags[0] || "";
-                const tagB = b.tags[0] || "";
-                return tagA.localeCompare(tagB);
+                return dateA - dateB;
             }
         });
 
@@ -54,22 +54,22 @@ export default function BlogList({ posts }: BlogListProps) {
                     <label className="text-white/70 font-medium">Sort by:</label>
                     <div className="flex bg-black/20 rounded-lg p-1">
                         <button
-                            onClick={() => setSortBy("date")}
-                            className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${sortBy === "date"
-                                    ? "bg-purple-600 text-white shadow-lg"
-                                    : "text-white/60 hover:text-white hover:bg-white/5"
+                            onClick={() => setSortBy("newest")}
+                            className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${sortBy === "newest"
+                                ? "bg-purple-600 text-white shadow-lg"
+                                : "text-white/60 hover:text-white hover:bg-white/5"
                                 }`}
                         >
-                            Date
+                            Newest
                         </button>
                         <button
-                            onClick={() => setSortBy("topic")}
-                            className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${sortBy === "topic"
-                                    ? "bg-purple-600 text-white shadow-lg"
-                                    : "text-white/60 hover:text-white hover:bg-white/5"
+                            onClick={() => setSortBy("oldest")}
+                            className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${sortBy === "oldest"
+                                ? "bg-purple-600 text-white shadow-lg"
+                                : "text-white/60 hover:text-white hover:bg-white/5"
                                 }`}
                         >
-                            Topic
+                            Oldest
                         </button>
                     </div>
                 </div>

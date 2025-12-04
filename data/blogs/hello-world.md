@@ -2,7 +2,7 @@
 title: "Hello World"
 date: "2023-10-27"
 description: "This is my first blog post on my new portfolio website."
-tags: ["Personal", "Web Development"]
+tags: ["Personal"]
 ---
 
 # Hello World

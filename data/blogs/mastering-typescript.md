@@ -2,7 +2,7 @@
 title: "Mastering TypeScript"
 date: "2024-02-10"
 description: "A comprehensive guide to understanding advanced TypeScript features and best practices."
-tags: ["TypeScript", "Programming", "Guide"]
+tags: ["Web Development"]
 ---
 
 TypeScript has become the industry standard for large-scale JavaScript applications. Its static typing helps catch errors early and improves code maintainability.

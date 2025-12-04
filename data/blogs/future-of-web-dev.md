@@ -2,7 +2,7 @@
 title: "The Future of Web Development"
 date: "2024-03-15"
 description: "Exploring the latest trends in frontend frameworks and the rise of AI in coding."
-tags: ["Web Development", "AI", "React"]
+tags: ["Web Development", "AI"]
 ---
 
 Web development is evolving at a rapid pace. With the introduction of new frameworks and the integration of AI tools, the way we build websites is changing.
