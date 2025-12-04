@@ -28,15 +28,13 @@ const projects: Project[] = [
 
 export default function Projects() {
     return (
-        <div className="flex flex-col w-full gap-12">
+        <div className="flex flex-col w-full gap-12 justify-center">
             <div className="flex flex-col gap-4">
                 <h2 className="text-4xl md:text-5xl font-bold text-white">Projects</h2>
-                <p className="text-white/60 max-w-2xl">
-                    Here are some of the projects I've worked on. Each one represents a unique challenge and a learning opportunity.
-                </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* <div className="flex flex-col gap-8 max-w-xl mx-auto w-full"> */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 {projects.map((project, index) => (
                     <ProjectCard key={index} project={project} />
                 ))}

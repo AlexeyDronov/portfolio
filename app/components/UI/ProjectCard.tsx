@@ -19,17 +19,6 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
     return (
         <div className="group relative flex flex-col w-full overflow-hidden rounded-2xl bg-white/5 border border-white/10 transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:-translate-y-1">
-            {/* Image Section */}
-            <div className="relative h-48 w-full overflow-hidden bg-black/50">
-                {/* Placeholder for image - in a real app, use Next.js Image */}
-                <div className="absolute inset-0 flex items-center justify-center text-white/20 text-4xl font-bold uppercase tracking-widest">
-                    {project.title[0]}
-                </div>
-                {/* If image exists, uncomment below */}
-                {/* <img src={project.image} alt={project.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" /> */}
-            </div>
-
-            {/* Content Section */}
             <div className="flex flex-col gap-4 p-6">
                 <div className="flex items-start justify-between gap-4">
                     <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
@@ -64,17 +53,27 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 <p className="text-white/60 line-clamp-3">
                     {project.description}
                 </p>
+            </div>
 
-                <div className="flex flex-wrap gap-2 mt-auto">
-                    {project.tags.map((tag) => (
-                        <span
-                            key={tag}
-                            className="px-3 py-1 text-xs font-medium rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20"
-                        >
-                            {tag}
-                        </span>
-                    ))}
+            {/* Image Section - Now below title and description */}
+            <div className="relative h-48 w-full overflow-hidden bg-black/50 border-t border-white/5">
+                {/* Placeholder for image - in a real app, use Next.js Image */}
+                <div className="absolute inset-0 flex items-center justify-center text-white/20 text-4xl font-bold uppercase tracking-widest">
+                    {project.title[0]}
                 </div>
+                {/* If image exists, uncomment below */}
+                {/* <img src={project.image} alt={project.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" /> */}
+            </div>
+
+            <div className="flex flex-wrap gap-2 p-6 pt-4 mt-auto">
+                {project.tags.map((tag) => (
+                    <span
+                        key={tag}
+                        className="px-3 py-1 text-xs font-medium rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20"
+                    >
+                        {tag}
+                    </span>
+                ))}
             </div>
         </div>
     );

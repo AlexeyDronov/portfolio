@@ -10,10 +10,7 @@ export default function Blog({ posts }: BlogProps) {
     return (
         <div className="flex flex-col w-full gap-12">
             <div className="flex flex-col gap-4">
-                <h2 className="text-4xl md:text-5xl font-bold text-white">Latest Writings</h2>
-                <p className="text-white/60 max-w-2xl">
-                    Thoughts on data science, technology, and continuous learning.
-                </p>
+                <h2 className="text-4xl md:text-5xl font-bold text-white">Latest Posts</h2>
             </div>
 
             <div className="flex flex-col gap-4">

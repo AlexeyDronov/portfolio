@@ -23,7 +23,8 @@ export default function Sidebar({ activeSection }: SidebarProps) {
     };
 
     return (
-        <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-8">
+        <nav className={`fixed left-8 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-8 transition-all duration-500 ${activeSection === "hero" ? "opacity-0 -translate-x-full pointer-events-none" : "opacity-100 translate-x-0"
+            }`}>
             {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = activeSection === item.id;
