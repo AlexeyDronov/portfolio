@@ -11,13 +11,15 @@ import TopNav from "./UI/TopNav";
 import Projects from "./Sections/Projects";
 import Blog from "./Sections/Blog";
 import { BlogPost } from "../lib/blogUtils";
+import { Project } from "../lib/projectUtils";
 import { navItems } from "../lib/navConfig";
 
 interface ClientHomeProps {
     posts: BlogPost[];
+    projects: Project[];
 }
 
-export default function ClientHome({ posts }: ClientHomeProps) {
+export default function ClientHome({ posts, projects }: ClientHomeProps) {
     const [activeSection, setActiveSection] = useState("hero");
     const [sidebarState, setSidebarState] = useState({ mode: "full" as "full" | "icon", visible: true });
     const [showTopNav, setShowTopNav] = useState(true);
@@ -131,7 +133,7 @@ export default function ClientHome({ posts }: ClientHomeProps) {
                         transform: `scale(${sectionStyles["projects"]?.scale ?? 0.9})`
                     }}
                 >
-                    <Projects />
+                    <Projects projects={projects} title="Featured Projects" showViewAll={true} />
                 </section>
 
                 <section
