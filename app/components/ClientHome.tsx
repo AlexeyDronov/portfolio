@@ -2,6 +2,7 @@
 
 import React from "react";
 import Pattern from "./UI/Background";
+import SideBar from "./UI/SideBar";
 import Hero from "./Sections/Hero";
 import Projects from "./Sections/Projects";
 import Blog from "./Sections/Blog";
@@ -26,6 +27,9 @@ export default function ClientHome({ posts, projects }: ClientHomeProps) {
         <div className="relative flex min-h-screen w-full flex-col font-sans text-white items-center overflow-x-hidden">
             {/* Background pattern component */}
             <Pattern />
+
+            {/* Sidebar Navigation */}
+            <SideBar />
 
             <main className="flex w-full max-w-5xl flex-col items-center">
                 {/* Hero Section containing Introduction and About */}
