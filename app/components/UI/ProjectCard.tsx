@@ -4,14 +4,16 @@ import { Project } from "../../lib/projectUtils";
 
 interface ProjectCardProps {
     project: Project; // The project data to display
+    onClick?: () => void; // Click handler to open modal
 }
 
 // ProjectCard component
 // Displays a preview of a project including image, title, description, and skills
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function ProjectCard({ project, onClick }: ProjectCardProps) {
     return (
         <div
-            className="group relative flex flex-col gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all overflow-hidden"
+            onClick={onClick}
+            className="group relative flex flex-col gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all overflow-hidden cursor-pointer"
         >
             {/* Project Details */}
             <div className="flex flex-col gap-2">
@@ -44,7 +46,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 {project.skills.map((skill) => (
                     <span
                         key={skill}
-                        className="px-2 py-1 text-xs font-medium text-white/60 bg-white/5 rounded-md"
+                        className="px-2 py-1 text-xs font-medium text-white/40 group-hover:text-blue-300/90 bg-white/5 group-hover:bg-blue-500/10 border border-transparent group-hover:border-blue-500/20 rounded-md transition-all duration-300"
                     >
                         {skill}
                     </span>

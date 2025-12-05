@@ -1,5 +1,6 @@
-"use client"
-import React from "react";
+"use client";
+import { useState } from "react";
+import ProjectModal from "../UI/ProjectModal";
 import ProjectCard from "../UI/ProjectCard";
 import { Project } from "../../lib/projectUtils";
 import Link from "next/link";
@@ -13,6 +14,8 @@ interface ProjectsProps {
 // Projects section component
 // Displays a grid of project cards
 export default function Projects({ projects = [], title = "Projects", showViewAll = false }: ProjectsProps) {
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
     return (
         <div className="flex flex-col w-full gap-12 justify-center">
             {/* Header with Title and optional View All link */}
@@ -36,9 +39,19 @@ export default function Projects({ projects = [], title = "Projects", showViewAl
                     <ProjectCard
                         key={project.slug}
                         project={project}
+                        onClick={() => setSelectedProject(project)}
                     />
                 ))}
             </div>
+
+            {/* Project Modal */}
+            {selectedProject && (
+                <ProjectModal
+                    project={selectedProject}
+                    isOpen={!!selectedProject}
+                    onClose={() => setSelectedProject(null)}
+                />
+            )}
         </div>
     );
 }
