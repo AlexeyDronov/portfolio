@@ -6,6 +6,7 @@ import Hero from "./Sections/Hero";
 import Projects from "./Sections/Projects";
 import Blog from "./Sections/Blog";
 import Experience from "./Sections/Experience";
+import Contact from "./Sections/Contact";
 import { BlogPost } from "../lib/blogUtils";
 import { Project } from "../lib/projectUtils";
 
@@ -57,6 +58,14 @@ export default function ClientHome({ posts, projects }: ClientHomeProps) {
                     className="flex w-4xl flex-col justify-center px-6 md:px-12 py-20"
                 >
                     <Experience />
+                </section>
+
+                {/* Contact Section */}
+                <section
+                    id="contact"
+                    className="flex w-4xl flex-col justify-center px-6 md:px-12 py-20"
+                >
+                    <Contact />
                 </section>
             </main>
         </div>
