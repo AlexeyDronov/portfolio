@@ -3,7 +3,7 @@ title: "E-commerce Platform"
 description: "A full-stack e-commerce platform with payment integration."
 image: "/images/ecommerce-placeholder.png"
 skills: ["Node.js", "Express", "MongoDB", "Stripe"]
-featured: false
+featured: true
 date: "2023-09-15"
 ---
 

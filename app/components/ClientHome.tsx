@@ -19,27 +19,27 @@ interface ClientHomeProps {
 // It handles the layout of sections.
 export default function ClientHome({ posts, projects }: ClientHomeProps) {
     // Common CSS classes for all sections to ensure consistent spacing and sizing
-    const baseSectionClasses = "flex min-h-[80vh] w-full flex-col justify-center px-6 md:px-12 py-12";
+    const baseSectionClasses = "flex w-full flex-col justify-center px-6 md:px-12 py-20";
 
     return (
         <div className="relative flex min-h-screen w-full flex-col font-sans text-white items-center overflow-x-hidden">
             {/* Background pattern component */}
             <Pattern />
 
-            <main className="flex w-full max-w-3xl flex-col items-center">
+            <main className="flex w-full max-w-5xl flex-col items-center">
                 {/* Hero Section containing Introduction and About */}
                 <section
                     id="hero"
-                    className={baseSectionClasses}
+                    className="flex min-h-screen w-full flex-col justify-center px-6 md:px-12 py-20"
                 >
                     <Hero />
-                    <About />
+                    {/* <About /> */}
                 </section>
 
                 {/* Projects Section */}
                 <section
                     id="projects"
-                    className={baseSectionClasses}
+                    className="flex w-4xl flex-col justify-center px-6 md:px-12 py-20"
                 >
                     <Projects projects={projects} title="Featured Projects" showViewAll={true} />
                 </section>
@@ -47,7 +47,7 @@ export default function ClientHome({ posts, projects }: ClientHomeProps) {
                 {/* Blog Section */}
                 <section
                     id="blog"
-                    className={baseSectionClasses}
+                    className="flex w-4xl flex-col justify-center px-6 md:px-12 py-20"
                 >
                     <Blog posts={posts} />
                 </section>

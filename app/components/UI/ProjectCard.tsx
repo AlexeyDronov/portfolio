@@ -13,6 +13,16 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div
             className="group relative flex flex-col gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all overflow-hidden"
         >
+            {/* Project Details */}
+            <div className="flex flex-col gap-2">
+                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                    {project.title}
+                </h3>
+                <p className="text-sm text-white/60 line-clamp-2">
+                    {project.description}
+                </p>
+            </div>
+
             {/* Project Image */}
             <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black/20">
                 {project.image ? (
@@ -27,16 +37,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                         No Image
                     </div>
                 )}
-            </div>
-
-            {/* Project Details */}
-            <div className="flex flex-col gap-2">
-                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
-                    {project.title}
-                </h3>
-                <p className="text-sm text-white/60 line-clamp-2">
-                    {project.description}
-                </p>
             </div>
 
             {/* Skills Tags */}

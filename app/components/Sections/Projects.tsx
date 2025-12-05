@@ -18,7 +18,7 @@ export default function Projects({ projects = [], title = "Projects", showViewAl
             {/* Header with Title and optional View All link */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
                 <div className="flex flex-col gap-4">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white">{title}</h2>
+                    <h2 className="text-4xl md:text-5xl font-mono text-white">{title}</h2>
                 </div>
                 {showViewAll && (
                     <Link
