@@ -3,16 +3,17 @@ import Image from "next/image";
 import { Project } from "../../lib/projectUtils";
 
 interface ProjectCardProps {
-    project: Project;
-    onClick: (project: Project) => void;
+    project: Project; // The project data to display
 }
 
-export default function ProjectCard({ project, onClick }: ProjectCardProps) {
+// ProjectCard component
+// Displays a preview of a project including image, title, description, and skills
+export default function ProjectCard({ project }: ProjectCardProps) {
     return (
         <div
-            className="group relative flex flex-col gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all cursor-pointer overflow-hidden"
-            onClick={() => onClick(project)}
+            className="group relative flex flex-col gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all overflow-hidden"
         >
+            {/* Project Image */}
             <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black/20">
                 {project.image ? (
                     <Image
@@ -28,6 +29,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
                 )}
             </div>
 
+            {/* Project Details */}
             <div className="flex flex-col gap-2">
                 <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
                     {project.title}
@@ -37,6 +39,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
                 </p>
             </div>
 
+            {/* Skills Tags */}
             <div className="flex flex-wrap gap-2 mt-auto">
                 {project.skills.map((skill) => (
                     <span

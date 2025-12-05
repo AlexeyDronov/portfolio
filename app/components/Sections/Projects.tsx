@@ -1,21 +1,21 @@
 "use client"
-import React, { useState } from "react";
+import React from "react";
 import ProjectCard from "../UI/ProjectCard";
-import ProjectModal from "../UI/ProjectModal";
 import { Project } from "../../lib/projectUtils";
 import Link from "next/link";
 
 interface ProjectsProps {
-    projects?: Project[];
-    title?: string;
-    showViewAll?: boolean;
+    projects?: Project[]; // List of projects to display
+    title?: string; // Section title
+    showViewAll?: boolean; // Whether to show the "View All" link
 }
 
+// Projects section component
+// Displays a grid of project cards
 export default function Projects({ projects = [], title = "Projects", showViewAll = false }: ProjectsProps) {
-    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
     return (
         <div className="flex flex-col w-full gap-12 justify-center">
+            {/* Header with Title and optional View All link */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
                 <div className="flex flex-col gap-4">
                     <h2 className="text-4xl md:text-5xl font-bold text-white">{title}</h2>
@@ -30,20 +30,15 @@ export default function Projects({ projects = [], title = "Projects", showViewAl
                 )}
             </div>
 
+            {/* Grid of Project Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {projects.map((project) => (
                     <ProjectCard
                         key={project.slug}
                         project={project}
-                        onClick={setSelectedProject}
                     />
                 ))}
             </div>
-
-            <ProjectModal
-                project={selectedProject}
-                onClose={() => setSelectedProject(null)}
-            />
         </div>
     );
 }

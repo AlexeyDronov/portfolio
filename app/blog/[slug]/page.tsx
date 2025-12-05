@@ -11,6 +11,7 @@ interface BlogPostPageProps {
     }>;
 }
 
+// Generate metadata for the blog post page dynamically based on the post content
 export async function generateMetadata({ params }: BlogPostPageProps) {
     const { slug } = await params;
     const post = getPostBySlug(slug);
@@ -27,19 +28,24 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     };
 }
 
+// This page displays a single blog post based on the slug in the URL.
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const { slug } = await params;
+    // Fetch the post data
     const post = getPostBySlug(slug);
 
+    // If post not found, show 404 page
     if (!post) {
         notFound();
     }
 
     return (
         <div className="relative flex min-h-screen w-full flex-col font-sans text-white items-center">
+            {/* Background pattern */}
             <Pattern />
 
             <main className="flex w-full max-w-3xl flex-col px-6 md:px-12 py-12 z-10">
+                {/* Back to Blog link */}
                 <div className="w-full mb-8">
                     <Link
                         href="/blog"
@@ -53,7 +59,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     </Link>
                 </div>
 
+                {/* Blog Post Content */}
                 <article className="prose prose-invert prose-lg max-w-none">
+                    {/* Header: Tags, Title, Date */}
                     <div className="mb-8 border-b border-white/10 pb-8">
                         <div className="flex gap-2 mb-4">
                             {post.tags.map(tag => (
@@ -70,6 +78,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         </p>
                     </div>
 
+                    {/* Markdown Content Renderer with custom styling for elements */}
                     <ReactMarkdown
                         components={{
                             h1: ({ node, ...props }) => <h1 className="text-3xl font-bold text-white mt-8 mb-4" {...props} />,

@@ -1,5 +1,7 @@
 import React from "react";
 
+// About section component
+// Displays a brief introduction about the user
 export default function About() {
     return (
         <section className="flex w-full flex-col items-center justify-center gap-6 animate-in fade-in slide-in-from-bottom-8 duration-1000 text-left py-8">
