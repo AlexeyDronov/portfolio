@@ -37,6 +37,7 @@ export default function Blog({ posts }: BlogProps) {
                             description={post.description}
                             date={post.date}
                             slug={post.slug}
+                            source="home"
                         />
                     ))
                 ) : (

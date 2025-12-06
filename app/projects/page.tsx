@@ -19,7 +19,7 @@ export default function ProjectsPage() {
                 <div className="w-full mb-8">
                     <Link
                         href="/"
-                        className="text-white/60 hover:text-white transition-colors flex items-center gap-2"
+                        className="text-white/60 hover:text-white border-b border-transparent hover:border-white transition-all pb-1 flex items-center gap-2 w-fit"
                     >
                         &larr; Back to Home
                     </Link>

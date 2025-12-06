@@ -3,6 +3,7 @@
 import React from "react";
 import Pattern from "./UI/Background";
 import SideBar from "./UI/SideBar";
+import TopNavBar from "./UI/TopNavBar";
 import Hero from "./Sections/Hero";
 import Projects from "./Sections/Projects";
 import Blog from "./Sections/Blog";
@@ -30,6 +31,9 @@ export default function ClientHome({ posts, projects }: ClientHomeProps) {
 
             {/* Sidebar Navigation */}
             <SideBar />
+
+            {/* Top Navigation Bar - Visible only on Hero */}
+            <TopNavBar />
 
             <main className="flex w-full max-w-5xl flex-col items-center">
                 {/* Hero Section containing Introduction and About */}

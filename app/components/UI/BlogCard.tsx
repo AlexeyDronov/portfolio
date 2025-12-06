@@ -13,9 +13,10 @@ interface BlogCardProps {
 
 // BlogCard component
 // Displays a summary of a blog post and links to the full post
-export default function BlogCard({ title, description, date, slug }: BlogCardProps) {
+export default function BlogCard({ title, description, date, slug, source }: BlogCardProps & { source?: string }) {
+    const href = source ? `/blog/${slug}?from=${source}` : `/blog/${slug}`;
     return (
-        <Link href={`/blog/${slug}`} className="block">
+        <Link href={href} className="block">
             <div className="group flex flex-col gap-2 p-6 rounded-2xl bg-white/5 border border-white/10 transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:-translate-x-1 cursor-pointer">
                 {/* Header: Date and Arrow Icon */}
                 <div className="flex items-center justify-between">

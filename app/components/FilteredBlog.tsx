@@ -1,17 +1,45 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BlogPost } from "../lib/blogUtils";
 import BlogCard from "./UI/BlogCard";
 import FilterDashboard from "./UI/FilterDashboard";
 import { ArrowDownUp } from "lucide-react";
+import { useSearchParams, useRouter } from "next/navigation";
 
 interface FilteredBlogProps {
     posts: BlogPost[];
+    source?: "home" | "blog"; // Where is this component being used?
 }
 
-export default function FilteredBlog({ posts }: FilteredBlogProps) {
-    const [selectedTags, setSelectedTags] = useState<string[]>([]);
-    const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
+export default function FilteredBlog({ posts, source = "blog" }: FilteredBlogProps) {
+    const searchParams = useSearchParams();
+    const router = useRouter();
+
+    // Initialize state from URL
+    const initialTags = searchParams.get("tags") ? searchParams.get("tags")!.split(",") : [];
+    const initialSort = (searchParams.get("sort") as "asc" | "desc") || "desc";
+
+    const [selectedTags, setSelectedTags] = useState<string[]>(initialTags);
+    const [sortOrder, setSortOrder] = useState<"asc" | "desc">(initialSort);
+
+    // Update URL when state changes
+    useEffect(() => {
+        const params = new URLSearchParams(searchParams.toString());
+
+        if (selectedTags.length > 0) {
+            params.set("tags", selectedTags.join(","));
+        } else {
+            params.delete("tags");
+        }
+
+        if (sortOrder !== "desc") {
+            params.set("sort", sortOrder);
+        } else {
+            params.delete("sort");
+        }
+
+        router.replace(`?${params.toString()}`, { scroll: false });
+    }, [selectedTags, sortOrder, router, searchParams]);
 
     // Extract unique tags
     const allTags = Array.from(new Set(posts.flatMap((post) => post.tags).filter(Boolean)));
@@ -61,6 +89,7 @@ export default function FilteredBlog({ posts }: FilteredBlogProps) {
                         description={post.description}
                         date={post.date}
                         slug={post.slug}
+                        source={source}
                     />
                 ))}
             </div>

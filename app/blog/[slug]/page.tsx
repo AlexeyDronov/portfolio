@@ -9,6 +9,7 @@ interface BlogPostPageProps {
     params: Promise<{
         slug: string;
     }>;
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 // Generate metadata for the blog post page dynamically based on the post content
@@ -29,8 +30,9 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
 }
 
 // This page displays a single blog post based on the slug in the URL.
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage({ params, searchParams }: BlogPostPageProps) {
     const { slug } = await params;
+    const { from } = await searchParams;
     // Fetch the post data
     const post = getPostBySlug(slug);
 
@@ -38,6 +40,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     if (!post) {
         notFound();
     }
+
+    const backLink = from === "home" ? "/" : "/blog";
+    const backLabel = from === "home" ? "Back to Home" : "Back to Blog";
 
     return (
         <div className="relative flex min-h-screen w-full flex-col font-sans text-white items-center">
@@ -48,14 +53,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {/* Back to Blog link */}
                 <div className="w-full mb-8">
                     <Link
-                        href="/blog"
-                        className="group flex items-center gap-2 text-white/60 hover:text-white transition-colors w-fit"
+                        href={backLink}
+                        className="group flex items-center gap-2 text-white/60 hover:text-white border-b border-transparent hover:border-white transition-all pb-1 w-fit"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform">
                             <path d="M19 12H5" />
                             <path d="M12 19l-7-7 7-7" />
                         </svg>
-                        Back to Blog
+                        {backLabel}
                     </Link>
                 </div>
 

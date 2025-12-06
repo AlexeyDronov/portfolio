@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { getAllPosts } from "../lib/blogUtils";
 import FilteredBlog from "../components/FilteredBlog";
 import Pattern from "../components/UI/Background";
@@ -25,7 +25,7 @@ export default function BlogPage() {
                 <div className="w-full flex justify-between items-center mb-12">
                     <Link
                         href="/"
-                        className="group flex items-center gap-2 text-white/60 hover:text-white transition-colors hover:underline underline-offset-4"
+                        className="group flex items-center gap-2 text-white/60 hover:text-white border-b border-transparent hover:border-white transition-all pb-1 w-fit"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform">
                             <path d="M19 12H5" />
@@ -46,7 +46,9 @@ export default function BlogPage() {
                 </div>
 
                 {/* List of blog posts with filtering and sorting */}
-                <FilteredBlog posts={posts} />
+                <Suspense fallback={<div className="text-white/40">Loading posts...</div>}>
+                    <FilteredBlog posts={posts} />
+                </Suspense>
             </main>
         </div>
     );
