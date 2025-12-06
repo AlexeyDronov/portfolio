@@ -5,6 +5,7 @@ image: "/images/XLF_price_volume.png"
 skills: ["Python", "SQL", "Pandas"]
 featured: true
 date: "2025-08-15"
+topic: "ML"
 ---
 
 A comprehensive e-commerce solution.

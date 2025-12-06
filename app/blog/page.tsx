@@ -1,6 +1,6 @@
 import React from "react";
 import { getAllPosts } from "../lib/blogUtils";
-import BlogList from "../components/BlogList";
+import FilteredBlog from "../components/FilteredBlog";
 import Pattern from "../components/UI/Background";
 import Link from "next/link";
 
@@ -45,8 +45,8 @@ export default function BlogPage() {
                     </p>
                 </div>
 
-                {/* List of blog posts */}
-                <BlogList posts={posts} />
+                {/* List of blog posts with filtering and sorting */}
+                <FilteredBlog posts={posts} />
             </main>
         </div>
     );

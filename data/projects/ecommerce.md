@@ -5,6 +5,7 @@ image: "/images/ecommerce-placeholder.png"
 skills: ["Node.js", "Express", "MongoDB", "Stripe"]
 featured: true
 date: "2023-09-15"
+topic: "Full Stack"
 ---
 
 A comprehensive e-commerce solution.

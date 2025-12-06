@@ -13,6 +13,7 @@ export interface Project {
     featured: boolean;
     date: string;
     content: string;
+    topic: string;
 }
 
 export function getAllProjects(): Project[] {
@@ -38,6 +39,7 @@ export function getAllProjects(): Project[] {
             featured: data.featured || false,
             date: data.date || "",
             content,
+            topic: data.topic || "Other",
         };
     });
 
@@ -75,5 +77,6 @@ export function getProjectBySlug(slug: string): Project | null {
         featured: data.featured || false,
         date: data.date || "",
         content,
+        topic: data.topic || "Other",
     };
 }

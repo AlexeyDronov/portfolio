@@ -5,6 +5,7 @@ image: "/images/portfolio.png"
 skills: ["Next.js", "React", "TypeScript", "Tailwind CSS"]
 featured: true
 date: "2023-10-27"
+topic: "Web Dev"
 ---
 
 This is the project you are currently looking at! It showcases my skills and projects.

@@ -138,7 +138,7 @@ export default function Contact() {
                             </Link>
 
                             <Link
-                                href="https://linkedin.com/in/alexeydronov" // Replace with actual
+                                href="https://linkedin.com/in/alexey-dronov" // Replace with actual
                                 target="_blank"
                                 className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group"
                             >
@@ -152,7 +152,7 @@ export default function Contact() {
                             </Link>
 
                             <Link
-                                href="mailto:alexeyJdronov@gmail.com" // Replace with actual
+                                href="mailto:alexey.dronov@outlook.com" // Replace with actual
                                 className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group"
                             >
                                 <div className="p-2 rounded-lg bg-red-500/10 group-hover:bg-red-500/20 transition-colors">
@@ -160,7 +160,7 @@ export default function Contact() {
                                 </div>
                                 <div className="flex flex-col">
                                     <span className="font-bold text-white">Email</span>
-                                    <span className="text-sm text-white/50">alexeyJdronov@gmail.com</span>
+                                    <span className="text-sm text-white/50">alexey.dronov@outlook.com</span>
                                 </div>
                             </Link>
                         </div>

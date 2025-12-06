@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { getAllProjects } from "../lib/projectUtils";
-import Projects from "../components/Sections/Projects";
+import FilteredProjects from "../components/FilteredProjects";
 import Pattern from "../components/UI/Background";
 import Link from "next/link";
 
@@ -25,8 +25,10 @@ export default function ProjectsPage() {
                     </Link>
                 </div>
 
-                {/* Projects grid component showing all projects */}
-                <Projects projects={projects} title="All Projects" showViewAll={false} />
+                {/* Projects grid component showing all projects with filtering */}
+                <Suspense fallback={<div className="text-white/40">Loading projects...</div>}>
+                    <FilteredProjects projects={projects} />
+                </Suspense>
             </main>
         </div>
     );
