@@ -9,6 +9,7 @@ import Projects from "./Sections/Projects";
 import Blog from "./Sections/Blog";
 import Experience from "./Sections/Experience";
 import Contact from "./Sections/Contact";
+import OpacityCtrl from "../lib/OpacityCtrl";
 import { BlogPost } from "../lib/blogUtils";
 import { Project } from "../lib/projectUtils";
 
@@ -44,38 +45,39 @@ export default function ClientHome({ posts, projects }: ClientHomeProps) {
                     <Hero />
                 </section>
 
-                {/* Projects Section */}
-                <section
-                    id="projects"
-                    className="flex w-4xl flex-col justify-center px-6 md:px-12 py-20"
-                >
-                    <Projects projects={projects} title="Featured Projects" showViewAll={true} />
-                </section>
+                {/* Main Content Sections with increased spacing for visual hierarchy */}
+                <div className="flex flex-col w-full gap-32 pb-32">
 
-                {/* Blog Section */}
-                <section
-                    id="blog"
-                    className="flex w-4xl flex-col justify-center px-6 md:px-12 py-20"
-                >
-                    <Blog posts={posts} />
-                </section>
+                    <OpacityCtrl className="w-full">
+                        <section id="projects" className="flex w-full flex-col justify-center px-6 md:px-12">
+                            <Projects
+                                projects={projects}
+                                title="Featured Projects"
+                                showViewAll={true}
+                            />
+                        </section>
+                    </OpacityCtrl>
 
-                {/* Experience Section */}
-                <section
-                    id="experience"
-                    className="flex w-4xl flex-col justify-center px-6 md:px-12 py-20"
-                >
-                    <Experience />
-                </section>
+                    <OpacityCtrl className="w-full">
+                        <section id="blog" className="flex w-full flex-col justify-center px-6 md:px-12">
+                            <Blog posts={posts} />
+                        </section>
+                    </OpacityCtrl>
 
-                {/* Contact Section */}
-                <section
-                    id="contact"
-                    className="flex w-4xl flex-col justify-center px-6 md:px-12 py-20"
-                >
-                    <Contact />
-                </section>
+                    <OpacityCtrl className="w-full">
+                        <section id="experience" className="flex w-full flex-col justify-center px-6 md:px-12">
+                            <Experience />
+                        </section>
+                    </OpacityCtrl>
+
+                    <OpacityCtrl className="w-full">
+                        <section id="contact" className="flex w-full flex-col justify-center px-6 md:px-12">
+                            <Contact />
+                        </section>
+                    </OpacityCtrl>
+
+                </div>
             </main>
-        </div>
+        </div >
     );
 }

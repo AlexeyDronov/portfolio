@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 import Pattern from "../../components/UI/Background";
+import BackButton from "../../components/UI/BackButton";
 
 interface BlogPostPageProps {
     params: Promise<{
@@ -52,16 +53,7 @@ export default async function BlogPostPage({ params, searchParams }: BlogPostPag
             <main className="flex w-full max-w-3xl flex-col px-6 md:px-12 py-12 z-10">
                 {/* Back to Blog link */}
                 <div className="w-full mb-8">
-                    <Link
-                        href={backLink}
-                        className="group flex items-center gap-2 text-white/60 hover:text-white border-b border-transparent hover:border-white transition-all pb-1 w-fit"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform">
-                            <path d="M19 12H5" />
-                            <path d="M12 19l-7-7 7-7" />
-                        </svg>
-                        {backLabel}
-                    </Link>
+                    <BackButton fallbackRoute={backLink} label={backLabel} />
                 </div>
 
                 {/* Blog Post Content */}

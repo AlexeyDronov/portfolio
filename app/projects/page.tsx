@@ -3,6 +3,7 @@ import { getAllProjects } from "../lib/projectUtils";
 import FilteredProjects from "../components/FilteredProjects";
 import Pattern from "../components/UI/Background";
 import Link from "next/link";
+import BackButton from "../components/UI/BackButton";
 
 // This page displays all projects.
 export default function ProjectsPage() {
@@ -17,12 +18,7 @@ export default function ProjectsPage() {
             <main className="flex w-full max-w-4xl flex-col items-center z-10 px-6 md:px-12 py-12">
                 {/* Back to Home link */}
                 <div className="w-full mb-8">
-                    <Link
-                        href="/"
-                        className="text-white/60 hover:text-white border-b border-transparent hover:border-white transition-all pb-1 flex items-center gap-2 w-fit"
-                    >
-                        &larr; Back to Home
-                    </Link>
+                    <BackButton fallbackRoute="/" label="Back to Home" />
                 </div>
 
                 {/* Projects grid component showing all projects with filtering */}

@@ -6,17 +6,31 @@ export default function TopNavBar() {
     const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
+        let ticking = false;
+
         const handleScroll = () => {
-            // Visible only when scroll < window height (Hero Section)
-            // Using a threshold of 80% viewport height to fade it out before leaving hero entirely
-            if (window.scrollY > window.innerHeight * 0.8) {
-                setIsVisible(false);
-            } else {
-                setIsVisible(true);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    // Visible only when scroll < Hero Section Height (minus small buffer)
+                    // The transition happens exactly when leaving the hero.
+                    // Assuming Hero is 100dvh.
+                    const threshold = window.innerHeight - 100;
+
+                    if (window.scrollY > threshold) {
+                        setIsVisible(false);
+                    } else {
+                        setIsVisible(true);
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
         };
 
         window.addEventListener("scroll", handleScroll);
+        // Initial check
+        handleScroll();
+
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -45,7 +59,7 @@ export default function TopNavBar() {
                     <button
                         key={item.id}
                         onClick={() => scrollToSection(item.id)}
-                        className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-all"
+                        className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-all cursor-pointer"
                     >
                         <item.icon size={16} />
                         <span>{item.label}</span>

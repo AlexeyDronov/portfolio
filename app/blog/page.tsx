@@ -3,6 +3,7 @@ import { getAllPosts } from "../lib/blogUtils";
 import FilteredBlog from "../components/FilteredBlog";
 import Pattern from "../components/UI/Background";
 import Link from "next/link";
+import BackButton from "../components/UI/BackButton";
 
 // Metadata for the Blog page
 export const metadata = {
@@ -23,16 +24,7 @@ export default function BlogPage() {
             <main className="flex w-full max-w-4xl flex-col items-center px-6 md:px-12 py-12 z-10">
                 {/* Navigation header with Back to Home link */}
                 <div className="w-full flex justify-between items-center mb-12">
-                    <Link
-                        href="/"
-                        className="group flex items-center gap-2 text-white/60 hover:text-white border-b border-transparent hover:border-white transition-all pb-1 w-fit"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform">
-                            <path d="M19 12H5" />
-                            <path d="M12 19l-7-7 7-7" />
-                        </svg>
-                        Back to Home
-                    </Link>
+                    <BackButton fallbackRoute="/" label="Back to Home" />
                 </div>
 
                 {/* Page Title and Description */}

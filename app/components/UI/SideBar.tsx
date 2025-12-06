@@ -39,59 +39,60 @@ export default function SideBar() {
     };
 
     useEffect(() => {
+        let ticking = false;
+
         const handleScroll = () => {
-            const scrollY = window.scrollY;
-            const heroHeight = window.innerHeight * 0.5; // Hide when in top 50% of first viewport
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollY = window.scrollY;
+                    const threshold = window.innerHeight - 100; // Matches TopNavBar
 
-            // 1. Visibility Logic (Hero Check)
-            // Show sidebar only after scrolling past threshold
-            if (scrollY > heroHeight) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
-            }
-
-            // 2. Active Section Logic
-            // Find the section currently most visible in viewport
-            let currentSection = "";
-            let maxVisibility = 0;
-
-            navItems.forEach(({ id }) => {
-                const element = document.getElementById(id);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
-                    const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-
-                    // Calculate intersection height
-                    const intersectionTop = Math.max(0, rect.top);
-                    const intersectionBottom = Math.min(viewHeight, rect.bottom);
-                    const intersectionHeight = Math.max(0, intersectionBottom - intersectionTop);
-
-                    if (intersectionHeight > maxVisibility) {
-                        maxVisibility = intersectionHeight;
-                        currentSection = id;
+                    // 1. Visibility Logic
+                    // Show sidebar only after leaving Hero
+                    if (scrollY > threshold) {
+                        setIsVisible(true);
+                    } else {
+                        setIsVisible(false);
                     }
-                }
-            });
 
-            if (currentSection) {
-                setActiveSection(currentSection);
+                    // 2. Active Section Logic
+                    let currentSection = "";
+                    let maxVisibility = 0;
+
+                    navItems.forEach(({ id }) => {
+                        const element = document.getElementById(id);
+                        if (element) {
+                            const rect = element.getBoundingClientRect();
+                            const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+
+                            const intersectionTop = Math.max(0, rect.top);
+                            const intersectionBottom = Math.min(viewHeight, rect.bottom);
+                            const intersectionHeight = Math.max(0, intersectionBottom - intersectionTop);
+
+                            if (intersectionHeight > maxVisibility) {
+                                maxVisibility = intersectionHeight;
+                                currentSection = id;
+                            }
+                        }
+                    });
+
+                    if (currentSection) {
+                        setActiveSection(currentSection);
+                    }
+                    ticking = false;
+                });
+                ticking = true;
             }
         };
 
         const handleResize = () => {
             const width = window.innerWidth;
-
-            // 3. Responsive/Overlap Logic
             if (width < 1024) {
-                // < 1024px: Disappear completely (risk of overlap or mobile view)
                 setShouldRender(false);
             } else if (width < 1440) {
-                // 1024px - 1440px: Collapsed mode
                 setShouldRender(true);
                 setIsExpanded(false);
             } else {
-                // > 1440px: Expanded mode
                 setShouldRender(true);
                 setIsExpanded(true);
             }
@@ -131,9 +132,9 @@ export default function SideBar() {
                             key={item.id}
                             onClick={() => scrollToSection(item.id)}
                             className={`flex items-center gap-3 p-2 rounded-xl transition-all duration-300 group ${isActive
-                                    ? "bg-white/10 text-white shadow-lg"
-                                    : "text-white/40 hover:text-white hover:bg-white/5"
-                                } ${isExpanded ? "justify-start px-3" : "justify-center"}`}
+                                ? "bg-white/10 text-white shadow-lg"
+                                : "text-white/40 hover:text-white hover:bg-white/5"
+                                } ${isExpanded ? "justify-start px-3" : "justify-center"} cursor-pointer`}
                             title={isExpanded ? "" : item.label}
                         >
                             <div className={`relative flex items-center justify-center transition-transform duration-300 ${isActive ? "scale-110" : "group-hover:scale-110"}`}>

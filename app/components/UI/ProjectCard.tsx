@@ -46,7 +46,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
                 {project.skills.map((skill) => (
                     <span
                         key={skill}
-                        className="px-2 py-1 text-xs font-medium text-white/40 group-hover:text-blue-300/90 bg-white/5 group-hover:bg-blue-500/10 border border-transparent group-hover:border-blue-500/20 rounded-md transition-all duration-300"
+                        className="px-2 py-1 text-xs font-medium text-white/40 group-hover:text-blue-300/90 bg-white/5 group-hover:bg-blue-500/10 border border-transparent group-hover:border-blue-500/20 rounded-full transition-all duration-300"
                     >
                         {skill}
                     </span>
