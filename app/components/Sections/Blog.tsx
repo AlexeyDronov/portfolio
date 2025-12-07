@@ -1,6 +1,7 @@
 import React from "react";
 import BlogCard from "../UI/BlogCard";
 import { BlogPost } from "../../lib/blogUtils";
+import SectionHeader from "../UI/SectionHeader";
 
 interface BlogProps {
     posts: BlogPost[]; // List of blog posts to display
@@ -15,17 +16,11 @@ export default function Blog({ posts }: BlogProps) {
     return (
         <div className="flex flex-col w-full gap-12">
             {/* Header with Title and View All link */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
-                <div className="flex flex-col gap-4">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white">Latest Posts</h2>
-                </div>
-                <a
-                    href="/blog"
-                    className="text-white/60 hover:text-white border-b border-transparent hover:border-white transition-all pb-1"
-                >
-                    View All Posts &rarr;
-                </a>
-            </div>
+            <SectionHeader
+                title="Latest Posts"
+                href="/blog"
+                linkText="View All Posts"
+            />
 
             {/* List of Blog Cards */}
             <div className="flex flex-col gap-4">

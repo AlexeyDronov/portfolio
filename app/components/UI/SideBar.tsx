@@ -131,15 +131,17 @@ export default function SideBar() {
                         <button
                             key={item.id}
                             onClick={() => scrollToSection(item.id)}
-                            className={`flex items-center gap-3 p-2 rounded-xl transition-all duration-300 group ${isActive
+                            className={`flex items-center p-2 rounded-xl transition-all duration-300 group ${isActive
                                 ? "bg-white/10 text-white shadow-lg"
                                 : "text-white/40 hover:text-white hover:bg-white/5"
-                                } ${isExpanded ? "justify-start px-3" : "justify-center"} cursor-pointer`}
+                                } ${isExpanded ? "justify-start px-3 gap-3" : "justify-center"} cursor-pointer`}
                             title={isExpanded ? "" : item.label}
                         >
-                            <div className={`relative flex items-center justify-center transition-transform duration-300 ${isActive ? "scale-110" : "group-hover:scale-110"}`}>
-                                <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
-                            </div>
+                            <Icon
+                                size={20}
+                                strokeWidth={isActive ? 2.5 : 2}
+                                className={`transition-transform duration-300 ${isActive ? "scale-110" : "group-hover:scale-110"}`}
+                            />
 
                             {/* Text label - hidden when collapsed, animated when expanded */}
                             <div
@@ -151,10 +153,6 @@ export default function SideBar() {
                                 </span>
                             </div>
 
-                            {/* Active Indicator Dot (Collapsed Mode) */}
-                            {!isExpanded && isActive && (
-                                <div className="absolute right-1 w-1 h-1 bg-blue-400 rounded-full shadow-[0_0_8px_rgba(96,165,250,0.8)]" />
-                            )}
                         </button>
                     );
                 })}

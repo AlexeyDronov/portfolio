@@ -3,7 +3,7 @@ import { useState } from "react";
 import ProjectModal from "../UI/ProjectModal";
 import ProjectCard from "../UI/ProjectCard";
 import { Project } from "../../lib/projectUtils";
-import Link from "next/link";
+import SectionHeader from "../UI/SectionHeader";
 
 interface ProjectsProps {
     projects?: Project[]; // List of projects to display
@@ -19,19 +19,11 @@ export default function Projects({ projects = [], title = "Projects", showViewAl
     return (
         <div className="flex flex-col w-full gap-12 justify-center">
             {/* Header with Title and optional View All link */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
-                <div className="flex flex-col gap-4">
-                    <h2 className="text-4xl md:text-5xl font-mono text-white">{title}</h2>
-                </div>
-                {showViewAll && (
-                    <Link
-                        href="/projects"
-                        className="text-white/60 hover:text-white border-b border-transparent hover:border-white transition-all pb-1"
-                    >
-                        View All Projects &rarr;
-                    </Link>
-                )}
-            </div>
+            <SectionHeader
+                title={title}
+                href={showViewAll ? "/projects" : undefined}
+                linkText={showViewAll ? "View All Projects" : undefined}
+            />
 
             {/* Grid of Project Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
