@@ -1,32 +1,47 @@
 import React from "react";
-import { ArrowDown } from "lucide-react";
+import DownArrow from "../UI/DownArrow";
 
-// Hero section component
-// Displays the main greeting/title
+/**
+ * Hero Section Component
+ * 
+ * The main landing/introduction section of the portfolio featuring:
+ * - Large heading with the user's name (Key information)
+ * - Tagline/description (Supplementary information - slightly dimmer)
+ * - Animated scroll indicator using the DownArrow component
+ * 
+ * Uses the three-level text hierarchy:
+ * - Key: Name (bright white, large, bold)
+ * - Functional: Not used here (nav handles this)
+ * - Supplementary: Tagline (muted, smaller weight)
+ */
 export default function Hero() {
     return (
-        <section className="flex w-full flex-col items-center justify-center gap-10 animate-in fade-in slide-in-from-bottom-8 duration-1000 text-center py-8">
-            <h1 className="text-4xl md:text-6xl font-mono text-white tracking-tight">
-                Hi, I'm Alexey.
+        <section
+            className="flex w-full flex-col items-center justify-center gap-8 
+                       animate-in fade-in slide-in-from-bottom-8 duration-1000 
+                       text-center py-8"
+        >
+            {/* Main Heading - KEY INFORMATION */}
+            {/* Large, bold, high contrast - draws immediate attention */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl 
+                           font-bold font-mono text-white tracking-tight">
+                Hi, I&apos;m Alexey.
             </h1>
-            <h3 className="text-2xl md:text-4xl font-mono text-gray-500 tracking-tight">
-                Tempor Lorem aute ad. Elit exercitation ex esse fugiat reprehenderit aute id culpa excepteur quis. Consectetur veniam nulla cillum in culpa magna ea sit esse.
-            </h3>
-            {/* Scroll Down Button - Designed to be replaceable */}
-            <button
-                onClick={() => {
-                    const nextSection = document.getElementById("projects"); // or whatever is next
-                    if (nextSection) {
-                        nextSection.scrollIntoView({ behavior: "smooth" });
-                    } else {
-                        window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-                    }
-                }}
-                className="mt-12 p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all animate-bounce cursor-pointer group"
-                aria-label="Scroll Down"
-            >
-                <ArrowDown className="text-white/60 group-hover:text-white transition-colors" size={24} />
-            </button>
+
+            {/* Tagline - SUPPLEMENTARY INFORMATION */}
+            {/* Smaller, muted color - provides context without competing with name */}
+            <p className="text-lg sm:text-xl md:text-2xl 
+                          font-light text-white/50 tracking-wide 
+                          max-w-2xl leading-relaxed">
+                Full-stack developer passionate about building elegant solutions
+                and crafting exceptional user experiences.
+            </p>
+
+            {/* Scroll Indicator - Action promoting element */}
+            {/* Uses the new DownArrow component with animated double chevrons */}
+            <div className="mt-8">
+                <DownArrow targetId="projects" />
+            </div>
         </section>
     );
 }

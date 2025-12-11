@@ -42,8 +42,10 @@ export default function ClientHome({ posts, projects }: ClientHomeProps) {
                     <Hero />
                 </section>
 
-                {/* Main Content Sections with increased spacing for visual hierarchy */}
-                <div className="flex flex-col gap-32 pb-32 max-w-4xl px-5 md:px-12">
+                {/* Main Content Sections with refined spacing for visual hierarchy */}
+                {/* Using max-w-3xl for better proportions. Gap-24 creates visual rhythm. */}
+                {/* py-16 md:py-24 adds vertical breathing room above and below sections */}
+                <div className="flex flex-col gap-24 pb-24 pt-8 max-w-3xl w-full px-6 md:px-8">
 
                     <Section id="projects">
                         <Projects
@@ -53,12 +55,13 @@ export default function ClientHome({ posts, projects }: ClientHomeProps) {
                         />
                     </Section>
 
-                    <Section id="blog">
-                        <Blog posts={posts} />
-                    </Section>
-
+                    {/* Experience section moved before Blog */}
                     <Section id="experience">
                         <Experience />
+                    </Section>
+
+                    <Section id="blog">
+                        <Blog posts={posts} />
                     </Section>
 
                     <Section id="contact">

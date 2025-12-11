@@ -42,11 +42,29 @@ const educationData: ExperienceItem[] = [
     },
 ];
 
+/**
+ * ExperienceCard Component
+ * 
+ * Displays a single experience/education entry with:
+ * - Company logo
+ * - Position title (FUNCTIONAL hierarchy)
+ * - Company name (SUPPLEMENTARY hierarchy)
+ * - Description (SUPPLEMENTARY hierarchy)
+ * - Date badge (DIM hierarchy)
+ * 
+ * Uses emerald accent colors on hover for design consistency.
+ */
 const ExperienceCard = ({ item }: { item: ExperienceItem }) => (
-    <div className="group flex flex-col md:flex-row justify-between gap-6 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300">
-        <div className="flex flex-row gap-5 items-start md:max-w-2xl">
-            {/* Logo */}
-            <div className="relative shrink-0 w-12 h-12 rounded-full overflow-hidden border border-white/10 bg-white">
+    <article
+        className="group flex flex-col md:flex-row justify-between gap-5 p-5 md:p-6 
+                   rounded-2xl bg-white/5 border border-white/10 
+                   hover:border-emerald-500/20 hover:bg-white/10 
+                   transition-all duration-300"
+    >
+        <div className="flex flex-row gap-4 md:gap-5 items-start md:max-w-2xl">
+            {/* Company Logo */}
+            <div className="relative shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-full overflow-hidden 
+                            border border-white/10 bg-white">
                 <Image
                     src={item.img}
                     alt={`${item.company} logo`}
@@ -56,36 +74,44 @@ const ExperienceCard = ({ item }: { item: ExperienceItem }) => (
             </div>
 
             {/* Content */}
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2">
                 <div className="flex flex-col gap-0.5">
-                    <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                    {/* Position - FUNCTIONAL hierarchy */}
+                    <h3 className="text-lg md:text-xl font-bold text-white 
+                                   group-hover:text-emerald-400 transition-colors duration-300">
                         {item.position}
                     </h3>
-                    <span className="text-base text-white/70 font-medium">
+                    {/* Company - SUPPLEMENTARY hierarchy */}
+                    <span className="text-sm md:text-base text-white/60 font-medium">
                         {item.company}
                     </span>
                 </div>
-                <p className="text-sm text-white/50 leading-relaxed font-light">
+                {/* Description - SUPPLEMENTARY hierarchy */}
+                <p className="text-sm text-white/45 leading-relaxed">
                     {item.comments}
                 </p>
             </div>
         </div>
 
-        {/* Date */}
+        {/* Date Badge - DIM hierarchy */}
         <div className="flex justify-start md:justify-end shrink-0 md:pt-1">
-            <span className="text-sm font-mono text-white/40 group-hover:text-blue-300/90 transition-colors bg-white/5 px-3 py-1.5 rounded-md h-fit whitespace-nowrap">
+            <span className="text-xs md:text-sm font-mono text-white/35 
+                             group-hover:text-emerald-400/80 transition-colors duration-300 
+                             bg-white/5 px-2.5 md:px-3 py-1 md:py-1.5 rounded-md h-fit whitespace-nowrap">
                 {item.date}
             </span>
         </div>
-    </div>
+    </article>
 );
 
 export default function Experience() {
     return (
-        <div className="flex flex-col w-full gap-16">
+        <div className="flex flex-col w-full gap-12">
             {/* Work Experience */}
             <div className="flex flex-col gap-8">
-                <h2 className="text-4xl md:text-5xl font-bold text-white">Experience</h2>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white/95 tracking-tight">
+                    Experience
+                </h2>
                 <div className="flex flex-col gap-4">
                     {workExperience.map((item) => (
                         <ExperienceCard key={item.id} item={item} />
@@ -93,16 +119,18 @@ export default function Experience() {
                 </div>
             </div>
 
-            {/* Education Subsection */}
-            <div className="flex flex-col gap-8">
-                <h3 className="text-2xl md:text-3xl font-bold text-white/90 border-b border-white/10 pb-2 inline-block w-fit">
-                    Education
-                </h3>
-                <div className="flex flex-col gap-4">
-                    {educationData.map((item) => (
-                        <ExperienceCard key={item.id} item={item} />
-                    ))}
-                </div>
+            {/* Visual Separator - Double line for distinction */}
+            <div className="flex items-center gap-3" aria-hidden="true">
+                <div className="flex-1 h-px bg-white/10" />
+                <div className="w-2 h-2 rounded-full bg-emerald-500/30" />
+                <div className="flex-1 h-px bg-white/10" />
+            </div>
+
+            {/* Education Section - No header, separator provides visual distinction */}
+            <div className="flex flex-col gap-4">
+                {educationData.map((item) => (
+                    <ExperienceCard key={item.id} item={item} />
+                ))}
             </div>
 
             {/* Resume Link */}

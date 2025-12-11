@@ -32,10 +32,15 @@ export default function Contact() {
     };
 
     return (
-        <div className="flex flex-col w-full gap-12">
-            <div className="flex flex-col gap-4">
-                <h2 className="text-4xl md:text-5xl font-bold text-white">Get in Touch</h2>
-                <p className="text-lg text-white/60 max-w-2xl">
+        <div className="flex flex-col w-full gap-10">
+            {/* Section Header */}
+            <div className="flex flex-col gap-3">
+                {/* Title - FUNCTIONAL hierarchy */}
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white/95 tracking-tight">
+                    Get in Touch
+                </h2>
+                {/* Description - SUPPLEMENTARY hierarchy */}
+                <p className="text-base md:text-lg text-white/50 max-w-2xl leading-relaxed">
                     Have a project in mind or just want to say hi? Feel free to send me a message or connect on social media.
                 </p>
             </div>
@@ -54,7 +59,10 @@ export default function Contact() {
                                     value={formData.name}
                                     onChange={handleChange}
                                     required
-                                    className="px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all"
+                                    className="px-4 py-3 rounded-lg bg-white/5 border border-white/10 
+                                               text-white placeholder:text-white/25 
+                                               focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 
+                                               transition-all duration-300"
                                     placeholder="Your Name"
                                 />
                             </div>
@@ -67,7 +75,10 @@ export default function Contact() {
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
-                                    className="px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all"
+                                    className="px-4 py-3 rounded-lg bg-white/5 border border-white/10 
+                                               text-white placeholder:text-white/25 
+                                               focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 
+                                               transition-all duration-300"
                                     placeholder="your@email.com"
                                 />
                             </div>
@@ -82,7 +93,10 @@ export default function Contact() {
                                 value={formData.subject}
                                 onChange={handleChange}
                                 required
-                                className="px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all"
+                                className="px-4 py-3 rounded-lg bg-white/5 border border-white/10 
+                                           text-white placeholder:text-white/25 
+                                           focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 
+                                           transition-all duration-300"
                                 placeholder="What is this about?"
                             />
                         </div>
@@ -96,15 +110,24 @@ export default function Contact() {
                                 onChange={handleChange}
                                 required
                                 rows={6}
-                                className="px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/20 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all resize-none"
+                                className="px-4 py-3 rounded-lg bg-white/5 border border-white/10 
+                                           text-white placeholder:text-white/25 
+                                           focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 
+                                           transition-all duration-300 resize-none"
                                 placeholder="Your message here..."
                             />
                         </div>
 
+                        {/* Submit Button - Primary action with emerald accent */}
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all w-full md:w-auto self-start"
+                            className="inline-flex items-center justify-center gap-2 px-8 py-3 
+                                       bg-emerald-500 text-white font-bold rounded-lg 
+                                       hover:bg-emerald-400 
+                                       disabled:opacity-50 disabled:cursor-not-allowed 
+                                       transition-all duration-300 
+                                       w-full md:w-auto self-start"
                         >
                             {isSubmitting ? (
                                 "Sending..."
