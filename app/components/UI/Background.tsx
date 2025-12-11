@@ -14,7 +14,7 @@ export default function Pattern() {
     <div className="fixed inset-0 -z-10 h-full w-full overflow-hidden">
       {/* Base Layer: Dark slate gradient for the 60% background */}
       <div
-        className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"
+        className="absolute inset-0 bg-linear-to-br from-slate-950 via-slate-900 to-slate-950"
         aria-hidden="true"
       />
 

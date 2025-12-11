@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import OpacityCtrl from "../../lib/OpacityCtrl";
 
 interface SectionProps {
     id: string;
@@ -8,16 +7,14 @@ interface SectionProps {
 }
 
 // Reusable Section component
-// Wraps content in a semantic <section> tag and OpacityCtrl for animation
+// Wraps content in a semantic <section> tag
 export default function Section({ id, children, className = "" }: SectionProps) {
     return (
-        <OpacityCtrl className="w-full">
-            <section
-                id={id}
-                className={`flex w-full flex-col justify-center ${className}`}
-            >
-                {children}
-            </section>
-        </OpacityCtrl>
+        <section
+            id={id}
+            className={`flex w-full flex-col justify-center ${className}`}
+        >
+            {children}
+        </section>
     );
 }

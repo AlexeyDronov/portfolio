@@ -2,7 +2,6 @@
 
 import React from "react";
 import Pattern from "./UI/Background";
-import SideBar from "./UI/SideBar";
 import TopNavBar from "./UI/TopNavBar";
 import Hero from "./Sections/Hero";
 import Projects from "./Sections/Projects";
@@ -26,9 +25,6 @@ export default function ClientHome({ posts, projects }: ClientHomeProps) {
         <div className="relative flex min-h-screen w-full flex-col font-sans text-white items-center overflow-x-hidden">
             {/* Background pattern component */}
             <Pattern />
-
-            {/* Sidebar Navigation */}
-            {/* <SideBar /> */}
 
             {/* Top Navigation Bar - Visible only on Hero */}
             <TopNavBar />

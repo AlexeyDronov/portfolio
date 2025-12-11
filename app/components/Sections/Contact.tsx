@@ -170,7 +170,7 @@ export default function Contact() {
                                 </div>
                                 <div className="flex flex-col">
                                     <span className="font-bold text-white">LinkedIn</span>
-                                    <span className="text-sm text-white/50">Let's connect professionally</span>
+                                    <span className="text-sm text-white/50">Let&apos;s connect professionally</span>
                                 </div>
                             </Link>
 

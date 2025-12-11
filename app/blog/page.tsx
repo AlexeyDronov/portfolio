@@ -1,9 +1,8 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { getAllPosts } from "../lib/blogUtils";
-import FilteredBlog from "../components/FilteredBlog";
 import Pattern from "../components/UI/Background";
-import Link from "next/link";
 import BackButton from "../components/UI/BackButton";
+import BlogCard from "../components/UI/BlogCard";
 
 // Metadata for the Blog page
 export const metadata = {
@@ -37,11 +36,25 @@ export default function BlogPage() {
                     </p>
                 </div>
 
-                {/* List of blog posts with filtering and sorting */}
-                <Suspense fallback={<div className="text-white/40">Loading posts...</div>}>
-                    <FilteredBlog posts={posts} />
-                </Suspense>
+                {/* Blog Posts List */}
+                <div className="flex flex-col gap-4 w-full">
+                    {posts.length > 0 ? (
+                        posts.map((post) => (
+                            <BlogCard
+                                key={post.slug}
+                                title={post.title}
+                                description={post.description}
+                                date={post.date}
+                                slug={post.slug}
+                                source="blog"
+                            />
+                        ))
+                    ) : (
+                        <div className="text-white/40 italic">No posts found.</div>
+                    )}
+                </div>
             </main>
         </div>
     );
 }
+

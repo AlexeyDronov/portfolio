@@ -26,7 +26,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
             className="group relative flex flex-col rounded-xl overflow-hidden cursor-pointer
                        bg-white/5 border border-white/10
                        transition-all duration-300 ease-out
-                       hover:bg-white/[0.08] hover:border-emerald-500/20
+                       hover:bg-white/8 hover:border-emerald-500/20
                        focus-within:ring-2 focus-within:ring-emerald-500/50"
             role="button"
             tabIndex={0}
@@ -34,7 +34,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
             aria-label={`View details for ${project.title}`}
         >
             {/* Image Container - Compact aspect ratio */}
-            <div className="relative w-full aspect-[2/1] overflow-hidden bg-slate-900/50">
+            <div className="relative w-full aspect-2/1 overflow-hidden bg-slate-900/50">
                 {project.image ? (
                     <Image
                         src={project.image}
@@ -45,11 +45,11 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
                     />
                 ) : (
                     /* Fallback gradient when no image is available */
-                    <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900" />
+                    <div className="absolute inset-0 bg-linear-to-br from-slate-800 to-slate-900" />
                 )}
 
                 {/* Gradient Overlay for text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
 
                 {/* Emerald Glow Effect on Hover */}
                 <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/5 
@@ -76,11 +76,11 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
                 </div>
 
                 {/* Description - truncated to 2 lines */}
-                <p className="text-sm text-white/45 line-clamp-2 leading-relaxed
+                {/* <p className="text-sm text-white/45 line-clamp-2 leading-relaxed
                               transition-colors duration-300
                               group-hover:text-white/55">
                     {project.description}
-                </p>
+                </p> */}
 
                 {/* Skills Tags - Below content with dark background for visibility */}
                 <div className="flex flex-wrap gap-1.5 pt-1">

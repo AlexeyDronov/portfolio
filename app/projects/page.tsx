@@ -1,9 +1,8 @@
 import React, { Suspense } from "react";
 import { getAllProjects } from "../lib/projectUtils";
-import FilteredProjects from "../components/FilteredProjects";
 import Pattern from "../components/UI/Background";
-import Link from "next/link";
 import BackButton from "../components/UI/BackButton";
+import Projects from "../components/Sections/Projects";
 
 // This page displays all projects.
 export default function ProjectsPage() {
@@ -21,9 +20,9 @@ export default function ProjectsPage() {
                     <BackButton fallbackRoute="/" label="Back to Home" />
                 </div>
 
-                {/* Projects grid component showing all projects with filtering */}
+                {/* Projects grid component showing all projects */}
                 <Suspense fallback={<div className="text-white/40">Loading projects...</div>}>
-                    <FilteredProjects projects={projects} />
+                    <Projects projects={projects} />
                 </Suspense>
             </main>
         </div>

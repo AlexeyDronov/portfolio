@@ -18,6 +18,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
     // Handle open/close animations
     useEffect(() => {
         if (isOpen) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setIsVisible(true);
             document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
         } else {
