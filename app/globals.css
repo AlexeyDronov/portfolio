@@ -51,7 +51,7 @@
   /* Metadata, disabled states */
 
   /* System */
-  --radius: 4px;
+  --radius: 0px;
 
   /* Shadcn/UI Compatibility (Mapped to Semantic System) */
   --background: var(--color-background-dark);
