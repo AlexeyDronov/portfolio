@@ -27,7 +27,7 @@ export default function Projects({ projects = [], title = "Projects", showViewAl
 
             {/* Grid of Project Cards - Single column for better visual impact at max-w-3xl */}
             {/* Using gap-6 for tighter vertical spacing between cards */}
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 {projects.map((project) => (
                     <ProjectCard
                         key={project.slug}

@@ -13,143 +13,127 @@
    ============================================ */
 
 :root {
-  /* Primary Accent Colors (10%) - Emerald */
-  --color-primary: #10b981;
-  --color-primary-light: #34d399;
-  --color-primary-dark: #059669;
+  /* ============================================
+    SEMANTIC COLOR SYSTEM
+    ============================================ */
 
-  /* Background Colors (60%) - Dark Slate */
-  --color-background: #0f172a;
+  /* Brand Colors */
+  --color-primary: #a855f7;
+  /* Purple - Primary interactions */
+  --color-primary-light: #c084fc;
+  /* Purple Light - Hovers/Accents */
+  --color-primary-dark: #7e22ce;
+  /* Purple Dark - Active states */
+
+  --color-secondary: #ec4899;
+  /* Magenta - Secondary accents */
+  --color-tertiary: #06b6d4;
+  /* Cyan - Tertiary accents */
+
+  /* Background Surfaces */
   --color-background-dark: #020617;
-
-  /* Surface Colors (30%) - Lighter Slate for Cards */
+  /* Deepest background (body) */
+  --color-background: #0f172a;
+  /* Standard background */
   --color-surface: #1e293b;
+  /* Cards/Elevated surfaces */
   --color-surface-light: #334155;
+  /* Secondary surfaces */
   --color-surface-hover: #475569;
+  /* Hover states */
 
-  /* Text Hierarchy Colors */
-  --color-text-primary: #f8fafc;
-  /* Key information - Bright white */
-  --color-text-secondary: #cbd5e1;
-  /* Functional text - Soft white */
-  --color-text-muted: #94a3b8;
-  /* Supplementary - Muted slate */
-  --color-text-dim: #64748b;
-  /* Very subtle info - Dim slate */
+  /* Content Hierarchy */
+  --color-text-primary: #ffffff;
+  /* Key content, headings */
+  --color-text-secondary: #94a3b8;
+  /* Body text, controls */
+  --color-text-dim: #475569;
+  /* Metadata, disabled states */
 
-  /* Legacy variables for compatibility */
+  /* System */
+  --radius: 4px;
 
-  --radius: 0.625rem;
-
-  --background: oklch(1 0 0);
-
-  --foreground: oklch(0.141 0.005 285.823);
-
-  --card: oklch(1 0 0);
-
-  --card-foreground: oklch(0.141 0.005 285.823);
-
-  --popover: oklch(1 0 0);
-
-  --popover-foreground: oklch(0.141 0.005 285.823);
-
-  --primary: oklch(0.21 0.006 285.885);
-
-  --primary-foreground: oklch(0.985 0 0);
-
-  --secondary: oklch(0.967 0.001 286.375);
-
-  --secondary-foreground: oklch(0.21 0.006 285.885);
-
-  --muted: oklch(0.967 0.001 286.375);
-
-  --muted-foreground: oklch(0.552 0.016 285.938);
-
-  --accent: oklch(0.967 0.001 286.375);
-
-  --accent-foreground: oklch(0.21 0.006 285.885);
-
-  --destructive: oklch(0.577 0.245 27.325);
-
-  --border: oklch(0.92 0.004 286.32);
-
-  --input: oklch(0.92 0.004 286.32);
-
-  --ring: oklch(0.705 0.015 286.067);
-
-  --chart-1: oklch(0.646 0.222 41.116);
-
-  --chart-2: oklch(0.6 0.118 184.704);
-
-  --chart-3: oklch(0.398 0.07 227.392);
-
-  --chart-4: oklch(0.828 0.189 84.429);
-
-  --chart-5: oklch(0.769 0.188 70.08);
-
-  --sidebar: oklch(0.985 0 0);
-
-  --sidebar-foreground: oklch(0.141 0.005 285.823);
-
-  --sidebar-primary: oklch(0.21 0.006 285.885);
-
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-
-  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
-
-  --sidebar-border: oklch(0.92 0.004 286.32);
-
-  --sidebar-ring: oklch(0.705 0.015 286.067);
+  /* Shadcn/UI Compatibility (Mapped to Semantic System) */
+  --background: var(--color-background-dark);
+  --foreground: var(--color-text-primary);
+  --card: var(--color-surface);
+  --card-foreground: var(--color-text-primary);
+  --popover: var(--color-surface);
+  --popover-foreground: var(--color-text-primary);
+  --primary: var(--color-primary);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-surface-light);
+  --secondary-foreground: var(--color-text-primary);
+  --muted: var(--color-surface);
+  --muted-foreground: var(--color-text-secondary);
+  --accent: var(--color-surface-hover);
+  --accent-foreground: var(--color-text-primary);
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: var(--color-surface-light);
+  --input: var(--color-surface-light);
+  --ring: var(--color-primary);
+  --chart-1: var(--color-primary);
+  --chart-2: var(--color-secondary);
+  --chart-3: var(--color-tertiary);
+  --chart-4: var(--color-primary-light);
+  --chart-5: var(--color-primary-dark);
+  --sidebar: var(--color-background);
+  --sidebar-foreground: var(--color-text-primary);
+  --sidebar-primary: var(--color-primary);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--color-surface);
+  --sidebar-accent-foreground: var(--color-text-primary);
+  --sidebar-border: var(--color-surface-light);
+  --sidebar-ring: var(--color-primary);
 }
 
-/* Tailwind v4 theme configuration using @theme inline directive */
 @theme inline {
-  /* Map CSS variables to Tailwind color utilities */
+  /* Brand Colors */
   --color-primary: var(--color-primary);
   --color-primary-light: var(--color-primary-light);
   --color-primary-dark: var(--color-primary-dark);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-secondary: var(--color-secondary);
+  --color-tertiary: var(--color-tertiary);
+
+  /* Background Surfaces */
+  --color-background-dark: var(--color-background-dark);
+  --color-background: var(--color-background);
   --color-surface: var(--color-surface);
   --color-surface-light: var(--color-surface-light);
+  --color-surface-hover: var(--color-surface-hover);
 
-  /* Font variables for Geist fonts */
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
+  /* Text Colors (Renamed to avoid collision with Brand colors) */
+  --color-fg-primary: var(--color-text-primary);
+  --color-fg-secondary: var(--color-text-secondary);
+  --color-fg-dim: var(--color-text-dim);
+
+  /* Map Shadcn variables */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
   --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: calc(var(--radius) - 1px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-mono: var(--font-mono);
 }
 
 /* ============================================
@@ -167,7 +151,7 @@ body {
   /* IMPORTANT: Body background must be transparent to allow Pattern component to show */
   /* The actual background is rendered by the fixed Pattern component in ClientHome */
   background: transparent;
-  color: var(--color-text-primary);
+  color: var(--color-fg-primary);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   min-height: 100dvh;
 
@@ -202,12 +186,12 @@ body {
    ============================================ */
 
 .text-key {
-  color: var(--color-text-primary);
+  color: var(--color-fg-primary);
   font-weight: 700;
 }
 
 .text-functional {
-  color: var(--color-text-secondary);
+  color: var(--color-fg-secondary);
   font-weight: 500;
 }
 
@@ -217,7 +201,7 @@ body {
 }
 
 .text-dim {
-  color: var(--color-text-dim);
+  color: var(--color-fg-dim);
   font-weight: 400;
 }
 
@@ -242,13 +226,6 @@ body {
 .bg-surface-light {
   background-color: var(--color-surface-light);
 }
-
-/* ============================================
-   DEBUG UTILITY (uncomment to visualize layout)
-   ============================================ */
-/* * {
-  outline: 1px solid red !important;
-} */
 
 .dark {
   --background: oklch(0.141 0.005 285.823);
@@ -288,6 +265,7 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

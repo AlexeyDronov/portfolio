@@ -29,34 +29,34 @@ export default function BlogCard({ title, description, date, slug, source }: Blo
     return (
         <Link href={href} className="block">
             <article
-                className="group flex flex-col gap-3 p-5 md:p-6 rounded-2xl 
-                           bg-white/5 border border-white/10 
+                className="group flex flex-col gap-3 p-5 md:p-6 rounded-[4px] 
+                           bg-surface/30 border border-surface-light/20 
                            transition-all duration-300 
-                           hover:bg-white/10 hover:border-emerald-500/20 
+                           hover:bg-surface/50 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)]
                            hover:-translate-x-1 cursor-pointer"
             >
                 {/* Header: Date (DIM) and Arrow Icon */}
                 <div className="flex items-center justify-between">
                     {/* Date - DIM level hierarchy (very subtle) */}
-                    <span className="text-xs sm:text-sm text-white/40 font-mono tracking-wide">
+                    <span className="text-xs sm:text-sm text-fg-dim font-mono tracking-wide">
                         {date}
                     </span>
                     {/* Arrow indicator for clickable element */}
                     <ArrowRight
-                        className="text-white/30 transition-all duration-300 
-                                   group-hover:translate-x-2 group-hover:text-emerald-400"
+                        className="text-fg-dim transition-all duration-300 
+                                   group-hover:translate-x-2 group-hover:text-primary-light"
                         size={18}
                     />
                 </div>
 
                 {/* Title - FUNCTIONAL level hierarchy */}
-                <h3 className="text-lg md:text-xl font-bold text-white 
-                               group-hover:text-emerald-400 transition-colors duration-300">
+                <h3 className="text-lg md:text-xl font-bold text-fg-primary 
+                               group-hover:text-primary-light transition-colors duration-300">
                     {title}
                 </h3>
 
-                {/* Description - SUPPLEMENTARY level (truncated to 2 lines) */}
-                <p className="text-sm md:text-base text-white/50 line-clamp-2 leading-relaxed">
+                {/* Description - SUPPLEMENTARY level hierarchy */}
+                <p className="text-sm md:text-base text-fg-secondary line-clamp-2 leading-relaxed">
                     {description}
                 </p>
             </article>

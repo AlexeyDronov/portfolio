@@ -97,16 +97,16 @@ export default function TopNavBar() {
                            ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"}`}
             >
                 {/* Nav pill container - larger on desktop */}
-                <div className="flex items-center gap-1 md:gap-2 p-2 md:p-3 rounded-full 
-                               bg-slate-900/80 border border-white/10 backdrop-blur-lg shadow-xl">
+                <div className="flex items-center gap-1 md:gap-2 p-2 md:p-3 rounded-[4px] 
+                               bg-background/80 border border-surface-light/20 backdrop-blur-lg shadow-xl">
                     {navItems.map((item) => (
                         <button
                             key={item.id}
                             onClick={() => scrollToSection(item.id)}
                             className="flex items-center gap-1.5 md:gap-2 px-3 md:px-5 py-2 md:py-2.5 
-                                       text-sm md:text-base font-medium text-white/70 
-                                       hover:text-emerald-400 hover:bg-white/10 
-                                       rounded-full transition-all duration-300 cursor-pointer"
+                                       text-sm md:text-base font-medium text-fg-secondary 
+                                       hover:text-primary-light hover:bg-surface/50 
+                                       rounded-[4px] transition-all duration-300 cursor-pointer"
                         >
                             {/* Icon - larger on desktop */}
                             <item.icon size={16} className="md:w-5 md:h-5" />

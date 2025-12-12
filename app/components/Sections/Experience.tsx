@@ -57,37 +57,36 @@ const educationData: ExperienceItem[] = [
 const ExperienceCard = ({ item }: { item: ExperienceItem }) => (
     <article
         className="group flex flex-col md:flex-row justify-between gap-5 p-5 md:p-6 
-                   rounded-2xl bg-white/5 border border-white/10 
-                   hover:border-emerald-500/20 hover:bg-white/10 
+                   rounded-[4px] bg-surface/30 border border-surface-light/20 
+                   hover:border-primary/20 hover:bg-surface/50 
                    transition-all duration-300"
     >
         <div className="flex flex-row gap-4 md:gap-5 items-start md:max-w-2xl">
-            {/* Company Logo */}
-            <div className="relative shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-full overflow-hidden 
-                            border border-white/10 bg-white">
+            {/* Logo container - Clean, minimal, consistent size */}
+            <div className="relative shrink-0 w-11 h-11 md:w-12 md:h-12 rounded-[4px] overflow-hidden 
+                            border border-surface-light/20 bg-white">
                 <Image
                     src={item.img}
                     alt={`${item.company} logo`}
                     fill
-                    className="object-contain p-0.5"
+                    className="object-contain p-1.5"
                 />
             </div>
 
-            {/* Content */}
             <div className="flex flex-col gap-2">
                 <div className="flex flex-col gap-0.5">
                     {/* Position - FUNCTIONAL hierarchy */}
-                    <h3 className="text-lg md:text-xl font-bold text-white 
-                                   group-hover:text-emerald-400 transition-colors duration-300">
+                    <h3 className="text-lg md:text-xl font-bold text-fg-primary 
+                                   group-hover:text-primary-light transition-colors duration-300">
                         {item.position}
                     </h3>
                     {/* Company - SUPPLEMENTARY hierarchy */}
-                    <span className="text-sm md:text-base text-white/60 font-medium">
+                    <span className="text-sm md:text-base text-fg-secondary font-medium">
                         {item.company}
                     </span>
                 </div>
-                {/* Description - SUPPLEMENTARY hierarchy */}
-                <p className="text-sm text-white/45 leading-relaxed">
+                {/* Comments/Description - DIM hierarchy */}
+                <p className="text-sm text-fg-dim leading-relaxed">
                     {item.comments}
                 </p>
             </div>
@@ -95,9 +94,9 @@ const ExperienceCard = ({ item }: { item: ExperienceItem }) => (
 
         {/* Date Badge - DIM hierarchy */}
         <div className="flex justify-start md:justify-end shrink-0 md:pt-1">
-            <span className="text-xs md:text-sm font-mono text-white/35 
-                             group-hover:text-emerald-400/80 transition-colors duration-300 
-                             bg-white/5 px-2.5 md:px-3 py-1 md:py-1.5 rounded-md h-fit whitespace-nowrap">
+            <span className="text-xs md:text-sm font-mono text-fg-dim 
+                             group-hover:text-primary-light/80 transition-colors duration-300 
+                             bg-surface/30 px-2.5 md:px-3 py-1 md:py-1.5 rounded-[4px] h-fit whitespace-nowrap">
                 {item.date}
             </span>
         </div>
@@ -109,37 +108,37 @@ export default function Experience() {
         <div className="flex flex-col w-full gap-12">
             {/* Work Experience */}
             <div className="flex flex-col gap-8">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white/95 tracking-tight">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-fg-primary tracking-tight">
                     Experience
                 </h2>
                 <div className="flex flex-col gap-4">
-                    {workExperience.map((item) => (
-                        <ExperienceCard key={item.id} item={item} />
+                    {workExperience.map((item, index) => (
+                        <ExperienceCard key={index} item={item} />
                     ))}
                 </div>
             </div>
 
             {/* Visual Separator - Double line for distinction */}
             <div className="flex items-center gap-3" aria-hidden="true">
-                <div className="flex-1 h-px bg-white/10" />
-                <div className="w-2 h-2 rounded-full bg-emerald-500/30" />
-                <div className="flex-1 h-px bg-white/10" />
+                <div className="flex-1 h-px bg-surface-light/20" />
+                <div className="w-2 h-2 rounded-full bg-primary/30" />
+                <div className="flex-1 h-px bg-surface-light/20" />
             </div>
 
             {/* Education Section - No header, separator provides visual distinction */}
             <div className="flex flex-col gap-4">
-                {educationData.map((item) => (
-                    <ExperienceCard key={item.id} item={item} />
+                {educationData.map((item, index) => (
+                    <ExperienceCard key={index} item={item} />
                 ))}
             </div>
 
-            {/* Resume Link */}
-            <div>
+            {/* Resume Download Link */}
+            <div className="flex justify-start">
                 <Link
                     href="/Alexey Dronov CV.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-white/60 hover:text-white border-b border-white/20 hover:border-white transition-all pb-1 group"
+                    className="inline-flex items-center gap-2 text-fg-secondary hover:text-fg-primary border-b border-surface-light/20 hover:border-primary transition-all pb-1 group"
                 >
                     <span className="font-mono text-sm uppercase tracking-wider">View Full Resume</span>
                     <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
