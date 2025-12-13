@@ -35,6 +35,13 @@ const EDUCATION = [
         company: "University of Tech",
         date: "2015 - 2019",
         description: "Focus on Software Engineering and Human-Computer Interaction."
+    },
+    {
+        id: 2,
+        title: "BS Computer Science",
+        company: "University of Tech",
+        date: "2015 - 2019",
+        description: "Focus on Software Engineering and Human-Computer Interaction."
     }
 ];
 
@@ -86,12 +93,12 @@ export default function About() {
                     {EXPERIENCES.map((exp) => (
                         <div
                             key={exp.id}
-                            className="border border-slate-700 rounded-[4px] p-6 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.1)] transition-all duration-300 bg-slate-900/40 backdrop-blur-sm"
+                            className="border border-slate-700 rounded-[var(--border-radius-sm)] p-6 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.1)] transition-all duration-300 bg-slate-900/40 backdrop-blur-sm"
                         >
                             <div className="flex items-start justify-between mb-2">
                                 <div className="flex items-center gap-4">
                                     {/* Placeholder Logo */}
-                                    <div className="w-[50px] h-[50px] rounded-[4px] bg-slate-800 flex items-center justify-center text-xl font-bold text-text-secondary">
+                                    <div className="w-[50px] h-[50px] rounded-[var(--border-radius-sm)] bg-slate-800 flex items-center justify-center text-xl font-bold text-text-secondary">
                                         {exp.company[0]}
                                     </div>
                                     <div>
@@ -99,7 +106,7 @@ export default function About() {
                                         <h4 className="text-secondary font-mono text-sm">{exp.company}</h4>
                                     </div>
                                 </div>
-                                <span className="text-text-dim font-mono text-sm border border-slate-800 px-2 py-1 rounded-sm">{exp.date}</span>
+                                <span className="text-text-dim font-mono text-sm border border-slate-800 px-2 py-1 rounded-[var(--border-radius-sm)]">{exp.date}</span>
                             </div>
                             <p className="text-text-secondary leading-relaxed mt-4">
                                 {exp.description}
@@ -122,11 +129,11 @@ export default function About() {
                     {EDUCATION.map((edu) => (
                         <div
                             key={edu.id}
-                            className="border border-slate-700 rounded-[4px] p-6 hover:border-secondary/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.1)] transition-all duration-300 bg-slate-900/40 backdrop-blur-sm"
+                            className="border border-slate-700 rounded-[var(--border-radius-sm)] p-6 hover:border-secondary/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.1)] transition-all duration-300 bg-slate-900/40 backdrop-blur-sm"
                         >
                             <div className="flex items-start justify-between mb-2">
                                 <div className="flex items-center gap-4">
-                                    <div className="w-[50px] h-[50px] rounded-[4px] bg-slate-800 flex items-center justify-center text-xl font-bold text-text-secondary">
+                                    <div className="w-[50px] h-[50px] rounded-[var(--border-radius-sm)] bg-slate-800 flex items-center justify-center text-xl font-bold text-text-secondary">
                                         {edu.company[0]}
                                     </div>
                                     <div>
@@ -134,7 +141,7 @@ export default function About() {
                                         <h4 className="text-secondary font-mono text-sm">{edu.company}</h4>
                                     </div>
                                 </div>
-                                <span className="text-text-dim font-mono text-sm border border-slate-800 px-2 py-1 rounded-sm">{edu.date}</span>
+                                <span className="text-text-dim font-mono text-sm border border-slate-800 px-2 py-1 rounded-[var(--border-radius-sm)]">{edu.date}</span>
                             </div>
                             <p className="text-text-secondary leading-relaxed mt-4">
                                 {edu.description}
@@ -179,7 +186,7 @@ export default function About() {
                                         initial={{ opacity: 0, scale: 0.8 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         exit={{ opacity: 0, scale: 0.8 }}
-                                        className="px-4 py-2 border border-primary/30 rounded-[4px] text-text-secondary font-mono text-sm bg-primary/5 hover:bg-primary/10 transition-colors cursor-default"
+                                        className="px-4 py-2 border border-primary/30 rounded-[var(--border-radius-sm)] text-text-secondary font-mono text-sm bg-primary/5 hover:bg-primary/10 transition-colors cursor-default"
                                     >
                                         {skill}
                                     </motion.span>

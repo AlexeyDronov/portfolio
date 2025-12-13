@@ -23,11 +23,11 @@ export default async function ProjectModalPage(props: ProjectModalPageProps) {
             <Link href="/projects" className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm cursor-default" aria-label="Close modal" />
 
             {/* Modal Content */}
-            <div className="relative w-full max-w-4xl max-h-[90vh] bg-slate-900 border border-slate-700 outline outline-4 outline-secondary/20 shadow-2xl rounded-[4px] overflow-hidden flex flex-col z-[101]">
+            <div className="relative w-full max-w-4xl max-h-[90vh] bg-slate-900  border-slate-700 outline-2 outline-primary/30 shadow-2xl rounded-none overflow-hidden flex flex-col z-[101]">
 
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-slate-900 sticky top-0 z-10">
-                    <h1 className="text-2xl md:text-3xl font-bold text-primary">{project.title}</h1>
+                    <h1 className="text-2xl md:text-3xl font-bold text-text-primary">{project.title}</h1>
                     <Link href="/projects" className="p-2 hover:bg-slate-800 rounded-full transition-colors text-text-secondary hover:text-white">
                         <X size={24} />
                     </Link>
@@ -38,7 +38,7 @@ export default async function ProjectModalPage(props: ProjectModalPageProps) {
 
                     {/* Image */}
                     {project.image && (
-                        <div className="w-full aspect-video bg-slate-800 mb-8 rounded-[4px] overflow-hidden">
+                        <div className="w-full aspect-video bg-slate-800 mb-8 rounded-[var(--border-radius-sm)] overflow-hidden">
                             <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${project.image})` }} />
                         </div>
                     )}
@@ -46,7 +46,7 @@ export default async function ProjectModalPage(props: ProjectModalPageProps) {
                     {/* Tags & Metadata */}
                     <div className="flex flex-wrap gap-2 mb-8">
                         {project.tags.map(tag => (
-                            <span key={tag} className="text-xs font-mono px-2 py-1 border border-secondary/30 text-secondary bg-secondary/5 rounded-[4px]">#{tag}</span>
+                            <span key={tag} className="text-xs font-mono px-2 py-1 border border-secondary/30 text-secondary bg-secondary/5 rounded-[var(--border-radius-sm)]">{tag}</span>
                         ))}
                     </div>
 

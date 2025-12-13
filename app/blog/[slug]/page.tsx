@@ -30,7 +30,7 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
                 <header className="mb-12 pb-12 border-b border-slate-800">
                     <div className="flex flex-wrap gap-2 mb-6">
                         {blog.tags.map(tag => (
-                            <span key={tag} className="text-xs text-primary border border-primary/30 px-2 py-1 rounded-[4px] bg-primary/5 uppercase tracking-wide">
+                            <span key={tag} className="text-xs text-primary border border-primary/30 px-2 py-1 rounded-[var(--border-radius-sm)] bg-primary/5 uppercase tracking-wide">
                                 {tag}
                             </span>
                         ))}

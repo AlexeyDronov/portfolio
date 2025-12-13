@@ -57,9 +57,9 @@ export default function RecentWork() {
         <section className="w-full max-w-[1200px] mx-auto min-h-screen py-24 px-4 flex flex-col gap-24">
 
             {/* SECTION HEADER */}
-            <div>
-                <h2 className="text-4xl font-bold mb-4 text-white">Recent Work</h2>
-                <div className="w-24 h-1 bg-primary"></div>
+            <div className="inline-flex flex-col gap-2">
+                <h2 className="text-4xl font-bold text-white">Recent Work</h2>
+                <div className="w-full h-[2px] bg-purple-500/50"></div>
             </div>
 
             {/* HIGHLIGHTED PROJECTS */}
@@ -75,7 +75,7 @@ export default function RecentWork() {
                             {/* IMAGE COLUMN */}
                             <div
                                 className={`
-                   w-full h-[200px] lg:h-[300px] rounded-[4px] overflow-hidden border border-slate-700 relative group cursor-pointer
+                   w-full h-[200px] lg:h-[300px] rounded-[var(--border-radius-sm)] overflow-hidden border border-slate-700 relative group cursor-pointer
                    ${isEven ? 'lg:order-2' : 'lg:order-1'}
                 `}
                             >
@@ -131,7 +131,7 @@ export default function RecentWork() {
                         <Link
                             key={blog.id}
                             href={blog.link}
-                            className="group border border-slate-700 bg-slate-900/30 p-6 rounded-[4px] hover:border-primary/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.1)] transition-all duration-300 flex flex-col min-h-[200px] justify-between"
+                            className="group border border-slate-700 bg-slate-900/30 p-6 rounded-[var(--border-radius-sm)] hover:border-primary/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.1)] transition-all duration-300 flex flex-col min-h-[200px] justify-between"
                         >
                             <div>
                                 <h4 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">

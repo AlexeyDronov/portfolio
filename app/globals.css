@@ -36,3 +36,9 @@ body {
   min-height: 100vh;
   color: var(--color-text-primary);
 }
+
+html,
+body {
+  overscroll-behavior: none;
+  overflow-x: hidden;
+}

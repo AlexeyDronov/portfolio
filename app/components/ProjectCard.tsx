@@ -11,7 +11,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
     return (
         <Link href={`/projects/${project.slug}`} className="group block">
-            <div className="border border-slate-700 bg-slate-900/40 rounded-[4px] overflow-hidden transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] flex flex-col h-full">
+            <div className="border border-slate-700 bg-slate-900/40 rounded-[var(--border-radius-sm)] overflow-hidden transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] flex flex-col h-full">
                 {/* Image Section */}
                 <div className="w-full aspect-video bg-slate-800 relative overflow-hidden">
                     {/* Placeholder for actual image or fallbacks */}
@@ -39,7 +39,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
                     <div className="flex flex-wrap gap-2">
                         {project.skills.map(skill => (
-                            <span key={skill} className="px-2 py-1 text-xs font-mono text-text-secondary border border-primary/30 rounded-[4px] bg-primary/5">
+                            <span key={skill} className="px-2 py-1 text-xs font-mono text-text-secondary border border-primary/30 rounded-[var(--border-radius-sm)] bg-primary/5">
                                 {skill}
                             </span>
                         ))}

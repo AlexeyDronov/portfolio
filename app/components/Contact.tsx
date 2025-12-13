@@ -25,7 +25,7 @@ export default function Contact() {
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-text-secondary hover:text-primary hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 p-3 rounded-[4px]"
+                            className="text-text-secondary hover:text-primary hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 p-3 rounded-[var(--border-radius-sm)]"
                             aria-label={social.label}
                         >
                             <social.icon size={32} />
