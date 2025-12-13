@@ -27,7 +27,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="sticky top-0 z-50 w-full h-16 md:h-20 bg-slate-950/80 backdrop-blur-lg border-b border-slate-700">
+        <nav className="fixed top-0 z-50 w-full h-16 md:h-20 bg-slate-950/80 backdrop-blur-lg border-b border-slate-700">
             <div className="max-w-[1200px] mx-auto h-full px-4 flex items-center justify-between">
 
                 {/* Navigation Items */}
@@ -41,7 +41,7 @@ export default function Navbar() {
                                 key={item.name}
                                 href={item.href}
                                 className={`
-                  relative flex items-center justify-center p-2 md:p-0 md:px-2 rounded-[var(--border-radius-sm)] transition-all duration-300
+                  relative flex items-center justify-center p-2 md:p-0 md:px-2 rounded-(--border-radius-sm) transition-all duration-300
                   group
                   ${active ? "text-primary" : "text-text-secondary hover:text-text-primary"}
                   hover:shadow-[0_0_20px_rgba(168,85,247,0.2)]
@@ -78,7 +78,7 @@ export default function Navbar() {
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-text-secondary hover:text-primary transition-colors hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] p-2 rounded-[var(--border-radius-sm)]"
+                            className="text-text-secondary hover:text-primary transition-colors hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] p-2 rounded-(--border-radius-sm)"
                         >
                             <social.icon size={20} />
                         </a>

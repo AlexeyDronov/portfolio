@@ -5,7 +5,7 @@ summary: "Automated pipeline for analyzing social media sentiment to predict mar
 tags: ["data-analysis", "nlp", "automation"]
 skills: ["Python", "Pandas", "Scikit-Learn", "AWS Lambda"]
 image: "/projects/project-2.jpg"
-featured: false
+featured: true
 ---
 
 ## Overview

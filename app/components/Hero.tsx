@@ -4,10 +4,19 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Hero() {
+    // ===== ANIMATION CONFIGURATION =====
+    // Adjust typing speed per word below:
+    const TYPING_SPEED_MS = 100; // Milliseconds per character
+    const CURSOR_BLINK_SPEED_MS = 500; // Cursor blink interval
+
+    // To change typing speed for specific words:
+    // 1. Split the text into an array of words
+    // 2. Add delays between words using setTimeout
+    // Example: type "Hi," fast (50ms), then "I'm Alexey" slower (150ms)
+
     const [displayedText, setDisplayedText] = useState("");
     const [showCursor, setShowCursor] = useState(true);
     const [animationComplete, setAnimationComplete] = useState(false);
-    const [hasRunBefore, setHasRunBefore] = useState(false);
 
     const fullText = "> Hi, I'm Alexey";
     const nameStartIndex = "> Hi, I'm ".length; // 10
@@ -20,9 +29,8 @@ export default function Hero() {
         if (isDone) {
             // If already run, show final state immediately
             setDisplayedText(fullText);
-            setShowCursor(false);
+            setShowCursor(true); // Keep cursor visible
             setAnimationComplete(true);
-            setHasRunBefore(true);
             return;
         }
 
@@ -36,19 +44,15 @@ export default function Hero() {
                 clearInterval(typingInterval);
                 handleTypingComplete();
             }
-        }, 100);
+        }, TYPING_SPEED_MS);
 
         return () => clearInterval(typingInterval);
     }, []);
 
     const handleTypingComplete = () => {
-        // Fade out cursor over 500ms
-        setTimeout(() => {
-            setShowCursor(false);
-            // Fade in H3 over 500ms (handled by framer motion variants triggered by animationComplete)
-            setAnimationComplete(true);
-            sessionStorage.setItem("heroTypingComplete", "true");
-        }, 500);
+        // Don't hide cursor, just trigger next animations
+        setAnimationComplete(true);
+        sessionStorage.setItem("heroTypingComplete", "true");
     };
 
     // Parsing the display text for coloring
@@ -66,8 +70,15 @@ export default function Hero() {
 
         return (
             <>
-                <span className="text-white">{firstPart}</span>
-                <span className="text-[#a855f7]">{secondPart}</span>
+                <span className="text-white whitespace-pre">{firstPart}</span>
+                <motion.span
+                    className="text-[#a855f7]"
+                    initial={{ textShadow: "0 0 0px rgba(168, 85, 247, 0)" }}
+                    animate={animationComplete ? { textShadow: "0 0 20px rgba(168, 85, 247, 0.5)" } : {}}
+                    transition={{ duration: 1, ease: "easeInOut" }}
+                >
+                    {secondPart}
+                </motion.span>
             </>
         );
     };
@@ -75,19 +86,14 @@ export default function Hero() {
     return (
         <section className="min-h-screen w-full max-w-[1200px] mx-auto flex flex-col items-center justify-center px-4 text-center">
             <div className="relative">
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 font-mono">
+                <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 font-mono flex items-center justify-center">
                     {renderText()}
-                    <AnimatePresence>
-                        {showCursor && (
-                            <motion.span
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: [0, 1, 0] }}
-                                exit={{ opacity: 0, transition: { duration: 0.5 } }}
-                                transition={{ repeat: Infinity, duration: 0.5 }}
-                                className="inline-block w-3 h-10 md:h-16 ml-2 bg-[#a855f7] align-middle"
-                            />
-                        )}
-                    </AnimatePresence>
+                    <motion.span
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: [0, 1, 0] }}
+                        transition={{ repeat: Infinity, duration: CURSOR_BLINK_SPEED_MS / 1000, ease: "linear" }} // ease: "linear" for consistent blinking
+                        className="inline-block w-[2px] h-10 md:h-16 ml-3 bg-[#a855f7] align-middle" // ml-3 for space, w-[2px] for thinner cursor
+                    />
                 </h1>
             </div>
 
