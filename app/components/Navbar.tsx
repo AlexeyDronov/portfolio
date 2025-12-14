@@ -27,7 +27,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="fixed top-0 z-50 w-full h-16 md:h-20 bg-slate-950/80 backdrop-blur-lg border-b border-slate-700">
+        <nav className="fixed top-0 z-50 w-full h-16 md:h-20 bg-slate-950 border-b border-slate-700">
             <div className="max-w-[1200px] mx-auto h-full px-4 flex items-center justify-between">
 
                 {/* Navigation Items */}

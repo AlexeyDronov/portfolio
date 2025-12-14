@@ -3,24 +3,35 @@
 import { IconExperience, IconEducation, IconRightUpArrow } from "./Icons";
 import Link from "next/link";
 
-const EXPERIENCES = [
+interface ExperienceItem {
+    id: number;
+    title: string;
+    company: string;
+    date: string;
+    description: string;
+    icon?: string;
+}
+
+const EXPERIENCES: ExperienceItem[] = [
     {
         id: 1,
         title: "Business Analyst",
         company: "Blackmont Consulting",
-        date: "2025",
+        date: "2025 - Present",
         description: "Led a team of 3 consultants developing legal and operational business toolkits that enabled client expansion into North American and Indian markets (50% growth)",
-        // icon: "/icons/tech-corp.png" // Removed to prevent 404 until file exists
+        // icon: "/icons/tech-corp.png" 
+        icon: '/blackmont.jpeg'
     },
 ];
 
-const EDUCATION = [
+const EDUCATION: ExperienceItem[] = [
     {
         id: 1,
         title: "MSc Data Science",
         company: "University of Edinburgh",
         date: "2024 - 2025",
         description: "Developed a multimodal financial prediction pipeline improving MAE by 16% from the baseline. Specialised in NLP, Data Engineering, and ML methods.",
+        icon: '/UoE.png'
     },
     {
         id: 2,
@@ -28,7 +39,7 @@ const EDUCATION = [
         company: "University of Edinburgh",
         date: "2020 - 2024",
         description: "Focus on Statistics, Applied Mathematics and Computational Differential Equations.",
-        // No icon
+        icon: '/UoE.png'
     },
 ];
 
@@ -94,7 +105,7 @@ export default function About() {
                             <div className="flex flex-col sm:flex-row gap-4">
                                 {/* Icon Section - Left */}
                                 <div className="shrink-0">
-                                    <CompanyIcon company={exp.company} />
+                                    <CompanyIcon company={exp.company} icon={exp.icon} />
                                 </div>
 
                                 {/* Content Section - Right */}
@@ -138,7 +149,7 @@ export default function About() {
                             <div className="flex flex-col sm:flex-row gap-4">
                                 {/* Icon Section - Left */}
                                 <div className="shrink-0">
-                                    <CompanyIcon company={edu.company} />
+                                    <CompanyIcon company={edu.company} icon={edu.icon} />
                                 </div>
 
                                 {/* Content Section - Right */}

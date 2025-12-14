@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
+const SUBTITLE = 'Graduate Data Scientist and a nerd who loves tech and computers.'
+
 export default function Hero() {
     // ===== ANIMATION CONFIGURATION =====
     const CURSOR_BLINK_SPEED_MS = 1000;
@@ -178,7 +180,7 @@ export default function Hero() {
                 }}
                 className="text-xl md:text-2xl text-text-secondary/80 font-mono max-w-xl"
             >
-                Graduate Data Scientist looking for Software Engineering or Machine Learning roles in London.
+                {SUBTITLE}
             </motion.h3>
         </section>
     );
