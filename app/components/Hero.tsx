@@ -18,7 +18,7 @@ export default function Hero() {
     const [showCursor, setShowCursor] = useState(true);
     const [animationComplete, setAnimationComplete] = useState(false);
 
-    const fullText = "> Hi, I'm Alexey.";
+    const fullText = "> Hi, I'm Alexey";
     const nameStartIndex = "> Hi, I'm ".length; // 10
 
     useEffect(() => {
@@ -36,7 +36,7 @@ export default function Hero() {
         const sections = [
             { text: "> Hi, ", speed: 60 },      // Fast typing
             { text: "I'm ", speed: 80 },       // Normal speed
-            { text: "Alexey.", speed: 120 }      // Slower for emphasis
+            { text: "Alexey", speed: 120 }      // Slower for emphasis
         ];
 
         let currentIndex = 0;
@@ -124,7 +124,7 @@ export default function Hero() {
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="text-xl md:text-2xl text-text-secondary font-mono max-w-2xl"
             >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Graduate Data Scientist looking for Software Engineering or Machine Learning positions in London.
             </motion.h3>
         </section>
     );

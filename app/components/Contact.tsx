@@ -4,9 +4,9 @@ import React from "react";
 import { LogoGitHub, LogoLinkedin, LogoMail } from "./Logos";
 
 const SOCIALS = [
-    { icon: LogoGitHub, href: "https://github.com/alexeydronov" },
-    { icon: LogoLinkedin, href: "https://linkedin.com/in/alexey-dronov" },
-    { icon: LogoMail, href: "mailto:alexey.dronov@outlook.com" },
+    { icon: LogoGitHub, href: "https://github.com/alexeydronov", key: 1 },
+    { icon: LogoLinkedin, href: "https://linkedin.com/in/alexey-dronov", key: 2 },
+    { icon: LogoMail, href: "mailto:alexey.dronov@outlook.com", key: 3 },
 ];
 
 
@@ -22,6 +22,7 @@ export default function Contact() {
                 <div className="flex items-center gap-8">
                     {SOCIALS.map((social) => (
                         <a
+                            key={social.key}
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"

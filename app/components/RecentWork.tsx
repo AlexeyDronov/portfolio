@@ -19,7 +19,7 @@ export default function RecentWork() {
 
             {/* SECTION HEADER */}
             <div className="inline-flex flex-col gap-2">
-                <h2 className="text-4xl font-bold text-white underline decoration-primary underline-offset-8">Recent Work</h2>
+                <h2 className="text-3xl font-bold text-white underline decoration-primary underline-offset-8">Recent Projects</h2>
             </div>
 
             {/* HIGHLIGHTED PROJECTS */}
@@ -69,7 +69,7 @@ export default function RecentWork() {
                                 </p>
                                 <Link
                                     href={`/projects/${project.slug}`}
-                                    className="inline-flex items-center gap-2 text-white border-b border-primary pb-1 hover:text-primary transition-colors mt-4"
+                                    className="inline-flex items-center gap-2 text-white border-b-2 border-primary pb-1 hover:text-primary transition-colors mt-4 w-fit"
                                 >
                                     View Project <ArrowRight size={16} />
                                 </Link>
@@ -86,8 +86,8 @@ export default function RecentWork() {
             {/* BLOG CARDS */}
             <div>
                 <div className="flex items-center justify-between mb-8">
-                    <h3 className="text-2xl font-bold text-white">Latest from the Blog</h3>
-                    <Link href="/blog" className="text-text-dim hover:text-primary transition-colors flex items-center gap-2">
+                    <h3 className="text-3xl font-bold text-white">Latest blog posts</h3>
+                    <Link href="/blog" className="text-white hover:text-primary transition-colors flex items-center gap-2 border-b-2 border-primary pb-1 w-fit">
                         View All <ArrowRight size={16} />
                     </Link>
                 </div>
@@ -119,7 +119,7 @@ export default function RecentWork() {
                             key={`missing-${i}`}
                             className="border border-slate-800 bg-slate-900/30 backdrop-blur-md p-6 rounded-(--border-radius-sm) flex items-center justify-center min-h-[200px]"
                         >
-                            <span className="text-text-dim italic">More content coming soon...</span>
+                            <span className="text-text-dim italic">More posts coming soon...</span>
                         </div>
                     ))}
                 </div>

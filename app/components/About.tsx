@@ -144,9 +144,13 @@ export default function About() {
                     ))}
 
                     {/* Separator */}
-                    <div className="relative py-8 flex items-center justify-center">
-                        <div className="absolute w-full h-px bg-slate-800"></div>
-                        <div className="relative w-2 h-2 bg-primary rotate-45"></div>
+                    <div className="flex items-center justify-center w-full py-8 gap-4">
+                        {/* Left Line */}
+                        <div className="flex-1 h-px bg-slate-800"></div>
+                        {/* Center Square */}
+                        <div className="w-2 h-2 bg-primary rotate-45 shrink-0"></div>
+                        {/* Right Line */}
+                        <div className="flex-1 h-px bg-slate-800"></div>
                     </div>
 
                     <div className="flex items-center gap-4 mb-4">
@@ -224,7 +228,7 @@ export default function About() {
                                             animate={{ x: 0, opacity: 1 }}
                                             exit={{ x: -50, opacity: 0 }}
                                             transition={{ duration: 0.5 }}
-                                            className="shrink-0 px-4 py-2 border border-purple-500 rounded-(--border-radius-sm) text-text-secondary font-mono text-sm bg-primary/5 hover:bg-primary/10 transition-colors cursor-default min-w-[100px] text-center flex justify-center"
+                                            className="shrink-0 px-4 py-2 border border-secondary rounded-(--border-radius-sm) text-text-secondary font-mono text-sm bg-primary/5 hover:bg-primary/10 transition-colors cursor-default min-w-[100px] text-center flex justify-center"
                                         >
                                             {skill.name}
                                         </motion.div>

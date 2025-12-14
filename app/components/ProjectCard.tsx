@@ -38,15 +38,26 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     <div className="text-text-secondary text-base leading-relaxed mb-4 grow line-clamp-3">
                         <ReactMarkdown
                             remarkPlugins={[remarkGfm]}
+                            disallowedElements={["p"]}
+                            unwrapDisallowed
                             components={{
+                                // Headings
                                 h1: ({ node, ...props }) => <h1 className="text-xl font-bold text-white mb-2" {...props} />,
                                 h2: ({ node, ...props }) => <h2 className="text-lg font-bold text-white mb-2" {...props} />,
                                 h3: ({ node, ...props }) => <h3 className="text-base font-bold text-white mb-1" {...props} />,
+
+                                // Regular text
                                 p: ({ node, ...props }) => <p className="mb-2" {...props} />,
+                                strong: ({ node, ...props }) => <strong className="font-bold text-primary" {...props} />,
+                                em: ({ node, ...props }) => <em className="italic" {...props} />,
+                                a: ({ node, ...props }) => <a className="text-white hover:underline" {...props} />,
+
+                                // Styling for lists
                                 ul: ({ node, ...props }) => <ul className="list-disc list-inside mb-2" {...props} />,
                                 ol: ({ node, ...props }) => <ol className="list-decimal list-inside mb-2" {...props} />,
                                 li: ({ node, ...props }) => <li className="mb-1" {...props} />,
-                                a: ({ node, ...props }) => <a className="text-primary hover:underline" {...props} />,
+
+                                // code rendering
                                 code: ({ node, inline, ...props }: any) =>
                                     inline
                                         ? <code className="bg-slate-800 px-1 py-0.5 rounded text-sm font-mono text-primary" {...props} />

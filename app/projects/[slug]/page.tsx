@@ -29,7 +29,7 @@ export default async function ProjectModalPage(props: ProjectModalPageProps) {
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-slate-900 sticky top-0 z-10">
                     <h1 className="text-2xl md:text-3xl font-bold text-text-primary">{project.title}</h1>
-                    <Link href="/projects" className="p-2 hover:bg-slate-800 rounded-full transition-colors text-text-secondary hover:text-white">
+                    <Link href="/projects" className="p-2 hover:bg-slate-800 rounded-none transition-colors text-text-secondary hover:text-white">
                         <X size={24} />
                     </Link>
                 </div>
@@ -59,11 +59,13 @@ export default async function ProjectModalPage(props: ProjectModalPageProps) {
                                 h1: ({ node, ...props }) => <h1 className="text-2xl font-bold text-white mb-4 mt-8" {...props} />,
                                 h2: ({ node, ...props }) => <h2 className="text-xl font-bold text-white mb-3 mt-6" {...props} />,
                                 h3: ({ node, ...props }) => <h3 className="text-lg font-bold text-white mb-2 mt-4" {...props} />,
+                                strong: ({ node, ...props }) => <strong className="font-bold text-secondary" {...props} />,
+                                em: ({ node, ...props }) => <em className="italic" {...props} />,
                                 p: ({ node, ...props }) => <p className="mb-4 text-text-secondary leading-relaxed" {...props} />,
                                 ul: ({ node, ...props }) => <ul className="list-disc list-inside mb-4 pl-4 text-text-secondary" {...props} />,
                                 ol: ({ node, ...props }) => <ol className="list-decimal list-inside mb-4 pl-4 text-text-secondary" {...props} />,
                                 li: ({ node, ...props }) => <li className="mb-2" {...props} />,
-                                a: ({ node, ...props }) => <a className="text-primary hover:underline underline-offset-4" {...props} />,
+                                a: ({ node, href, ...props }) => <Link href={href as string || '#'} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline underline-offset-4" {...props} />,
                                 code: ({ node, inline, ...props }: any) =>
                                     inline
                                         ? <code className="bg-slate-800 px-1.5 py-0.5 rounded text-sm font-mono text-primary" {...props} />
