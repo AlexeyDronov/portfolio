@@ -76,7 +76,7 @@ export default function About() {
         const skills = [];
         for (let i = 0; i < visibleSkillsCount; i++) {
             const index = (skillIndex + i) % SKILLS.length;
-            skills.push({ name: SKILLS[index], key: `skill-${index}` }); // Stable key based on original index
+            skills.push({ name: SKILLS[index], index }); // Use index as key
         }
         return skills;
     };
@@ -194,7 +194,7 @@ export default function About() {
 
                     {/* About Text */}
                     <div className="flex flex-col gap-4">
-                        <h2 className="text-3xl font-bold text-white mb-2 underline decoration-primary underline-offset-8">About Me</h2>
+                        <h2 className="text-3xl font-bold text-white mb-2 underline-primary">About Me</h2>
                         <p className="text-text-secondary leading-relaxed text-lg">
                             Hey, world! My name is Alexey Dronov, I’m a recent Data Science graduate seeking to find my place in this world. My path began in the distant land of Russia, where I grew up and … I then moved to the United Kingdom in pursuit of better education, job opportunities, and personal freedoms.
                         </p>
@@ -213,28 +213,25 @@ export default function About() {
 
                         {/* Carousel Container */}
                         <div className="relative w-full overflow-hidden min-h-[60px] flex items-center">
-                            <motion.div
-                                className="flex gap-3"
-                            // We are not animating the container X, but the items layout. 
-                            // Actually, for a "slide" effect, typically you animate the container or use layout animations.
-                            // simpler: Layout animation with AnimatePresence on items.
-                            >
-                                <AnimatePresence mode="popLayout" initial={false}>
+                            <AnimatePresence mode="wait" initial={false}>
+                                <motion.div
+                                    key={skillIndex}
+                                    className="flex gap-3 w-full"
+                                    initial={{ x: 100, opacity: 0 }}
+                                    animate={{ x: 0, opacity: 1 }}
+                                    exit={{ x: -100, opacity: 0 }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                >
                                     {getVisibleSkills().map((skill) => (
-                                        <motion.div
-                                            key={skill.key}
-                                            layout
-                                            initial={{ x: 50, opacity: 0 }}
-                                            animate={{ x: 0, opacity: 1 }}
-                                            exit={{ x: -50, opacity: 0 }}
-                                            transition={{ duration: 0.5 }}
+                                        <div
+                                            key={skill.index}
                                             className="shrink-0 px-4 py-2 border border-secondary rounded-(--border-radius-sm) text-text-secondary font-mono text-sm bg-primary/5 hover:bg-primary/10 transition-colors cursor-default min-w-[100px] text-center flex justify-center"
                                         >
                                             {skill.name}
-                                        </motion.div>
+                                        </div>
                                     ))}
-                                </AnimatePresence>
-                            </motion.div>
+                                </motion.div>
+                            </AnimatePresence>
                         </div>
 
                         {/* Manual Controls */}

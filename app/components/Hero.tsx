@@ -106,8 +106,8 @@ export default function Hero() {
 
     return (
         <section className="min-h-screen w-full max-w-[1200px] mx-auto flex flex-col items-center justify-center px-4 text-center">
-            <div className="relative">
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 font-mono flex items-center justify-center">
+            <div className="relative overflow-hidden p-2">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6 font-mono flex flex-wrap items-center justify-center wrap-break-word">
                     {renderText()}
                     <motion.span
                         initial={{ opacity: 0 }}

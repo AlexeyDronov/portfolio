@@ -35,10 +35,25 @@ body {
   /* slate-950 to slate-900 */
   min-height: 100vh;
   color: var(--color-text-primary);
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 html,
 body {
   overscroll-behavior: none;
   overflow-x: hidden;
+}
+
+.underline-primary {
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 8px;
+}
+
+.border-main {
+  border-color: var(--color-primary);
+  border-bottom-width: 2px;
+  padding-bottom: 4px;
 }

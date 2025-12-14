@@ -32,7 +32,7 @@ export default function Navbar() {
             <div className="max-w-[1200px] mx-auto h-full px-4 flex items-center justify-between">
 
                 {/* Navigation Items */}
-                <div className="flex items-center gap-1 md:gap-8">
+                <div className="flex items-center gap-4 md:gap-8">
                     {navItems.map((item) => {
                         const active = isActive(item.href);
                         const Icon = item.icon;

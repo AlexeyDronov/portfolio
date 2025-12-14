@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import Navbar from "./components/Navbar";
 import "./globals.css";
@@ -8,6 +8,15 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+// 1. Hardware/Browser specific config
+export const viewport: Viewport = {
+  themeColor: "#020618",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
+// 2. SEO and Social config
 export const metadata: Metadata = {
   title: "Portfolio",
   description: "Cyberpunk Minimal Portfolio",
@@ -19,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-slate-950">
       <body
         className={`${jetbrainsMono.variable} antialiased font-mono bg-slate-950 text-slate-200`}
       >

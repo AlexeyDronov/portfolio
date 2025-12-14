@@ -19,7 +19,7 @@ export default function RecentWork() {
 
             {/* SECTION HEADER */}
             <div className="inline-flex flex-col gap-2">
-                <h2 className="text-3xl font-bold text-white underline decoration-primary underline-offset-8">Recent Projects</h2>
+                <h2 className="text-3xl font-bold text-white decoration-primary underline-primary">Recent Projects</h2>
             </div>
 
             {/* HIGHLIGHTED PROJECTS */}
@@ -69,7 +69,7 @@ export default function RecentWork() {
                                 </p>
                                 <Link
                                     href={`/projects/${project.slug}`}
-                                    className="inline-flex items-center gap-2 text-white border-b-2 border-primary pb-1 hover:text-primary transition-colors mt-4 w-fit"
+                                    className="inline-flex items-center gap-2 text-white border-main hover:text-primary transition-colors mt-4 w-fit"
                                 >
                                     View Project <ArrowRight size={16} />
                                 </Link>
@@ -85,9 +85,14 @@ export default function RecentWork() {
 
             {/* BLOG CARDS */}
             <div>
-                <div className="flex items-center justify-between mb-8">
-                    <h3 className="text-3xl font-bold text-white">Latest blog posts</h3>
-                    <Link href="/blog" className="text-white hover:text-primary transition-colors flex items-center gap-2 border-b-2 border-primary pb-1 w-fit">
+                <div className="flex flex-col gap-6 mb-8">
+                    <div className="flex items-center justify-between">
+                        <h3 className="text-3xl font-bold text-white">Latest blog posts</h3>
+                        <Link href="/blog" className="hidden md:flex text-white hover:text-primary transition-colors items-center gap-2 border-main w-fit">
+                            View All <ArrowRight size={16} />
+                        </Link>
+                    </div>
+                    <Link href="/blog" className="md:hidden text-white hover:text-primary transition-colors flex items-center gap-2 border-b-2 border-primary pb-1 w-fit">
                         View All <ArrowRight size={16} />
                     </Link>
                 </div>
