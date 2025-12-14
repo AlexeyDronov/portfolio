@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { getAllProjects, getAllBlogs } from "@/app/lib/dataUtils";
+import { IconRightArrow } from "./Icons";
 
 // Configuration: Adjust how many recent projects to display on home page
 const MAX_RECENT_PROJECTS = 3;
@@ -51,7 +51,7 @@ export default function RecentWork() {
                                 {/* Gradient Overlay */}
                                 <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
 
-                                <Link href={`/projects/${project.slug}`} className="absolute inset-0 z-10" />
+                                <Link href={`/projects/${project.slug}?from=home`} className="absolute inset-0 z-10" />
                             </div>
 
                             {/* TEXT COLUMN (Spans 2 cols) */}
@@ -68,13 +68,12 @@ export default function RecentWork() {
                                     {project.summary}
                                 </p>
                                 <Link
-                                    href={`/projects/${project.slug}`}
+                                    href={`/projects/${project.slug}?from=home`}
                                     className="inline-flex items-center gap-2 text-white border-main hover:text-primary transition-colors mt-4 w-fit"
                                 >
-                                    View Project <ArrowRight size={16} />
+                                    View Project <IconRightArrow size={16} />
                                 </Link>
                             </div>
-
                         </div>
                     );
                 })}
@@ -87,13 +86,13 @@ export default function RecentWork() {
             <div>
                 <div className="flex flex-col gap-6 mb-8">
                     <div className="flex items-center justify-between">
-                        <h3 className="text-3xl font-bold text-white">Latest blog posts</h3>
+                        <h3 className="text-3xl font-bold text-white underline-primary">Latest blog posts</h3>
                         <Link href="/blog" className="hidden md:flex text-white hover:text-primary transition-colors items-center gap-2 border-main w-fit">
-                            View All <ArrowRight size={16} />
+                            View All <IconRightArrow size={16} />
                         </Link>
                     </div>
-                    <Link href="/blog" className="md:hidden text-white hover:text-primary transition-colors flex items-center gap-2 border-b-2 border-primary pb-1 w-fit">
-                        View All <ArrowRight size={16} />
+                    <Link href="/blog" className="md:hidden text-white hover:text-primary transition-colors flex items-center gap-2 border-main w-fit">
+                        View All <IconRightArrow size={16} />
                     </Link>
                 </div>
 
@@ -101,7 +100,7 @@ export default function RecentWork() {
                     {recentBlogs.map((blog) => (
                         <Link
                             key={blog.slug}
-                            href={`/blog/${blog.slug}`}
+                            href={`/blog/${blog.slug}?from=home`}
                             className="group border border-slate-700 bg-slate-900/30 p-6 rounded-(--border-radius-sm) hover:border-primary/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.1)] transition-all duration-300 flex flex-col min-h-[200px] justify-between"
                         >
                             <div>

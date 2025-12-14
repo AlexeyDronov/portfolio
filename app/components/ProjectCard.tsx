@@ -3,8 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ProjectData } from "@/app/lib/dataUtils";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import MarkdownView from "./MarkdownView";
 
 interface ProjectCardProps {
     project: ProjectData;
@@ -36,36 +35,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
                     {/* Replaced p tag with ReactMarkdown */}
                     <div className="text-text-secondary text-base leading-relaxed mb-4 grow line-clamp-3">
-                        <ReactMarkdown
-                            remarkPlugins={[remarkGfm]}
-                            disallowedElements={["p"]}
-                            unwrapDisallowed
-                            components={{
-                                // Headings
-                                h1: ({ node, ...props }) => <h1 className="text-xl font-bold text-white mb-2" {...props} />,
-                                h2: ({ node, ...props }) => <h2 className="text-lg font-bold text-white mb-2" {...props} />,
-                                h3: ({ node, ...props }) => <h3 className="text-base font-bold text-white mb-1" {...props} />,
-
-                                // Regular text
-                                p: ({ node, ...props }) => <p className="mb-2" {...props} />,
-                                strong: ({ node, ...props }) => <strong className="font-bold text-primary" {...props} />,
-                                em: ({ node, ...props }) => <em className="italic" {...props} />,
-                                a: ({ node, ...props }) => <a className="text-white hover:underline" {...props} />,
-
-                                // Styling for lists
-                                ul: ({ node, ...props }) => <ul className="list-disc list-inside mb-2" {...props} />,
-                                ol: ({ node, ...props }) => <ol className="list-decimal list-inside mb-2" {...props} />,
-                                li: ({ node, ...props }) => <li className="mb-1" {...props} />,
-
-                                // code rendering
-                                code: ({ node, inline, ...props }: any) =>
-                                    inline
-                                        ? <code className="bg-slate-800 px-1 py-0.5 rounded text-sm font-mono text-primary" {...props} />
-                                        : <code className="block bg-slate-800 p-2 rounded text-sm font-mono overflow-x-auto text-text-secondary my-2" {...props} />,
-                            }}
-                        >
-                            {project.summary}
-                        </ReactMarkdown>
+                        <MarkdownView content={project.summary} variant="card" />
                     </div>
 
                     <div className="w-full h-px bg-slate-700 my-4"></div>

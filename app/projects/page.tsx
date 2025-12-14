@@ -10,7 +10,7 @@ export default function ProjectsPage() {
             <header className="mb-12">
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Projects</h1>
                 <p className="text-xl text-text-secondary max-w-2xl">
-                    A collection of digital experiments, full-stack applications, and open source contributions.
+                    Some of the cool projects and applications I have worked on!
                 </p>
             </header>
 

@@ -30,7 +30,6 @@
 }
 
 body {
-  font-family: var(--font-jetbrains-mono), monospace;
   background: linear-gradient(to bottom, #020617, #0f172a);
   /* slate-950 to slate-900 */
   min-height: 100vh;
@@ -56,4 +55,22 @@ body {
   border-color: var(--color-primary);
   border-bottom-width: 2px;
   padding-bottom: 4px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.pause-on-hover:hover {
+  animation-play-state: paused;
 }

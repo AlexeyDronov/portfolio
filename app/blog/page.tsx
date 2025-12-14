@@ -10,7 +10,7 @@ export default function BlogPage() {
             <header className="mb-16">
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Blog</h1>
                 <p className="text-xl text-text-secondary">
-                    Writing about technology, design, and the decentralized web.
+                    Welcome to my modest tech diary. I write about my projects, passions, and discoveries.
                 </p>
             </header>
 

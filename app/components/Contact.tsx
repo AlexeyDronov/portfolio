@@ -1,12 +1,12 @@
 "use client";
 
 import React from "react";
-import { LogoGitHub, LogoLinkedin, LogoMail } from "./Logos";
+import { LogoGitHub, LogoLinkedin, IconMail } from "./Icons";
 
 const SOCIALS = [
     { icon: LogoGitHub, href: "https://github.com/alexeydronov", key: 1 },
     { icon: LogoLinkedin, href: "https://linkedin.com/in/alexey-dronov", key: 2 },
-    { icon: LogoMail, href: "mailto:alexey.dronov@outlook.com", key: 3 },
+    { icon: IconMail, href: "mailto:alexey.dronov@outlook.com", key: 3 },
 ];
 
 
@@ -16,7 +16,7 @@ export default function Contact() {
             <div className="max-w-[1200px] mx-auto px-4 flex flex-col items-center text-center gap-8">
 
                 <p className="text-xl text-text-secondary max-w-lg">
-                    Let's connect! Find me on social media or drop me an email if you want to build something cool together.
+                    Thanks for checking out my website! If you'd like to build something cool together, feel free to reach out.
                 </p>
 
                 <div className="flex items-center gap-8">
@@ -34,7 +34,7 @@ export default function Contact() {
                 </div>
 
                 <p className="text-text-dim text-sm font-mono mt-8">
-                    © {new Date().getFullYear()} Alexey. All systems operational.
+                    © {new Date().getFullYear()} Alexey. Rights reserved. Vibes present.
                 </p>
 
             </div>

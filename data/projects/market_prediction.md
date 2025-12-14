@@ -9,7 +9,7 @@ featured: true
 ---
 
 ## Overview
-Financial market prediction is one of the most difficult and computationally expensive machine learning (ML) objectives. Current research shows that ML models for market prediction can greatly benefit from exogenous signals such as processed sentiment. In this dissertation project, I explore the three popular forecasting models, develop sentiment extraction methods, provide a robust feature engineering pipeline and optimise hyperparameters. Results show a **16% MAE reduction**.
+Financial market prediction is one of the most difficult and computationally expensive machine learning (ML) objectives. Current research shows that ML models for market prediction can greatly benefit from exogenous signals such as processed sentiment. In this dissertation research project, I explore the three popular forecasting models, develop sentiment extraction methods, provide a robust feature engineering pipeline and optimise hyperparameters. Results show a **16% MAE reduction**.
 
 ## Technical Approach
 The multimodal pipeline consists of several components, designed in isolation to promote best testing and engineering practices. Below is an outline of those main components:

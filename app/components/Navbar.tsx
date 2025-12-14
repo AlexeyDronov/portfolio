@@ -3,22 +3,21 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, FolderGit2, PenTool } from "lucide-react";
-import { LogoLinkedin, LogoGitHub, LogoMail } from "./Logos";
+import { LogoLinkedin, LogoGitHub, IconMail, IconHome, IconBlog, IconProjects } from "./Icons";
 
 export default function Navbar() {
     const pathname = usePathname();
 
     const navItems = [
-        { name: "Home", href: "/", icon: Home },
-        { name: "Projects", href: "/projects", icon: FolderGit2 },
-        { name: "Blog", href: "/blog", icon: PenTool },
+        { name: "Home", href: "/", icon: IconHome },
+        { name: "Projects", href: "/projects", icon: IconProjects },
+        { name: "Blog", href: "/blog", icon: IconBlog },
     ];
 
     const socialIcons = [
         { icon: LogoGitHub, href: "https://github.com/alexeydronov" },
         { icon: LogoLinkedin, href: "https://linkedin.com/in/alexey-dronov" },
-        { icon: LogoMail, href: "mailto:alexey.dronov@outlook.com" },
+        { icon: IconMail, href: "mailto:alexey.dronov@outlook.com" },
     ];
 
     /* Helpers for Active State */
@@ -47,6 +46,7 @@ export default function Navbar() {
                   ${active ? "text-primary" : "text-text-secondary hover:text-text-primary"}
                   hover:shadow-[0_0_20px_rgba(168,85,247,0.2)]
                 `}
+                                aria-current={active ? "page" : undefined}
                             >
                                 {/* Desktop Indicator */}
                                 <span
@@ -64,7 +64,7 @@ export default function Navbar() {
 
                                 {/* Mobile Icon */}
                                 <span className="md:hidden block">
-                                    <Icon size={20} strokeWidth={2} />
+                                    <Icon size={24} strokeWidth={2} />
                                 </span>
                             </Link>
                         );
