@@ -3,7 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, FolderGit2, PenTool, Github, Linkedin, Mail } from "lucide-react";
+import { Home, FolderGit2, PenTool } from "lucide-react";
+import { LogoLinkedin, LogoGitHub, LogoMail } from "./Logos";
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -15,9 +16,9 @@ export default function Navbar() {
     ];
 
     const socialIcons = [
-        { icon: Github, href: "https://github.com/alexeydronov" },
-        { icon: Linkedin, href: "https://linkedin.com/in/alexeydronov" },
-        { icon: Mail, href: "mailto:alexey@example.com" },
+        { icon: LogoGitHub, href: "https://github.com/alexeydronov" },
+        { icon: LogoLinkedin, href: "https://linkedin.com/in/alexey-dronov" },
+        { icon: LogoMail, href: "mailto:alexey.dronov@outlook.com" },
     ];
 
     /* Helpers for Active State */
@@ -80,7 +81,7 @@ export default function Navbar() {
                             rel="noopener noreferrer"
                             className="text-text-secondary hover:text-primary transition-colors hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] p-2 rounded-(--border-radius-sm)"
                         >
-                            <social.icon size={20} />
+                            <social.icon size={24} />
                         </a>
                     ))}
                 </div>

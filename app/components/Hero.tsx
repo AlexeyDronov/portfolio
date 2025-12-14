@@ -7,7 +7,7 @@ export default function Hero() {
     // ===== ANIMATION CONFIGURATION =====
     // Adjust typing speed per word below:
     const TYPING_SPEED_MS = 100; // Milliseconds per character
-    const CURSOR_BLINK_SPEED_MS = 500; // Cursor blink interval
+    const CURSOR_BLINK_SPEED_MS = 1000; // Cursor blink interval
 
     // To change typing speed for specific words:
     // 1. Split the text into an array of words
@@ -18,41 +18,62 @@ export default function Hero() {
     const [showCursor, setShowCursor] = useState(true);
     const [animationComplete, setAnimationComplete] = useState(false);
 
-    const fullText = "> Hi, I'm Alexey";
+    const fullText = "> Hi, I'm Alexey.";
     const nameStartIndex = "> Hi, I'm ".length; // 10
 
     useEffect(() => {
-        // Check session storage
         const sessionKey = "heroTypingComplete";
         const isDone = sessionStorage.getItem(sessionKey);
 
         if (isDone) {
-            // If already run, show final state immediately
             setDisplayedText(fullText);
-            setShowCursor(true); // Keep cursor visible
+            setShowCursor(true);
             setAnimationComplete(true);
             return;
         }
 
-        // Start typing animation
+        // Define sections with custom speeds
+        const sections = [
+            { text: "> Hi, ", speed: 60 },      // Fast typing
+            { text: "I'm ", speed: 80 },       // Normal speed
+            { text: "Alexey.", speed: 120 }      // Slower for emphasis
+        ];
+
         let currentIndex = 0;
-        const typingInterval = setInterval(() => {
+        let sectionIndex = 0;
+        let charInSection = 0;
+
+        const typeNextChar = () => {
+            if (sectionIndex >= sections.length) {
+                handleTypingComplete();
+                return;
+            }
+
+            const section = sections[sectionIndex];
+            setDisplayedText(fullText.slice(0, currentIndex + 1));
+            currentIndex++;
+            charInSection++;
+
+            if (charInSection >= section.text.length) {
+                // Move to next section
+                sectionIndex++;
+                charInSection = 0;
+            }
+
             if (currentIndex < fullText.length) {
-                setDisplayedText(fullText.slice(0, currentIndex + 1));
-                currentIndex++;
+                setTimeout(typeNextChar, sections[sectionIndex]?.speed || 100);
             } else {
-                clearInterval(typingInterval);
                 handleTypingComplete();
             }
-        }, TYPING_SPEED_MS);
+        };
 
-        return () => clearInterval(typingInterval);
+        typeNextChar();
     }, []);
 
     const handleTypingComplete = () => {
         // Don't hide cursor, just trigger next animations
         setAnimationComplete(true);
-        sessionStorage.setItem("heroTypingComplete", "true");
+        // sessionStorage.setItem("heroTypingComplete", "true");
     };
 
     // Parsing the display text for coloring
@@ -92,7 +113,7 @@ export default function Hero() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: [0, 1, 0] }}
                         transition={{ repeat: Infinity, duration: CURSOR_BLINK_SPEED_MS / 1000, ease: "linear" }} // ease: "linear" for consistent blinking
-                        className="inline-block w-[2px] h-10 md:h-16 ml-3 bg-[#a855f7] align-middle" // ml-3 for space, w-[2px] for thinner cursor
+                        className="inline-block w-[5px] h-10 md:h-16 ml-3 bg-[#a855f7] align-middle" // ml-3 for space, w-[2px] for thinner cursor
                     />
                 </h1>
             </div>

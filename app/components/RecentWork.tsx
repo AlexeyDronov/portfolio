@@ -19,8 +19,7 @@ export default function RecentWork() {
 
             {/* SECTION HEADER */}
             <div className="inline-flex flex-col gap-2">
-                <h2 className="text-4xl font-bold text-white">Recent Work</h2>
-                <div className="w-full h-[2px] bg-purple-500/50"></div>
+                <h2 className="text-4xl font-bold text-white underline decoration-primary underline-offset-8">Recent Work</h2>
             </div>
 
             {/* HIGHLIGHTED PROJECTS */}

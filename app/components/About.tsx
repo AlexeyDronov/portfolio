@@ -2,57 +2,50 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Briefcase, GraduationCap } from "lucide-react";
+import { ChevronLeft, ChevronRight, Briefcase } from "lucide-react";
+import { LogoEducation } from "./Logos";
 
 const EXPERIENCES = [
     {
         id: 1,
-        title: "Senior Frontend Engineer",
-        company: "Tech Corp",
-        date: "2023 - Present",
-        description: "Leading the frontend team in building scalable web applications using Next.js and TypeScript. Improved performance by 40%.",
+        title: "Business Analyst",
+        company: "Blackmont Consulting",
+        date: "2025",
+        description: "Led a group of 3 consultants to develop legal and operational business toolkits for the client, enabling a 50% expansion into North American and Indian markets.",
         // icon: "/icons/tech-corp.png" // Removed to prevent 404 until file exists
     },
-    {
-        id: 2,
-        title: "Software Developer",
-        company: "StartUp Inc",
-        date: "2021 - 2023",
-        description: "Developed and maintained full-stack features using React and Node.js. Collaborated with design team to implement pixel-perfect UIs.",
-        // No icon - will use fallback
-    },
-    {
-        id: 3,
-        title: "Junior Developer",
-        company: "Web Agency",
-        date: "2019 - 2021",
-        description: "Built responsive websites for various clients. Gained expertise in modern CSS and JavaScript frameworks.",
-        // No icon
-    }
+    // {
+    //     id: 2,
+    //     title: "Software Developer",
+    //     company: "StartUp Inc",
+    //     date: "2021 - 2023",
+    //     description: "Developed and maintained full-stack features using React and Node.js. Collaborated with design team to implement pixel-perfect UIs.",
+    //     // No icon - will use fallback
+    // },
 ];
 
 const EDUCATION = [
     {
         id: 1,
-        title: "BS Computer Science",
-        company: "University of Tech",
-        date: "2015 - 2019",
-        description: "Focus on Software Engineering and Human-Computer Interaction.",
-        // No icon
+        title: "MSc Data Science",
+        company: "University of Edinburgh",
+        date: "2024 - 2025",
+        description: "Developed a multimodal financial prediction pipeline improving MAE by 16% from the baseline. Specialised in NLP, Data Engineering, and ML methods.",
     },
     {
         id: 2,
-        title: "Full Stack Bootcamp",
-        company: "Coding Academy",
-        date: "2019",
-        description: "Intensive 12-week program covering MERN stack and modern web development practices.",
-    }
+        title: "BSs Mathematics",
+        company: "University of Edinburgh",
+        date: "2020 - 2024",
+        description: "Focus on Statistics, Applied Mathematics and Computational Differential Equations.",
+        // No icon
+    },
 ];
 
 const SKILLS = [
-    "Python", "PyTorch", "Scikit-learn", "TensorFlow",
-    "SQL", "PostgreSQL", "Docker", "FastAPI",
-    "React", "Next.js", "TypeScript", "Tailwind"
+    "Python", "Scala", "SQL",
+    "PyTorch", "Sklearn", "TensorFlow",
+    "Docker", "FastAPI"
 ];
 
 export default function About() {
@@ -63,7 +56,7 @@ export default function About() {
     useEffect(() => {
         const timer = setInterval(() => {
             nextSkill();
-        }, 3000);
+        }, 3500);
         return () => clearInterval(timer);
     }, [skillIndex]);
 
@@ -117,8 +110,8 @@ export default function About() {
                 <div className="flex flex-col gap-8 order-2 lg:order-1 lg:w-2/3">
 
                     <div className="flex items-center gap-4 mb-4">
-                        <h2 className="text-3xl font-bold text-primary flex items-center gap-2">
-                            <Briefcase className="w-8 h-8" /> Experience
+                        <h2 className="text-3xl font-bold flex items-center text-primary gap-2">
+                            <Briefcase className="w-8 h-8" /> <span className="text-text-primary">Experience</span>
                         </h2>
                     </div>
 
@@ -158,7 +151,7 @@ export default function About() {
 
                     <div className="flex items-center gap-4 mb-4">
                         <h2 className="text-3xl font-bold text-secondary flex items-center gap-2">
-                            <GraduationCap className="w-8 h-8" /> Education
+                            <LogoEducation className="w-8 h-8" /> <span className="text-text-primary">Education</span>
                         </h2>
                     </div>
 
@@ -199,12 +192,12 @@ export default function About() {
                     <div className="flex flex-col gap-4">
                         <h2 className="text-3xl font-bold text-white mb-2 underline decoration-primary underline-offset-8">About Me</h2>
                         <p className="text-text-secondary leading-relaxed text-lg">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            Hey, world! My name is Alexey Dronov, I’m a recent Data Science graduate seeking to find my place in this world. My path began in the distant land of Russia, where I grew up and … I then moved to the United Kingdom in pursuit of better education, job opportunities, and personal freedoms.
                         </p>
                         <p className="text-text-secondary leading-relaxed text-lg">
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            In Edinburgh, I first completed an undergraduate degree in Mathematics, after which I realised that I wanted to apply my mind to projects that “exist” in the real world.
+                            That prompted me to pursue a career in programming and led to a Master’s course in Data Science. Currently, I spend my time working on side projects and writing blog posts.
+                            So, enjoy your time in my little corner of the internet!
                         </p>
                     </div>
 
@@ -231,7 +224,7 @@ export default function About() {
                                             animate={{ x: 0, opacity: 1 }}
                                             exit={{ x: -50, opacity: 0 }}
                                             transition={{ duration: 0.5 }}
-                                            className="shrink-0 px-4 py-2 border border-purple-500 rounded-[4px] text-text-secondary font-mono text-sm bg-primary/5 hover:bg-primary/10 transition-colors cursor-default min-w-[100px] text-center flex justify-center"
+                                            className="shrink-0 px-4 py-2 border border-purple-500 rounded-(--border-radius-sm) text-text-secondary font-mono text-sm bg-primary/5 hover:bg-primary/10 transition-colors cursor-default min-w-[100px] text-center flex justify-center"
                                         >
                                             {skill.name}
                                         </motion.div>
@@ -244,14 +237,14 @@ export default function About() {
                         <div className="flex gap-4 mt-2">
                             <button
                                 onClick={prevSkill}
-                                className="p-2 border border-slate-700 rounded-full hover:bg-primary hover:border-primary hover:text-white transition-all group"
+                                className="p-2 border border-slate-700 rounded-none hover:bg-primary hover:border-primary hover:text-white transition-all group cursor-pointer"
                                 aria-label="Previous skill"
                             >
                                 <ChevronLeft size={20} />
                             </button>
                             <button
                                 onClick={nextSkill}
-                                className="p-2 border border-slate-700 rounded-full hover:bg-primary hover:border-primary hover:text-white transition-all group"
+                                className="p-2 border border-slate-700 rounded-none hover:bg-primary hover:border-primary hover:text-white transition-all group cursor-pointer"
                                 aria-label="Next skill"
                             >
                                 <ChevronRight size={20} />

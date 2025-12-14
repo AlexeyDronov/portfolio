@@ -1,13 +1,14 @@
 "use client";
 
 import React from "react";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { LogoGitHub, LogoLinkedin, LogoMail } from "./Logos";
 
 const SOCIALS = [
-    { icon: Github, href: "https://github.com/alexeydronov", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com/in/alexeydronov", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:alexey@example.com", label: "Email" },
+    { icon: LogoGitHub, href: "https://github.com/alexeydronov" },
+    { icon: LogoLinkedin, href: "https://linkedin.com/in/alexey-dronov" },
+    { icon: LogoMail, href: "mailto:alexey.dronov@outlook.com" },
 ];
+
 
 export default function Contact() {
     return (
@@ -21,12 +22,10 @@ export default function Contact() {
                 <div className="flex items-center gap-8">
                     {SOCIALS.map((social) => (
                         <a
-                            key={social.label}
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-text-secondary hover:text-primary hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 p-3 rounded-(--border-radius-sm)"
-                            aria-label={social.label}
                         >
                             <social.icon size={32} />
                         </a>
