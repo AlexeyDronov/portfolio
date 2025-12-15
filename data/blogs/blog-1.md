@@ -1,9 +1,9 @@
 ---
-title: "Understanding React Server Components"
-date: "2024-12-10"
+title: "How to build a website without any experience"
+date: "2025-12-10"
 topic: "Web Development"
-summary: "A comprehensive guide to how RSCs change the data fetching paradigm."
-tags: ["react", "nextjs", "tutorial"]
+summary: "Hello world and using an agentic IDE for web development."
+tags: ["react", "nextjs", "AI"]
 ---
 
 # Introduction

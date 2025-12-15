@@ -41,7 +41,7 @@ export default function Navbar() {
                                 key={item.name}
                                 href={item.href}
                                 className={`
-                  relative flex items-center justify-center p-2 md:p-0 md:px-2 rounded-(--border-radius-sm) transition-all duration-300
+                  relative flex items-center justify-center p-2 md:p-0 md:px-2 rounded-sm transition-colors duration-300 cursor-pointer
                   group
                   ${active ? "text-primary" : "text-text-secondary hover:text-text-primary"}
                   hover:shadow-[0_0_20px_rgba(168,85,247,0.2)]
@@ -52,18 +52,18 @@ export default function Navbar() {
                                 <span
                                     className={`
                     hidden md:block absolute left-[-12px] top-1/2 -translate-y-1/2 w-1 h-4 bg-primary rounded-[1px]
-                    transition-opacity duration-300
+                    transition-opacity duration-300 pointer-events-none
                     ${active ? "opacity-100" : "opacity-0"}
                   `}
                                 />
 
                                 {/* Desktop Text */}
-                                <span className="hidden md:block font-mono text-sm tracking-wide">
+                                <span className="hidden md:block font-mono text-sm tracking-wide pointer-events-none">
                                     {item.name}
                                 </span>
 
                                 {/* Mobile Icon */}
-                                <span className="md:hidden block">
+                                <span className="md:hidden block pointer-events-none">
                                     <Icon size={24} strokeWidth={2} />
                                 </span>
                             </Link>
@@ -79,9 +79,9 @@ export default function Navbar() {
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-text-secondary hover:text-primary transition-colors hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] p-2 rounded-(--border-radius-sm)"
+                            className="text-text-secondary hover:text-primary transition-colors hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] p-2 rounded-sm cursor-pointer"
                         >
-                            <social.icon size={24} />
+                            <social.icon size={24} className="pointer-events-none" />
                         </a>
                     ))}
                 </div>

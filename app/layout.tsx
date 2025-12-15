@@ -18,8 +18,11 @@ export const viewport: Viewport = {
 
 // 2. SEO and Social config
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Alexey Dronov Portfolio",
   description: "Cyberpunk Minimal Portfolio",
+  appleWebApp: {
+    title: "website",
+  },
 };
 
 export default function RootLayout({
