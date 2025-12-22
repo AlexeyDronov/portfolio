@@ -178,7 +178,7 @@ export default function Hero() {
                     ease: "easeOut",
                     delay: 0.2, // NEW: Slight delay to de-emphasize subtitle
                 }}
-                className="text-xl md:text-2xl text-text-secondary/80 font-mono max-w-xl"
+                className="text-xl md:text-2xl text-slate-400 font-mono max-w-xl"
             >
                 {SUBTITLE}
             </motion.h3>

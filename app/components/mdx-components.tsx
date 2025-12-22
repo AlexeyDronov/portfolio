@@ -3,17 +3,17 @@ import Link from 'next/link';
 
 export const mdxComponents = {
     h1: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-        <h1 className="text-3xl md:text-4xl font-bold font-grotesk text-white mb-6 mt-10" {...props}>
+        <h1 className="text-3xl md:text-4xl font-bold font-mono text-white mb-6 mt-10" {...props}>
             {children}
         </h1>
     ),
     h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-        <h2 className="text-2xl md:text-3xl font-bold font-grotesk text-white mb-4 mt-8" {...props}>
+        <h2 className="text-2xl md:text-3xl font-bold font-mono text-white mb-4 mt-8" {...props}>
             {children}
         </h2>
     ),
     h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-        <h3 className="text-xl md:text-2xl font-bold font-grotesk text-white mb-3 mt-6" {...props}>
+        <h3 className="text-xl md:text-2xl font-bold font-mono text-white mb-3 mt-6" {...props}>
             {children}
         </h3>
     ),
@@ -70,7 +70,7 @@ export const mdxComponents = {
         )
     },
     pre: ({ children, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
-        <pre className="block bg-slate-800/50 p-4 rounded-(--border-radius-md) text-sm font-mono overflow-x-auto text-text-secondary my-4 border border-slate-700" {...props}>
+        <pre className="block bg-slate-800/50 p-4 rounded-md text-sm font-mono overflow-x-auto text-text-secondary my-4 border border-slate-700" {...props}>
             {children}
         </pre>
     ),

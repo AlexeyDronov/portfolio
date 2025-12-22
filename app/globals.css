@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  --color-bg: #020617;
+  --color-text: #cbd5e1;
   --color-primary: #a855f7;
   --color-secondary: #ec4899;
   --color-tertiary: #06b6d4;
@@ -12,9 +14,6 @@
 @theme inline {
   --font-mono: var(--font-jetbrains-mono);
   --font-sans: var(--font-ibm-plex-sans);
-  --font-grotesk: var(--font-space-grotesk);
-  /* --font-grotesk: var(--font-ibm-plex-sans);
-  --font-sans: var(--font-space-grotesk); */
 
   /* Cyberpunk Palette */
   --color-primary: var(--color-primary);
@@ -35,7 +34,6 @@
 
 body {
   background: linear-gradient(to bottom, #020617, #0f172a);
-  /* slate-950 to slate-900 */
   min-height: 100vh;
   color: var(--color-text-primary);
   padding-top: env(safe-area-inset-top);
@@ -48,12 +46,16 @@ body {
   overflow-x: hidden;
 }
 
+/* Immersive Selection */
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
 /* Custom Transparent Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
-  /* Slightly thinner for elegance */
   background: transparent;
-  /* Transparent track to show gradient */
 }
 
 ::-webkit-scrollbar-track {
@@ -62,19 +64,22 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background-color: rgba(168, 85, 247, 0.3);
-  /* Primary color, semi-transparent */
   border-radius: 999px;
-  /* Rounded pill shape */
   border: 2px solid transparent;
-  /* Creates padding effect if background-clip is used, preventing full width */
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgba(168, 85, 247, 0.6);
-  /* Darker on hover */
 }
 
+/* Glassmorphism Utility */
+.glass-panel {
+  background-color: rgba(2, 6, 23, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
 
 .underline-primary {
   text-decoration: underline;

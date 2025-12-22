@@ -64,12 +64,12 @@ export default function RecentWork() {
                                 <h3 className="text-3xl font-bold text-primary group-hover:text-secondary transition-colors font-mono">
                                     {project.title}
                                 </h3>
-                                <p className="text-text-secondary text-lg leading-relaxed max-w-xl font-grotesk">
+                                <p className="text-text-secondary text-lg leading-relaxed max-w-xl font-sans">
                                     {project.summary}
                                 </p>
                                 <Link
                                     href={`/projects/${project.slug}?from=home`}
-                                    className="inline-flex items-center gap-2 text-white border-main hover:text-primary transition-colors mt-4 w-fit font-mono"
+                                    className="inline-flex items-center gap-2 text-white border-main hover:text-primary transition-colors duration-300 ease-out mt-4 w-fit font-mono tracking-wide"
                                 >
                                     View Project <IconRightArrow size={16} />
                                 </Link>
@@ -87,11 +87,11 @@ export default function RecentWork() {
                 <div className="flex flex-col gap-6 mb-8">
                     <div className="flex items-center justify-between">
                         <h3 className="text-3xl font-bold text-white font-mono">Latest blog posts</h3>
-                        <Link href="/blog" className="hidden md:flex text-white hover:text-primary transition-colors items-center gap-2 border-main w-fit font-mono">
+                        <Link href="/blog" className="hidden md:flex text-white hover:text-primary transition-colors duration-300 ease-out items-center gap-2 border-main w-fit font-mono tracking-wide">
                             View All <IconRightArrow size={16} />
                         </Link>
                     </div>
-                    <Link href="/blog" className="md:hidden text-white hover:text-primary transition-colors flex items-center gap-2 border-main w-fit font-mono">
+                    <Link href="/blog" className="md:hidden text-white hover:text-primary transition-colors duration-300 ease-out flex items-center gap-2 border-main w-fit font-mono tracking-wide">
                         View All <IconRightArrow size={16} />
                     </Link>
                 </div>
@@ -107,7 +107,7 @@ export default function RecentWork() {
                                 <h4 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors font-mono">
                                     {blog.title}
                                 </h4>
-                                <p className="text-text-secondary text-sm leading-relaxed mb-4 font-grotesk">
+                                <p className="text-text-secondary text-sm leading-relaxed mb-4 font-sans">
                                     {blog.summary}
                                 </p>
                             </div>

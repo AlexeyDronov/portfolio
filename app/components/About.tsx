@@ -86,7 +86,7 @@ export default function About() {
 
     return (
         <section className="w-full max-w-[1200px] mx-auto min-h-screen py-24 px-4">
-            <div className="flex flex-col lg:flex-row gap-16">
+            <div className="flex flex-col lg:flex-row gap-12">
 
                 {/* LEFT COLUMN: Experience & Education (Desktop Layout: Left (2/3)) */}
                 <div className="flex flex-col gap-8 order-2 lg:order-1 lg:w-2/3">
@@ -117,7 +117,7 @@ export default function About() {
                                         </div>
                                         <span className="text-text-dim font-mono text-sm border border-slate-800 px-2 py-1 rounded-(--border-radius-sm) whitespace-nowrap">{exp.date}</span>
                                     </div>
-                                    <p className="text-text-secondary leading-relaxed mt-2 font-grotesk text-lg">
+                                    <p className="text-text-secondary leading-relaxed mt-2 font-sans text-lg">
                                         {exp.description}
                                     </p>
                                 </div>
@@ -161,7 +161,7 @@ export default function About() {
                                         </div>
                                         <span className="text-text-dim font-mono text-sm border border-slate-800 px-2 py-1 rounded-(--border-radius-sm) whitespace-nowrap">{edu.date}</span>
                                     </div>
-                                    <p className="text-text-secondary leading-relaxed mt-2 font-grotesk text-lg">
+                                    <p className="text-text-secondary leading-relaxed mt-2 font-sans text-lg">
                                         {edu.description}
                                     </p>
                                 </div>
@@ -178,7 +178,7 @@ export default function About() {
                     <div className="flex flex-col gap-4">
                         <h2 className="text-3xl font-bold text-white mb-2 font-mono">About Me</h2>
                         {ABOUT.map((par, index) => (
-                            <p key={index} className="text-text-secondary leading-relaxed text-lg font-grotesk">
+                            <p key={index} className="text-text-secondary leading-relaxed text-lg font-sans">
                                 {par.trim()}
                             </p>
                         ))}
@@ -187,7 +187,7 @@ export default function About() {
                             href="/Alexey Dronov CV.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-text-primary hover:text-primary transition-colors flex items-center gap-2 border-main w-fit mt-2 font-mono"
+                            className="text-text-primary hover:text-primary transition-colors duration-300 ease-out flex items-center gap-2 border-main w-fit mt-2 font-mono tracking-wide"
                         >
                             View Resume <IconRightUpArrow size={18} />
                         </Link>

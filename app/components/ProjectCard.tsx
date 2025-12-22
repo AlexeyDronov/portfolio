@@ -12,7 +12,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
     return (
         <Link href={`/projects/${project.slug}`} className="group block">
-            <div className="border border-slate-700 bg-slate-900/40 rounded-(--border-radius-sm) overflow-hidden transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] flex flex-col h-full">
+            <div className="border border-slate-700 bg-slate-900/40 rounded-md overflow-hidden transition-all duration-300 ease-out hover:border-primary/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] flex flex-col h-full">
                 {/* Image Section */}
                 <div className="w-full aspect-video bg-slate-800 relative overflow-hidden">
                     {/* Placeholder for actual image or fallbacks */}
@@ -28,13 +28,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 </div>
 
                 {/* Content Section */}
-                <div className="p-6 flex flex-col grow">
+                <div className="p-5 flex flex-col grow">
                     <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors font-mono">
                         {project.title}
                     </h2>
 
                     {/* Replaced MarkdownView with plain text paragraph using proper font */}
-                    <p className="text-text-secondary text-base leading-relaxed mb-4 grow line-clamp-3 font-grotesk">
+                    <p className="text-text-secondary text-base leading-relaxed mb-4 grow line-clamp-3 font-sans">
                         {project.summary}
                     </p>
 
