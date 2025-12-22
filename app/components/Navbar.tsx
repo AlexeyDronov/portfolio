@@ -51,7 +51,7 @@ export default function Navbar() {
                                 {/* Desktop Indicator */}
                                 <span
                                     className={`
-                    hidden md:block absolute left-[-12px] top-1/2 -translate-y-1/2 w-1 h-4 bg-primary rounded-[1px]
+                    hidden md:block absolute left-[-16px] top-1/2 -translate-y-1/2 w-1 h-4 bg-primary rounded-[1px]
                     transition-opacity duration-300 pointer-events-none
                     ${active ? "opacity-100" : "opacity-0"}
                   `}

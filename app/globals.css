@@ -13,7 +13,8 @@
   --font-mono: var(--font-jetbrains-mono);
   --font-sans: var(--font-ibm-plex-sans);
   --font-grotesk: var(--font-space-grotesk);
-  --font-serif: var(--font-merriweather);
+  /* --font-grotesk: var(--font-ibm-plex-sans);
+  --font-sans: var(--font-space-grotesk); */
 
   /* Cyberpunk Palette */
   --color-primary: var(--color-primary);

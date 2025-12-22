@@ -161,17 +161,17 @@ export default function Hero() {
                                     ease: "linear",
                                 }
                         }
-                        className="inline-block w-[5px] h-10 md:h-16 ml-3 bg-[#ffffff] align-middle"
+                        className="inline-block w-[5px] h-10 md:h-16 ml-2 bg-[#ffffff] align-middle"
                     />
                 </motion.h1>
             </div>
 
             <motion.h3
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={
                     animationComplete
                         ? { opacity: 1, y: 0 }
-                        : { opacity: 0, y: 10 }
+                        : { opacity: 0, y: 8 }
                 }
                 transition={{
                     duration: 0.5,

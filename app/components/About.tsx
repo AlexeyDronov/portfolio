@@ -72,13 +72,13 @@ export default function About() {
             // However, since I don't have actual images, this might break if I don't verify paths.
             // I will implement the structure.
             return (
-                <img src={icon} alt={company} className="w-[50px] h-[50px] rounded-(--border-radius-sm) object-cover" />
+                <img src={icon} alt={company} className="w-12 h-12 rounded-(--border-radius-sm) object-cover" />
             );
         }
 
         // Fallback
         return (
-            <div className="w-[50px] h-[50px] rounded-(--border-radius-sm) bg-purple-500/10 border border-purple-500/30 flex items-center justify-center">
+            <div className="w-12 h-12 rounded-(--border-radius-sm) bg-purple-500/10 border border-purple-500/30 flex items-center justify-center">
                 <span className="text-2xl font-bold text-purple-400">{company.charAt(0).toUpperCase()}</span>
             </div>
         );
@@ -86,7 +86,7 @@ export default function About() {
 
     return (
         <section className="w-full max-w-[1200px] mx-auto min-h-screen py-24 px-4">
-            <div className="flex flex-col lg:flex-row gap-12">
+            <div className="flex flex-col lg:flex-row gap-16">
 
                 {/* LEFT COLUMN: Experience & Education (Desktop Layout: Left (2/3)) */}
                 <div className="flex flex-col gap-8 order-2 lg:order-1 lg:w-2/3">
@@ -176,7 +176,7 @@ export default function About() {
 
                     {/* About Text */}
                     <div className="flex flex-col gap-4">
-                        <h2 className="text-3xl font-bold text-white mb-2 underline-primary font-mono">About Me</h2>
+                        <h2 className="text-3xl font-bold text-white mb-2 font-mono">About Me</h2>
                         {ABOUT.map((par, index) => (
                             <p key={index} className="text-text-secondary leading-relaxed text-lg font-grotesk">
                                 {par.trim()}
@@ -195,12 +195,12 @@ export default function About() {
 
                     {/* Skills Carousel */}
                     <div className="flex flex-col gap-4">
-                        <div className="flex items-center justify-between mb-2">
+                        {/* <div className="flex items-center justify-between mb-2">
                             <h3 className="text-xl font-bold text-white font-mono">Skills</h3>
-                        </div>
+                        </div> */}
 
                         {/* Carousel Container */}
-                        <div className="relative w-full overflow-hidden min-h-[60px] flex items-center mask-[linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+                        <div className="relative w-full overflow-hidden min-h-[40px] flex items-center mask-[linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
                             <div className="flex gap-3 w-max animate-scroll hover:pause-on-hover">
                                 {/* Duplicate skills to ensure seamless looping */}
                                 {[...SKILLS, ...SKILLS, ...SKILLS].map((skill, index) => (

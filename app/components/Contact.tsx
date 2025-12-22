@@ -26,7 +26,7 @@ export default function Contact() {
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-text-secondary hover:text-primary hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 p-3 rounded-(--border-radius-sm)"
+                            className="text-text-secondary hover:text-primary hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 p-2 rounded-(--border-radius-sm)"
                         >
                             <social.icon size={32} />
                         </a>

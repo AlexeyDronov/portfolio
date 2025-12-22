@@ -19,7 +19,7 @@ export default function RecentWork() {
 
             {/* SECTION HEADER */}
             <div className="inline-flex flex-col gap-2">
-                <h2 className="text-3xl font-bold text-white decoration-primary underline-primary font-mono">Recent Projects</h2>
+                <h2 className="text-3xl font-bold text-white decoration-primary font-mono">Recent Projects</h2>
             </div>
 
             {/* HIGHLIGHTED PROJECTS */}
@@ -86,7 +86,7 @@ export default function RecentWork() {
             <div>
                 <div className="flex flex-col gap-6 mb-8">
                     <div className="flex items-center justify-between">
-                        <h3 className="text-3xl font-bold text-white underline-primary font-mono">Latest blog posts</h3>
+                        <h3 className="text-3xl font-bold text-white font-mono">Latest blog posts</h3>
                         <Link href="/blog" className="hidden md:flex text-white hover:text-primary transition-colors items-center gap-2 border-main w-fit font-mono">
                             View All <IconRightArrow size={16} />
                         </Link>
