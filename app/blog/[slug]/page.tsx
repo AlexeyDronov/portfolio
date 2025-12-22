@@ -2,7 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBlogBySlug } from "@/app/lib/dataUtils";
-import MarkdownView from "@/app/components/MarkdownView";
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import { mdxComponents } from "@/app/components/mdx-components";
 import ContextualBackButton from "@/app/components/ContextualBackButton";
 
 interface BlogPostPageProps {
@@ -40,7 +41,7 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
                         ))}
                     </div>
 
-                    <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                    <h1 className="text-3xl md:text-5xl font-bold font-mono text-white mb-6 leading-tight">
                         {blog.title}
                     </h1>
 
@@ -52,8 +53,8 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
                 </header>
 
                 {/* Content */}
-                <div className="prose prose-invert prose-slate max-w-none prose-headings:font-bold prose-headings:text-white prose-p:text-text-secondary prose-a:text-primary prose-code:text-secondary prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-800">
-                    <MarkdownView content={blog.content} variant="page" />
+                <div className="prose prose-invert prose-slate max-w-none">
+                    <MDXRemote source={blog.content} components={mdxComponents} />
                 </div>
             </article>
 

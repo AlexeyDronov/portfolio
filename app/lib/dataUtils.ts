@@ -27,12 +27,17 @@ export interface BlogData {
     content: string;
 }
 
+function getFilesWithExtensions(dir: string, extensions: string[] = ['.md', '.mdx']) {
+    if (!fs.existsSync(dir)) return [];
+    return fs.readdirSync(dir).filter(file => extensions.includes(path.extname(file)));
+}
+
 export function getAllProjects(): ProjectData[] {
     if (!fs.existsSync(PROJECTS_DIR)) return [];
 
-    const files = fs.readdirSync(PROJECTS_DIR);
+    const files = getFilesWithExtensions(PROJECTS_DIR);
     const projects = files.map((filename) => {
-        const slug = filename.replace(/\.md$/, "");
+        const slug = filename.replace(/\.mdx?$/, "");
         const fullPath = path.join(PROJECTS_DIR, filename);
         const fileContents = fs.readFileSync(fullPath, "utf8");
         const { data, content } = matter(fileContents);
@@ -55,7 +60,12 @@ export function getAllProjects(): ProjectData[] {
 
 export function getProjectBySlug(slug: string): ProjectData | null {
     try {
-        const fullPath = path.join(PROJECTS_DIR, `${slug}.md`);
+        // Try md first, then mdx
+        let fullPath = path.join(PROJECTS_DIR, `${slug}.md`);
+        if (!fs.existsSync(fullPath)) {
+            fullPath = path.join(PROJECTS_DIR, `${slug}.mdx`);
+        }
+
         const fileContents = fs.readFileSync(fullPath, "utf8");
         const { data, content } = matter(fileContents);
         return {
@@ -77,9 +87,9 @@ export function getProjectBySlug(slug: string): ProjectData | null {
 export function getAllBlogs(): BlogData[] {
     if (!fs.existsSync(BLOGS_DIR)) return [];
 
-    const files = fs.readdirSync(BLOGS_DIR);
+    const files = getFilesWithExtensions(BLOGS_DIR);
     const blogs = files.map((filename) => {
-        const slug = filename.replace(/\.md$/, "");
+        const slug = filename.replace(/\.mdx?$/, "");
         const fullPath = path.join(BLOGS_DIR, filename);
         const fileContents = fs.readFileSync(fullPath, "utf8");
         const { data, content } = matter(fileContents);
@@ -100,7 +110,11 @@ export function getAllBlogs(): BlogData[] {
 
 export function getBlogBySlug(slug: string): BlogData | null {
     try {
-        const fullPath = path.join(BLOGS_DIR, `${slug}.md`);
+        let fullPath = path.join(BLOGS_DIR, `${slug}.md`);
+        if (!fs.existsSync(fullPath)) {
+            fullPath = path.join(BLOGS_DIR, `${slug}.mdx`);
+        }
+
         const fileContents = fs.readFileSync(fullPath, "utf8");
         const { data, content } = matter(fileContents);
         return {

@@ -92,7 +92,7 @@ export default function About() {
                 <div className="flex flex-col gap-8 order-2 lg:order-1 lg:w-2/3">
 
                     <div className="flex items-center gap-4 mb-4">
-                        <h2 className="text-3xl font-bold flex items-center text-primary gap-2">
+                        <h2 className="text-3xl font-bold flex items-center text-primary gap-2 font-mono">
                             <IconExperience className="w-8 h-8" /> <span className="text-text-primary">Experience</span>
                         </h2>
                     </div>
@@ -112,12 +112,12 @@ export default function About() {
                                 <div className="flex flex-col w-full">
                                     <div className="flex items-start justify-between mb-2">
                                         <div>
-                                            <h3 className="text-xl font-bold text-white">{exp.title}</h3>
+                                            <h3 className="text-xl font-bold text-white font-mono">{exp.title}</h3>
                                             <h4 className="text-secondary font-mono text-sm">{exp.company}</h4>
                                         </div>
                                         <span className="text-text-dim font-mono text-sm border border-slate-800 px-2 py-1 rounded-(--border-radius-sm) whitespace-nowrap">{exp.date}</span>
                                     </div>
-                                    <p className="text-text-secondary leading-relaxed mt-2">
+                                    <p className="text-text-secondary leading-relaxed mt-2 font-grotesk text-lg">
                                         {exp.description}
                                     </p>
                                 </div>
@@ -136,7 +136,7 @@ export default function About() {
                     </div>
 
                     <div className="flex items-center gap-4 mb-4">
-                        <h2 className="text-3xl font-bold text-secondary flex items-center gap-2">
+                        <h2 className="text-3xl font-bold text-secondary flex items-center gap-2 font-mono">
                             <IconEducation className="w-8 h-8" /> <span className="text-text-primary">Education</span>
                         </h2>
                     </div>
@@ -156,12 +156,12 @@ export default function About() {
                                 <div className="flex flex-col w-full">
                                     <div className="flex items-start justify-between mb-2">
                                         <div>
-                                            <h3 className="text-xl font-bold text-white">{edu.title}</h3>
+                                            <h3 className="text-xl font-bold text-white font-mono">{edu.title}</h3>
                                             <h4 className="text-secondary font-mono text-sm">{edu.company}</h4>
                                         </div>
                                         <span className="text-text-dim font-mono text-sm border border-slate-800 px-2 py-1 rounded-(--border-radius-sm) whitespace-nowrap">{edu.date}</span>
                                     </div>
-                                    <p className="text-text-secondary leading-relaxed mt-2">
+                                    <p className="text-text-secondary leading-relaxed mt-2 font-grotesk text-lg">
                                         {edu.description}
                                     </p>
                                 </div>
@@ -176,9 +176,9 @@ export default function About() {
 
                     {/* About Text */}
                     <div className="flex flex-col gap-4">
-                        <h2 className="text-3xl font-bold text-white mb-2 underline-primary">About Me</h2>
+                        <h2 className="text-3xl font-bold text-white mb-2 underline-primary font-mono">About Me</h2>
                         {ABOUT.map((par, index) => (
-                            <p key={index} className="text-text-secondary leading-relaxed text-lg">
+                            <p key={index} className="text-text-secondary leading-relaxed text-lg font-grotesk">
                                 {par.trim()}
                             </p>
                         ))}
@@ -187,7 +187,7 @@ export default function About() {
                             href="/Alexey Dronov CV.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-text-primary hover:text-primary transition-colors flex items-center gap-2 border-main w-fit mt-2"
+                            className="text-text-primary hover:text-primary transition-colors flex items-center gap-2 border-main w-fit mt-2 font-mono"
                         >
                             View Resume <IconRightUpArrow size={18} />
                         </Link>
@@ -196,7 +196,7 @@ export default function About() {
                     {/* Skills Carousel */}
                     <div className="flex flex-col gap-4">
                         <div className="flex items-center justify-between mb-2">
-                            <h3 className="text-xl font-bold text-white">Skills</h3>
+                            <h3 className="text-xl font-bold text-white font-mono">Skills</h3>
                         </div>
 
                         {/* Carousel Container */}

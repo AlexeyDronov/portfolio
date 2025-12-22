@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ProjectData } from "@/app/lib/dataUtils";
-import MarkdownView from "./MarkdownView";
+
 
 interface ProjectCardProps {
     project: ProjectData;
@@ -29,14 +29,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
                 {/* Content Section */}
                 <div className="p-6 flex flex-col grow">
-                    <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                    <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors font-mono">
                         {project.title}
                     </h2>
 
-                    {/* Replaced p tag with ReactMarkdown */}
-                    <div className="text-text-secondary text-base leading-relaxed mb-4 grow line-clamp-3">
-                        <MarkdownView content={project.summary} variant="card" />
-                    </div>
+                    {/* Replaced MarkdownView with plain text paragraph using proper font */}
+                    <p className="text-text-secondary text-base leading-relaxed mb-4 grow line-clamp-3 font-grotesk">
+                        {project.summary}
+                    </p>
 
                     <div className="w-full h-px bg-slate-700 my-4"></div>
 

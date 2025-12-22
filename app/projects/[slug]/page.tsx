@@ -2,7 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProjectBySlug } from "@/app/lib/dataUtils";
-import MarkdownView from "@/app/components/MarkdownView";
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import { mdxComponents } from "@/app/components/mdx-components";
 import ContextualBackButton from "@/app/components/ContextualBackButton";
 
 interface ProjectModalPageProps {
@@ -35,7 +36,7 @@ export default async function ProjectModalPage(props: ProjectModalPageProps) {
 
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-slate-900 sticky top-0 z-10">
-                    <h1 className="text-2xl md:text-3xl font-bold text-text-primary">{project.title}</h1>
+                    <h1 className="text-2xl md:text-3xl font-bold font-mono text-text-primary">{project.title}</h1>
                     <ContextualBackButton
                         defaultHref="/projects"
                         className="p-2 hover:bg-slate-800 rounded-none transition-colors text-text-secondary hover:text-white"
@@ -61,8 +62,8 @@ export default async function ProjectModalPage(props: ProjectModalPageProps) {
                     </div>
 
                     {/* Markdown Body */}
-                    <div className="prose prose-invert prose-slate max-w-none prose-headings:font-bold prose-headings:text-white prose-p:text-text-secondary prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-code:text-primary prose-pre:bg-slate-950 prose-pre:border prose-pre:border-slate-800">
-                        <MarkdownView content={project.content} variant="page" />
+                    <div className="prose prose-invert prose-slate max-w-none">
+                        <MDXRemote source={project.content} components={mdxComponents} />
                     </div>
 
                 </div>

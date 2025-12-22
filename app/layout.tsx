@@ -1,10 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, IBM_Plex_Sans, Space_Grotesk } from "next/font/google";
 import Navbar from "./components/Navbar";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm-plex-sans",
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
@@ -33,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-slate-950">
       <body
-        className={`${jetbrainsMono.variable} antialiased font-mono bg-slate-950 text-slate-200`}
+        className={`${jetbrainsMono.variable} ${ibmPlexSans.variable} ${spaceGrotesk.variable} antialiased font-mono bg-slate-950 text-slate-200`}
       >
         <Navbar />
         {children}

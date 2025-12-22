@@ -15,7 +15,7 @@ export default function Contact() {
         <section className="w-full border-t border-slate-800 bg-slate-950 py-16">
             <div className="max-w-[1200px] mx-auto px-4 flex flex-col items-center text-center gap-8">
 
-                <p className="text-xl text-text-secondary max-w-lg">
+                <p className="text-xl text-text-secondary max-w-lg font-mono">
                     Thanks for checking out my website! If you'd like to build something cool together, feel free to reach out.
                 </p>
 

@@ -19,7 +19,7 @@ export default function RecentWork() {
 
             {/* SECTION HEADER */}
             <div className="inline-flex flex-col gap-2">
-                <h2 className="text-3xl font-bold text-white decoration-primary underline-primary">Recent Projects</h2>
+                <h2 className="text-3xl font-bold text-white decoration-primary underline-primary font-mono">Recent Projects</h2>
             </div>
 
             {/* HIGHLIGHTED PROJECTS */}
@@ -61,15 +61,15 @@ export default function RecentWork() {
                   ${isEven ? 'lg:order-1 lg:text-right lg:items-end' : 'lg:order-2 lg:text-left lg:items-start'}
                 `}
                             >
-                                <h3 className="text-3xl font-bold text-primary group-hover:text-secondary transition-colors">
+                                <h3 className="text-3xl font-bold text-primary group-hover:text-secondary transition-colors font-mono">
                                     {project.title}
                                 </h3>
-                                <p className="text-text-secondary text-lg leading-relaxed max-w-xl">
+                                <p className="text-text-secondary text-lg leading-relaxed max-w-xl font-grotesk">
                                     {project.summary}
                                 </p>
                                 <Link
                                     href={`/projects/${project.slug}?from=home`}
-                                    className="inline-flex items-center gap-2 text-white border-main hover:text-primary transition-colors mt-4 w-fit"
+                                    className="inline-flex items-center gap-2 text-white border-main hover:text-primary transition-colors mt-4 w-fit font-mono"
                                 >
                                     View Project <IconRightArrow size={16} />
                                 </Link>
@@ -86,12 +86,12 @@ export default function RecentWork() {
             <div>
                 <div className="flex flex-col gap-6 mb-8">
                     <div className="flex items-center justify-between">
-                        <h3 className="text-3xl font-bold text-white underline-primary">Latest blog posts</h3>
-                        <Link href="/blog" className="hidden md:flex text-white hover:text-primary transition-colors items-center gap-2 border-main w-fit">
+                        <h3 className="text-3xl font-bold text-white underline-primary font-mono">Latest blog posts</h3>
+                        <Link href="/blog" className="hidden md:flex text-white hover:text-primary transition-colors items-center gap-2 border-main w-fit font-mono">
                             View All <IconRightArrow size={16} />
                         </Link>
                     </div>
-                    <Link href="/blog" className="md:hidden text-white hover:text-primary transition-colors flex items-center gap-2 border-main w-fit">
+                    <Link href="/blog" className="md:hidden text-white hover:text-primary transition-colors flex items-center gap-2 border-main w-fit font-mono">
                         View All <IconRightArrow size={16} />
                     </Link>
                 </div>
@@ -104,10 +104,10 @@ export default function RecentWork() {
                             className="group border border-slate-700 bg-slate-900/30 p-6 rounded-(--border-radius-sm) hover:border-primary/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.1)] transition-all duration-300 flex flex-col min-h-[200px] justify-between"
                         >
                             <div>
-                                <h4 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                                <h4 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors font-mono">
                                     {blog.title}
                                 </h4>
-                                <p className="text-text-secondary text-sm leading-relaxed mb-4">
+                                <p className="text-text-secondary text-sm leading-relaxed mb-4 font-grotesk">
                                     {blog.summary}
                                 </p>
                             </div>
@@ -123,7 +123,7 @@ export default function RecentWork() {
                             key={`missing-${i}`}
                             className="border border-slate-800 bg-slate-900/30 backdrop-blur-md p-6 rounded-(--border-radius-sm) flex items-center justify-center min-h-[200px]"
                         >
-                            <span className="text-text-dim italic">More posts coming soon...</span>
+                            <span className="text-text-dim italic font-mono">More posts coming soon...</span>
                         </div>
                     ))}
                 </div>
