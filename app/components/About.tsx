@@ -3,6 +3,7 @@
 import { IconExperience, IconEducation, IconRightUpArrow } from "./Icons";
 import Link from "next/link";
 import Image from "next/image";
+import SectionHeading from "./SectionHeading";
 
 interface ExperienceItem {
     id: number;
@@ -92,11 +93,10 @@ export default function About() {
                 {/* LEFT COLUMN: Experience & Education (Desktop Layout: Left (2/3)) */}
                 <div className="flex flex-col gap-8 order-2 lg:order-1 lg:w-2/3">
 
-                    <div className="flex items-center gap-4 mb-4">
-                        <h2 className="text-3xl font-bold flex items-center text-primary gap-2 font-mono">
-                            <IconExperience className="w-8 h-8" /> <span className="text-text-primary">Experience</span>
-                        </h2>
-                    </div>
+                    <SectionHeading
+                        title="Experience"
+                        icon={<IconExperience className="w-8 h-8" />}
+                    />
 
                     {EXPERIENCES.map((exp) => (
                         <div
@@ -136,11 +136,10 @@ export default function About() {
                         <div className="flex-1 h-px bg-slate-800"></div>
                     </div>
 
-                    <div className="flex items-center gap-4 mb-4">
-                        <h2 className="text-3xl font-bold text-secondary flex items-center gap-2 font-mono">
-                            <IconEducation className="w-8 h-8" /> <span className="text-text-primary">Education</span>
-                        </h2>
-                    </div>
+                    <SectionHeading
+                        title="Education"
+                        icon={<IconEducation className="w-8 h-8" />}
+                    />
 
                     {EDUCATION.map((edu) => (
                         <div
@@ -177,7 +176,7 @@ export default function About() {
 
                     {/* About Text */}
                     <div className="flex flex-col gap-4">
-                        <h2 className="text-3xl font-bold text-white mb-2 font-mono">About Me</h2>
+                        <SectionHeading title="About Me" />
                         {ABOUT.map((par, index) => (
                             <p key={index} className="text-text-secondary leading-relaxed text-lg font-sans">
                                 {par.trim()}
@@ -218,6 +217,6 @@ export default function About() {
                 </div>
 
             </div>
-        </section>
+        </section >
     );
 }

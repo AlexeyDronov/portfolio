@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { getAllProjects, getAllBlogs } from "@/app/lib/dataUtils";
 import { IconRightArrow } from "./Icons";
+import SectionHeading from "./SectionHeading";
 
 // Configuration: Adjust how many recent projects to display on home page
 const MAX_RECENT_PROJECTS = 3;
@@ -18,9 +19,7 @@ export default function RecentWork() {
         <section className="w-full max-w-[1200px] mx-auto min-h-screen py-24 px-4 flex flex-col gap-24">
 
             {/* SECTION HEADER */}
-            <div className="inline-flex flex-col gap-2">
-                <h2 className="text-3xl font-bold text-white decoration-primary font-mono">Recent Projects</h2>
-            </div>
+            <SectionHeading title="Recent Projects" />
 
             {/* HIGHLIGHTED PROJECTS */}
             <div className="flex flex-col gap-24">
@@ -86,7 +85,7 @@ export default function RecentWork() {
             <div>
                 <div className="flex flex-col gap-6 mb-8">
                     <div className="flex items-center justify-between">
-                        <h3 className="text-3xl font-bold text-white font-mono">Latest blog posts</h3>
+                        <SectionHeading title="Latest Posts" />
                         <Link href="/blog" className="hidden md:flex text-white hover:text-primary transition-colors duration-300 ease-out items-center gap-2 border-main w-fit font-mono tracking-wide">
                             View All <IconRightArrow size={16} />
                         </Link>
