@@ -2,6 +2,7 @@
 
 import { IconExperience, IconEducation, IconRightUpArrow } from "./Icons";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ExperienceItem {
     id: number;
@@ -72,7 +73,7 @@ export default function About() {
             // However, since I don't have actual images, this might break if I don't verify paths.
             // I will implement the structure.
             return (
-                <img src={icon} alt={company} className="w-12 h-12 rounded-(--border-radius-sm) object-cover" />
+                <Image src={icon} alt={company} width={48} height={48} className="w-12 h-12 rounded-(--border-radius-sm) object-cover" />
             );
         }
 

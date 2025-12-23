@@ -8,8 +8,8 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const ibmPlexSans = Space_Grotesk({
-  variable: "--font-ibm-plex-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   weight: ["400", "700"],
   subsets: ["latin"],
 });
@@ -39,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-slate-950">
       <body
-        className={`${jetbrainsMono.variable} ${ibmPlexSans.variable} antialiased font-mono bg-slate-950 text-slate-200`}
+        className={`${jetbrainsMono.variable} ${spaceGrotesk.variable} antialiased font-mono bg-slate-950 text-slate-200`}
       >
         <Navbar />
         {children}
