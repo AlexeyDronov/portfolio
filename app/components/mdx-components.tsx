@@ -3,17 +3,20 @@ import Link from 'next/link';
 
 export const mdxComponents = {
     h1: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-        <h1 className="text-3xl md:text-4xl font-bold font-mono text-white mb-6 mt-10" {...props}>
+        <h1 className="text-3xl md:text-4xl font-bold font-mono text-slate-100 mb-6 mt-10" {...props}>
+            <span className="text-primary opacity-70"># </span>
             {children}
         </h1>
     ),
     h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-        <h2 className="text-2xl md:text-3xl font-bold font-mono text-white mb-4 mt-8" {...props}>
+        <h2 className="text-2xl md:text-3xl font-bold font-mono text-slate-100 mb-4 mt-8" {...props}>
+            <span className="text-secondary opacity-70">## </span>
             {children}
         </h2>
     ),
     h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
-        <h3 className="text-xl md:text-2xl font-bold font-mono text-white mb-3 mt-6" {...props}>
+        <h3 className="text-xl md:text-2xl font-bold font-mono text-slate-100 mb-3 mt-6" {...props}>
+            <span className="text-tertiary opacity-70">### </span>
             {children}
         </h3>
     ),
@@ -44,12 +47,12 @@ export const mdxComponents = {
         </Link>
     ),
     ul: ({ children, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-        <ul className="list-disc list-inside mb-4 pl-4 text-text-secondary font-sans" {...props}>
+        <ul className="list-disc list-inside mb-4 pl-4 text-text-secondary font-sans text-lg" {...props}>
             {children}
         </ul>
     ),
     ol: ({ children, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
-        <ol className="list-decimal list-inside mb-4 pl-4 text-text-secondary font-sans" {...props}>
+        <ol className="list-decimal list-inside mb-4 pl-4 text-text-secondary font-sans text-lg" {...props}>
             {children}
         </ol>
     ),
@@ -75,7 +78,7 @@ export const mdxComponents = {
         </pre>
     ),
     blockquote: ({ children, ...props }: React.HTMLAttributes<HTMLQuoteElement>) => (
-        <blockquote className="border-l-4 border-primary pl-4 italic text-text-dim my-6 font-sans" {...props}>
+        <blockquote className="border-l-4 border-primary pl-4 py-3 bg-slate-900/50 rounded-r-md not-italic font-mono text-text-secondary my-6" {...props}>
             {children}
         </blockquote>
     ),

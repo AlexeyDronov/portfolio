@@ -29,13 +29,13 @@ export default function RecentWork() {
                     // So Index 0: Image Left. Index 1: Image Right.
 
                     return (
-                        <div key={project.slug} className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                        <div key={project.slug} className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
 
                             {/* IMAGE COLUMN */}
                             <div
                                 className={`
-                   w-full h-[200px] lg:h-[300px] rounded-(--border-radius-sm) overflow-hidden border border-slate-700 relative group cursor-pointer
-                   ${isEven ? 'lg:order-2' : 'lg:order-1'}
+                   w-full h-[200px] md:h-[250px] lg:h-[300px] rounded-(--border-radius-sm) overflow-hidden border border-slate-700 relative group cursor-pointer
+                   ${isEven ? 'md:order-2' : 'md:order-1'}
                 `}
                             >
                                 {/* Placeholder for actual image or fallbacks */}
@@ -56,8 +56,8 @@ export default function RecentWork() {
                             {/* TEXT COLUMN (Spans 2 cols) */}
                             <div
                                 className={`
-                  lg:col-span-2 flex flex-col gap-4 
-                  ${isEven ? 'lg:order-1 lg:text-right lg:items-end' : 'lg:order-2 lg:text-left lg:items-start'}
+                  md:col-span-2 flex flex-col gap-4 
+                  ${isEven ? 'md:order-1 md:text-right md:items-end' : 'md:order-2 md:text-left md:items-start'}
                 `}
                             >
                                 <h3 className="text-3xl font-bold text-primary group-hover:text-secondary transition-colors font-mono">

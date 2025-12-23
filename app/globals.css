@@ -33,7 +33,12 @@
 }
 
 body {
-  background: linear-gradient(to bottom, #020617, #0f172a);
+  background-color: #020617;
+  background-image:
+    linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, #020617, #0f172a);
+  background-size: 32px 32px, 32px 32px, 100% 100%;
   min-height: 100vh;
   color: var(--color-text-primary);
   padding-top: env(safe-area-inset-top);
@@ -44,6 +49,9 @@ html,
 body {
   overscroll-behavior: none;
   overflow-x: hidden;
+  /* Safari text sizing fix */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* Immersive Selection */
@@ -92,6 +100,21 @@ body {
   border-color: var(--color-primary);
   border-bottom-width: 2px;
   padding-bottom: 4px;
+}
+
+/* Text Glow Effects - Cranked up for visibility */
+.text-glow {
+  text-shadow:
+    0 0 10px rgba(168, 85, 247, 0.8),
+    0 0 20px rgba(168, 85, 247, 0.6),
+    0 0 40px rgba(168, 85, 247, 0.4) !important;
+}
+
+.text-glow-active {
+  text-shadow:
+    0 0 10px rgba(168, 85, 247, 1),
+    0 0 30px rgba(168, 85, 247, 0.8),
+    0 0 60px rgba(168, 85, 247, 0.5) !important;
 }
 
 @keyframes scroll {

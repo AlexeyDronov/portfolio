@@ -1,30 +1,43 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const SUBTITLE = 'Graduate Data Scientist and a nerd who loves tech and computers.'
+const HERO_ANIMATION_KEY = 'hero-animation-played';
 
 export default function Hero() {
     // ===== ANIMATION CONFIGURATION =====
     const CURSOR_BLINK_SPEED_MS = 1000;
 
-    // ===== STATE =====
-    const [displayedText, setDisplayedText] = useState("");
-    const [showCursor, setShowCursor] = useState(true);
-    const [animationComplete, setAnimationComplete] = useState(false);
-
-    // NEW: Track whether typing is still in progress (for cursor behavior)
-    const [isTyping, setIsTyping] = useState(true);
-
     const fullText = "> Hi, I'm Alexey";
     const nameStartIndex = "> Hi, I'm ".length;
 
-    useEffect(() => {
-        let timeoutId: NodeJS.Timeout;
-        let currentText = ""; // Local variable to string build without race conditions
+    // ===== STATE =====
+    const [displayedText, setDisplayedText] = useState("");
+    const [animationComplete, setAnimationComplete] = useState(false);
+    const [isTyping, setIsTyping] = useState(true);
+    const hasInitialized = useRef(false);
 
-        // Define sections with base typing speeds
+    useEffect(() => {
+        // Prevent double initialization in strict mode
+        if (hasInitialized.current) return;
+        hasInitialized.current = true;
+
+        // Check session storage synchronously before starting animation
+        const played = sessionStorage.getItem(HERO_ANIMATION_KEY);
+        if (played === 'true') {
+            // Skip animation - show completed state immediately
+            setDisplayedText(fullText);
+            setIsTyping(false);
+            setAnimationComplete(true);
+            return;
+        }
+
+        // Start typing animation
+        let timeoutId: NodeJS.Timeout;
+        let currentText = "";
+
         const sections = [
             { text: "> Hi, ", speed: 60 },
             { text: "I'm ", speed: 80 },
@@ -34,39 +47,33 @@ export default function Hero() {
         let sectionIndex = 0;
         let charInSection = 0;
 
-        // NEW: Humanized delay logic (micro-pauses + jitter)
         const getDelay = (char: string, baseSpeed: number) => {
             let delay = baseSpeed;
-
-            // Micro-pauses at natural boundaries
             if (char === "," || char === "'") delay += 100;
             if (char === " ") delay += 40;
-
-            // Slight randomness to avoid robotic timing
             const jitter = Math.random() * 20 - 10;
             delay += jitter;
-
             return Math.max(30, delay);
         };
 
         const typeNextChar = () => {
             if (sectionIndex >= sections.length) {
-                handleTypingComplete();
+                // Animation complete
+                setIsTyping(false);
+                setAnimationComplete(true);
+                sessionStorage.setItem(HERO_ANIMATION_KEY, 'true');
                 return;
             }
 
             const section = sections[sectionIndex];
             const char = section.text[charInSection];
 
-            // Append to local variable and set state directly
             currentText += char;
             setDisplayedText(currentText);
 
             charInSection++;
 
-            // Move to next section when done
             if (charInSection >= section.text.length) {
-
                 sectionIndex++;
                 charInSection = 0;
             }
@@ -77,17 +84,10 @@ export default function Hero() {
             );
         };
 
-        // Start typing
         typeNextChar();
 
-        // Cleanup on unmount
         return () => clearTimeout(timeoutId);
-    }, []);
-
-    const handleTypingComplete = () => {
-        setIsTyping(false); // NEW: Stop typing state
-        setAnimationComplete(true);
-    };
+    }, [fullText]);
 
     // Parsing the display text for coloring
     const renderText = () => {

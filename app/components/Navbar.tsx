@@ -41,10 +41,9 @@ export default function Navbar() {
                                 key={item.name}
                                 href={item.href}
                                 className={`
-                  relative flex items-center justify-center p-2 md:p-0 md:px-2 rounded-sm transition-colors duration-300 cursor-pointer
+                  relative flex items-center justify-center p-2 md:p-0 md:px-2 rounded-sm transition-all duration-300 cursor-pointer
                   group
-                  ${active ? "text-primary" : "text-text-secondary hover:text-text-primary"}
-                  hover:shadow-[0_0_20px_rgba(168,85,247,0.2)]
+                  ${active ? "text-primary text-glow-active" : "text-text-secondary hover:text-text-primary hover:text-glow"}
                 `}
                                 aria-current={active ? "page" : undefined}
                             >
@@ -79,7 +78,7 @@ export default function Navbar() {
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-text-secondary hover:text-primary transition-colors hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] p-2 rounded-sm cursor-pointer"
+                            className="text-text-secondary hover:text-primary transition-all duration-300 hover:text-glow p-2 rounded-sm cursor-pointer"
                         >
                             <social.icon size={24} className="pointer-events-none" />
                         </a>
