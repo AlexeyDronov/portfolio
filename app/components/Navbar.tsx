@@ -42,8 +42,7 @@ export default function Navbar() {
                                 href={item.href}
                                 className={`
                   relative flex items-center justify-center p-2 md:p-0 md:px-2 rounded-sm transition-all duration-300 cursor-pointer
-                  group
-                  ${active ? "text-primary text-glow-active" : "text-text-secondary hover:text-text-primary hover:text-glow"}
+                  ${active ? "text-primary text-glow-active" : "text-text-secondary hover:text-text-primary hover-text-glow"}
                 `}
                                 aria-current={active ? "page" : undefined}
                             >

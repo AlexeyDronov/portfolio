@@ -33,16 +33,18 @@
 }
 
 body {
-  background-color: #020617;
-  background-image:
-    linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, #020617, #0f172a);
   background-size: 32px 32px, 32px 32px, 100% 100%;
   min-height: 100vh;
   color: var(--color-text-primary);
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 16px;
+  /* Locks rem to 16px */
 }
 
 html,
@@ -108,6 +110,16 @@ body {
     0 0 10px rgba(168, 85, 247, 0.8),
     0 0 20px rgba(168, 85, 247, 0.6),
     0 0 40px rgba(168, 85, 247, 0.4) !important;
+}
+
+.hover-text-glow {
+  transition: text-shadow 0.3s ease;
+}
+
+.hover-text-glow:hover {
+  text-shadow:
+    0 0 10px rgba(168, 85, 247, 0.8),
+    0 0 20px rgba(168, 85, 247, 0.6);
 }
 
 .text-glow-active {

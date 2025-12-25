@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, IBM_Plex_Sans, Space_Grotesk, Host_Grotesk, Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
 import Navbar from "./components/Navbar";
 import "./globals.css";
+import * as Backgrounds from "./components/Background";
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -38,12 +39,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-slate-950">
+
       <body
-        className={`${jetbrainsMono.variable} ${spaceGrotesk.variable} antialiased font-mono bg-slate-950 text-slate-200`}
+        className={`${jetbrainsMono.variable} ${spaceGrotesk.variable} antialiased font-sans text-slate-200`}
       >
-        <Navbar />
-        {children}
+        {/* <Backgrounds.CyberpunkRainBackground /> */}
+        <Backgrounds.CombinedBackground>
+          <Backgrounds.RadialTopBackground />
+        </Backgrounds.CombinedBackground>
+        <div className="relative z-10">
+          <Navbar />
+          {children}
+        </div>
       </body>
-    </html>
+    </html >
   );
 }

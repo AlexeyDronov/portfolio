@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { getAllBlogs } from "@/app/lib/dataUtils";
+import SectionHeading from "../components/SectionHeading";
 
 export default function BlogPage() {
     const blogs = getAllBlogs();
@@ -8,7 +9,7 @@ export default function BlogPage() {
     return (
         <main className="min-h-screen w-full max-w-[800px] mx-auto pt-32 pb-24 px-4">
             <header className="mb-16">
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Blog</h1>
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 font-mono">Blog</h1>
                 <p className="text-xl text-text-secondary">
                     Welcome to my modest tech diary. I write about my projects, passions, and discoveries.
                 </p>
@@ -19,7 +20,7 @@ export default function BlogPage() {
                     <Link key={blog.slug} href={`/blog/${blog.slug}`} className="group">
                         <article className="flex flex-col md:flex-row md:items-baseline justify-between gap-2 md:gap-8 p-4 -mx-4 rounded-(--border-radius-sm) transition-colors hover:bg-slate-900/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.05)]">
                             <div className="flex-1">
-                                <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                                <h2 className="text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors font-mono">
                                     {blog.title}
                                 </h2>
                                 <p className="text-text-secondary leading-relaxed">
