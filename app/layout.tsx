@@ -43,10 +43,8 @@ export default function RootLayout({
       <body
         className={`${jetbrainsMono.variable} ${spaceGrotesk.variable} antialiased font-sans text-slate-200`}
       >
-        {/* <Backgrounds.CyberpunkRainBackground /> */}
-        <Backgrounds.CombinedBackground>
-          <Backgrounds.RadialTopBackground />
-        </Backgrounds.CombinedBackground>
+        {/* <Backgrounds.RadialTopBackground /> */}
+        <Backgrounds.SimpleBackground />
         <div className="relative z-10">
           <Navbar />
           {children}

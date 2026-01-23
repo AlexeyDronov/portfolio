@@ -332,7 +332,7 @@ export function CyberpunkRainBackground() {
 export function SnowyBackground() {
     return (
         <Snowfall
-            color="#475569"
+            color="#ffffff"
             snowflakeCount={80}
             radius={[1.0, 3.5]}
             style={{

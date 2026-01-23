@@ -53,13 +53,13 @@ const SKILLS = [
 
 const ABOUT = [
     `
-    Hey world! I’m Alexey Dronov, I grew up in Russia, deciding to move to the UK in pursuit of better education, job opportunities, and personal freedoms, choosing Edinburgh as my destination.
+    Hey everyone! I'm Alexey Dronov, I grew up in Russia and later moved to the UK, choosing Edinburgh as my home to pursue better education and career opportunities. 
     `,
     `
-    During my undergraduate years I pursued Mathematics, but realised the realm of abstraction was too abstract for me and decided to pivot into programming. Data Science Master’s was but a natural transition.
+    During my undergraduate years I studied Mathematics and started taking programming courses, quickly becoming drawn to tech and deciding to pivot into a CS career. As a result, I enrolled into a Data Science Masters programme, where I specialised in NLP and Data Engineering.
     `,
     `
-    Currently, I’m building cool projects and apps, writing blog posts (more coming soon!), and trying to figure out what’s the meaning of it all. Enjoy my little corner of the internet!
+    Currently, I make cool projects, build and deploy ML/AI - driven apps, and write my thoughts in blog posts. Hope you enjoy this little corner of the internet!
     `
 ]
 
@@ -68,11 +68,6 @@ export default function About() {
     // Icon fallback component
     const CompanyIcon = ({ company, icon }: { company: string, icon?: string }) => {
         if (icon) {
-            // In a real app, use next/image. For now using standard img tag or specific logic.
-            // Since user asked for "If icon exists: Show image", we assume standard img tag for simplicity or Next.js Image if imported.
-            // I'll use a simple img tag with fallback onError handling if needed, but styling as requested.
-            // However, since I don't have actual images, this might break if I don't verify paths.
-            // I will implement the structure.
             return (
                 <Image src={icon} alt={company} width={48} height={48} className="w-12 h-12 rounded-(--border-radius-sm) object-cover" />
             );
@@ -195,10 +190,6 @@ export default function About() {
 
                     {/* Skills Carousel */}
                     <div className="flex flex-col gap-4">
-                        {/* <div className="flex items-center justify-between mb-2">
-                            <h3 className="text-xl font-bold text-white font-mono">Skills</h3>
-                        </div> */}
-
                         {/* Carousel Container */}
                         <div className="relative w-full overflow-hidden min-h-[40px] flex items-center mask-[linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
                             <div className="flex gap-3 w-max animate-scroll hover:pause-on-hover">
