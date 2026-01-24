@@ -33,7 +33,6 @@ export const RadialTopBackground = () => {
         </div>
     );
 };
-
 export function ParticlesBackground() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -132,80 +131,7 @@ export function ParticlesBackground() {
     return (
         <div className="fixed inset-0 -z-10 pointer-events-none">
             <div className="absolute inset-0 bg-linear-to-b from-slate-950 via-slate-900 to-slate-950" />
-            <canvas ref={canvasRef} className="absolute inset-0 opacity-60" />
-        </div>
-    );
-};
-
-export function MatrixRainBackground() {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-
-        const ctx = canvas.getContext("2d");
-        if (!ctx) return;
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()";
-        const fontSize = 14;
-        const columns = canvas.width / fontSize;
-        const drops: number[] = [];
-
-        for (let i = 0; i < columns; i++) {
-            drops[i] = Math.random() * -100;
-        }
-
-        function draw() {
-            if (!ctx || !canvas) return;
-
-            ctx.fillStyle = "rgba(2, 6, 23, 0.05)";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.font = fontSize + "px monospace";
-
-            for (let i = 0; i < drops.length; i++) {
-                const char = chars[Math.floor(Math.random() * chars.length)];
-                const x = i * fontSize;
-                const y = drops[i] * fontSize;
-
-                // Color gradient based on position
-                const gradient = ctx.createLinearGradient(x, y - fontSize * 20, x, y);
-                gradient.addColorStop(0, "rgba(168, 85, 247, 0)");
-                gradient.addColorStop(0.5, "rgba(168, 85, 247, 0.5)");
-                gradient.addColorStop(1, "rgba(168, 85, 247, 1)");
-
-                ctx.fillStyle = gradient;
-                ctx.fillText(char, x, y);
-
-                if (y > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-
-        const interval = setInterval(draw, 33);
-
-        const handleResize = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
-
-        window.addEventListener("resize", handleResize);
-        return () => {
-            clearInterval(interval);
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
-    return (
-        <div className="fixed inset-0 -z-10 pointer-events-none">
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950" />
-            <canvas ref={canvasRef} className="absolute inset-0" />
+            {/* <canvas ref={canvasRef} className="absolute inset-0 opacity-60" /> */}
         </div>
     );
 };
@@ -347,11 +273,3 @@ export function SnowyBackground() {
         />
     )
 };
-
-export function CombinedBackground({ children }: { children: React.ReactNode }) {
-    return (
-        <>
-            {children}
-        </>
-    );
-}

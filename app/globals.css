@@ -146,3 +146,13 @@ body {
 .pause-on-hover:hover {
   animation-play-state: paused;
 }
+
+/* Solid background utility for content areas - blocks particles from showing through */
+.content-solid-bg {
+  position: relative;
+  background-color: var(--color-bg);
+  /* Subtle fade at edges for seamless blend */
+  box-shadow: 
+    0 0 80px 40px var(--color-bg),
+    0 0 120px 60px var(--color-bg);
+}
