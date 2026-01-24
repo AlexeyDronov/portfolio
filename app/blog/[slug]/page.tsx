@@ -1,4 +1,4 @@
-import React from "react";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBlogBySlug } from "@/app/lib/dataUtils";
@@ -60,4 +60,72 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
 
         </main>
     );
+}
+
+export async function generateMetadata(
+    props: BlogPostPageProps
+): Promise<Metadata> {
+    const { slug } = await props.params;
+    const blog = getBlogBySlug(slug);
+
+    if (!blog) {
+        return {
+            title: 'Blog Not Found',
+        };
+    }
+
+    const { title, summary, date, ogImage } = blog;
+
+    // Construct the absolute URL for the OG image
+    // Priority:
+    // 1. ogImage from frontmatter (if provided)
+    // 2. /images/${slug}-og.png (convention)
+    // 3. /images/default-og.png (fallback)
+
+    const siteUrl = 'https://www.alexeydronov.com';
+    let ogUrl = `${siteUrl}/images/default-og.png`; // Default fallback
+
+    if (ogImage) {
+        // If ogImage is absolute, use it. If relative, prepend siteUrl
+        if (ogImage.startsWith('http')) {
+            ogUrl = ogImage;
+        } else {
+            ogUrl = `${siteUrl}${ogImage.startsWith('/') ? '' : '/'}${ogImage}`;
+        }
+    } else {
+        // Check if the slug-based image exists in public/images
+        // Note: In a production environment (Vercel/Next.js), checking file system might behave differently 
+        // depending on how assets are bundled, but for SSG/SSR reading from public is often tricky or not recommended at runtime.
+        // However, since we are fetching metadata, assuming the image exists at that path is a common pattern.
+        // A robust way is to just assume it exists if we follow convention, or check via fs if needed.
+        // For simplicity and performance, we can construct the URL.
+        // If the user ensures the image exists, it will work.
+        ogUrl = `${siteUrl}/images/${slug}-og.png`;
+    }
+
+    return {
+        title: title,
+        description: summary,
+        openGraph: {
+            title: title,
+            description: summary,
+            url: `${siteUrl}/blog/${slug}`,
+            type: 'article',
+            publishedTime: date,
+            images: [
+                {
+                    url: ogUrl,
+                    width: 1200,
+                    height: 630,
+                    alt: title,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: title,
+            description: summary,
+            images: [ogUrl],
+        },
+    };
 }

@@ -24,6 +24,7 @@ export interface BlogData {
     topic: string;
     summary: string;
     tags: string[];
+    ogImage?: string;
     content: string;
 }
 
@@ -101,6 +102,7 @@ export function getAllBlogs(): BlogData[] {
             topic: data.topic || "",
             summary: data.summary,
             tags: data.tags || [],
+            ogImage: data.ogImage,
             content,
         };
     });
@@ -124,6 +126,7 @@ export function getBlogBySlug(slug: string): BlogData | null {
             topic: data.topic || "",
             summary: data.summary,
             tags: data.tags || [],
+            ogImage: data.ogImage,
             content,
         };
     } catch (error) {
