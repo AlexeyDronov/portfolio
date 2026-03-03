@@ -32,6 +32,11 @@
   --radius-3xl: 4px;
 }
 
+
+html {
+  font-size: 16px;
+  /* Locks rem to 16px */
+}
 body {
   background-size: 32px 32px, 32px 32px, 100% 100%;
   min-height: 100vh;
@@ -40,17 +45,12 @@ body {
   padding-bottom: env(safe-area-inset-bottom);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-html {
-  font-size: 16px;
-  /* Locks rem to 16px */
+  overflow-x: hidden;
 }
 
 html,
 body {
   overscroll-behavior: none;
-  overflow-x: hidden;
   /* Safari text sizing fix */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -152,7 +152,7 @@ body {
   position: relative;
   background-color: var(--color-bg);
   /* Subtle fade at edges for seamless blend */
-  box-shadow: 
+  box-shadow:
     0 0 80px 40px var(--color-bg),
     0 0 120px 60px var(--color-bg);
 }
