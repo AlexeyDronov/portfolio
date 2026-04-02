@@ -140,4 +140,36 @@ export const mdxComponents = {
       {children}
     </blockquote>
   ),
+  table: ({ children, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
+    <div className="overflow-x-auto my-8">
+      <table className="w-full text-left border-collapse border border-slate-700 text-text-secondary font-sans" {...props}>
+        {children}
+      </table>
+    </div>
+  ),
+  thead: ({ children, ...props }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <thead className="bg-slate-800/80 text-slate-100 font-mono text-sm border-b border-slate-700" {...props}>
+      {children}
+    </thead>
+  ),
+  tbody: ({ children, ...props }: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <tbody className="divide-y divide-slate-700/50" {...props}>
+      {children}
+    </tbody>
+  ),
+  tr: ({ children, ...props }: React.HTMLAttributes<HTMLTableRowElement>) => (
+    <tr className="transition-colors hover:bg-slate-800/30" {...props}>
+      {children}
+    </tr>
+  ),
+  th: ({ children, ...props }: React.ThHTMLAttributes<HTMLTableHeaderCellElement>) => (
+    <th className="px-4 py-3 font-semibold border-r border-slate-700 last:border-r-0" {...props}>
+      {children}
+    </th>
+  ),
+  td: ({ children, ...props }: React.TdHTMLAttributes<HTMLTableDataCellElement>) => (
+    <td className="px-4 py-3 border-r border-slate-700 last:border-r-0" {...props}>
+      {children}
+    </td>
+  ),
 };

@@ -1,5 +1,4 @@
-import React from "react";
-import Link from "next/link";
+import remarkGfm from "remark-gfm";
 import { notFound } from "next/navigation";
 import { getProjectBySlug } from "@/app/lib/dataUtils";
 import { MDXRemote } from 'next-mdx-remote/rsc';
@@ -63,7 +62,15 @@ export default async function ProjectModalPage(props: ProjectModalPageProps) {
 
                     {/* Markdown Body */}
                     <div className="prose prose-invert prose-slate max-w-none">
-                        <MDXRemote source={project.content} components={mdxComponents} />
+                        <MDXRemote
+                            source={project.content} 
+                            components={mdxComponents} 
+                            options={{
+                                mdxOptions: {
+                                    remarkPlugins: [remarkGfm],
+                                }
+                            }}
+                        />
                     </div>
 
                 </div>
