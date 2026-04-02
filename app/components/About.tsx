@@ -179,7 +179,7 @@ export default function About() {
                         ))}
 
                         <Link
-                            href="/Alexey Dronov CV.pdf"
+                            href="/resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-text-primary hover:text-primary transition-colors duration-300 ease-out flex items-center gap-2 border-main w-fit mt-2 font-mono tracking-wide"
