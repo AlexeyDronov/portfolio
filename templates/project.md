@@ -5,6 +5,7 @@ summary: "SHORT SUMMARY"
 tags: ["TAG1", "TAG2"]
 skills: ["SKILL1", "SKILL2"]
 image: "/projects/project.jpg"
+featured: true/false
 ---
 
 ## Overview

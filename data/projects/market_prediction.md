@@ -28,12 +28,3 @@ The multimodal pipeline consists of several components, designed in isolation to
 
 ## Links
 - [Check out this GitHub repo!](https://github.com/AlexeyDronov/financial-market-prediction-llm)
-
-## Future Plans
-
-Since this project was part of my Master's degree and was time-constrained, there are several extensions I would like to implement. I have many ideas, but the core ones are:
-
-1. Extend the scope of the data by substituting ETF data for crypto data and presidential sentiment for financial news and reddit/twitter sentiment. Current version uses a relatively low amount of data, and, by extending the scope, I am hoping to push the pipeline generalisation abilities even further
-2. Extend the project to deal with live streaming of data. Live inference has always been a major goal of this project, and I'm hoping it will result in an interesting and useful trading tool.
-3. Developing backtesting strategies to test out the pipeline in real-world scenarios. I'm hoping to see how it compares on live market data and how much profit (most likely loss) can be ripped.
-4. A live dashboard. *Dashboards are cool*! 
