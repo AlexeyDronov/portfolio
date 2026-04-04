@@ -19,9 +19,8 @@ const EXPERIENCES: ExperienceItem[] = [
         id: 1,
         title: "Business Analyst",
         company: "Blackmont Consulting",
-        date: "2025 - Present",
+        date: "Nov 2025 - Jan 2026",
         description: "Led a team of 3 consultants developing legal and operational business toolkits that enabled client expansion into North American and Indian markets (50% growth)",
-        // icon: "/icons/tech-corp.png" 
         icon: '/blackmont.jpeg'
     },
 ];
