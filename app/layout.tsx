@@ -43,7 +43,6 @@ export default function RootLayout({
       <body
         className={`${jetbrainsMono.variable} ${spaceGrotesk.variable} antialiased font-sans text-slate-200`}
       >
-        {/* <Backgrounds.ParticlesBackground /> */}
         <Backgrounds.SimpleBackground />
         <div className="relative z-10">
           <Navbar />
