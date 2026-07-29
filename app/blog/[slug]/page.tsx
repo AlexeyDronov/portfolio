@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getBlogBySlug } from "@/app/lib/dataUtils";
+import { getAllBlogs, getBlogBySlug } from "@/app/lib/dataUtils";
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { mdxComponents } from "@/app/components/mdx-components";
 import ContextualBackButton from "@/app/components/ContextualBackButton";
 
 interface BlogPostPageProps {
     params: { slug: string };
+}
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+    return getAllBlogs().map(({ slug }) => ({ slug }));
 }
 
 export default async function BlogPostPage(props: BlogPostPageProps) {
@@ -83,7 +88,7 @@ export async function generateMetadata(
     // 3. /images/default-og.png (fallback)
 
     const siteUrl = 'https://www.alexeydronov.com';
-    let ogUrl = `${siteUrl}/images/default-og.png`; // Default fallback
+    let ogUrl: string;
 
     if (ogImage) {
         // If ogImage is absolute, use it. If relative, prepend siteUrl

@@ -2,8 +2,17 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const PROJECTS_DIR = path.join(process.cwd(), "data/projects");
-const BLOGS_DIR = path.join(process.cwd(), "data/blogs");
+const PROJECTS_DIR = path.join(
+    process.cwd(),
+    "data",
+    "projects",
+);
+const BLOGS_DIR = path.join(
+    process.cwd(),
+    "data",
+    "blogs",
+);
+const SAFE_SLUG_PATTERN = /^[a-z0-9_-]{1,100}$/i;
 
 export interface ProjectData {
     slug: string;
@@ -30,7 +39,36 @@ export interface BlogData {
 
 function getFilesWithExtensions(dir: string, extensions: string[] = ['.md', '.mdx']) {
     if (!fs.existsSync(dir)) return [];
-    return fs.readdirSync(dir).filter(file => extensions.includes(path.extname(file)));
+    return fs.readdirSync(dir, { withFileTypes: true })
+        .filter(entry => entry.isFile() && extensions.includes(path.extname(entry.name)))
+        .map(entry => entry.name);
+}
+
+function getContentPath(
+    directory: string,
+    slug: string,
+    extensions: string[] = [".md", ".mdx"],
+): string | null {
+    if (!SAFE_SLUG_PATTERN.test(slug) || !fs.existsSync(directory)) {
+        return null;
+    }
+
+    const realDirectory = fs.realpathSync(directory);
+
+    for (const extension of extensions) {
+        const candidate = path.join(directory, `${slug}${extension}`);
+
+        if (path.dirname(candidate) !== directory || !fs.existsSync(candidate)) {
+            continue;
+        }
+
+        const realCandidate = fs.realpathSync(candidate);
+        if (path.dirname(realCandidate) === realDirectory && fs.statSync(realCandidate).isFile()) {
+            return realCandidate;
+        }
+    }
+
+    return null;
 }
 
 export function getAllProjects(): ProjectData[] {
@@ -61,11 +99,8 @@ export function getAllProjects(): ProjectData[] {
 
 export function getProjectBySlug(slug: string): ProjectData | null {
     try {
-        // Try md first, then mdx
-        let fullPath = path.join(PROJECTS_DIR, `${slug}.md`);
-        if (!fs.existsSync(fullPath)) {
-            fullPath = path.join(PROJECTS_DIR, `${slug}.mdx`);
-        }
+        const fullPath = getContentPath(PROJECTS_DIR, slug);
+        if (!fullPath) return null;
 
         const fileContents = fs.readFileSync(fullPath, "utf8");
         const { data, content } = matter(fileContents);
@@ -80,7 +115,7 @@ export function getProjectBySlug(slug: string): ProjectData | null {
             featured: data.featured || false,
             content,
         };
-    } catch (error) {
+    } catch {
         return null;
     }
 }
@@ -112,10 +147,8 @@ export function getAllBlogs(): BlogData[] {
 
 export function getBlogBySlug(slug: string): BlogData | null {
     try {
-        let fullPath = path.join(BLOGS_DIR, `${slug}.md`);
-        if (!fs.existsSync(fullPath)) {
-            fullPath = path.join(BLOGS_DIR, `${slug}.mdx`);
-        }
+        const fullPath = getContentPath(BLOGS_DIR, slug);
+        if (!fullPath) return null;
 
         const fileContents = fs.readFileSync(fullPath, "utf8");
         const { data, content } = matter(fileContents);
@@ -129,7 +162,7 @@ export function getBlogBySlug(slug: string): BlogData | null {
             ogImage: data.ogImage,
             content,
         };
-    } catch (error) {
+    } catch {
         return null;
     }
 }

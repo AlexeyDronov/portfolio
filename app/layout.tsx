@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono, IBM_Plex_Sans, Space_Grotesk, Host_Grotesk, Hanken_Grotesk, Schibsted_Grotesk } from "next/font/google";
+import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import Navbar from "./components/Navbar";
 import "./globals.css";
 import * as Backgrounds from "./components/Background";

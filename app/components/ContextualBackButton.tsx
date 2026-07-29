@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { IconLeftArrow, IconX } from "./Icons";
@@ -14,7 +14,7 @@ interface ContextualBackButtonProps {
     ariaLabel?: string;
 }
 
-export default function ContextualBackButton({ defaultHref, label, homeLabel, icon = "arrow", className = "", ariaLabel }: ContextualBackButtonProps) {
+function ContextualBackButtonContent({ defaultHref, label, homeLabel, icon = "arrow", className = "", ariaLabel }: ContextualBackButtonProps) {
     const searchParams = useSearchParams();
     const router = useRouter();
     const fromHome = searchParams.get("from") === "home";
@@ -41,5 +41,33 @@ export default function ContextualBackButton({ defaultHref, label, homeLabel, ic
             {icon === "close" && <IconX size={24} />}
             {currentLabel && <span>{currentLabel}</span>}
         </Link>
+    );
+}
+
+export default function ContextualBackButton(props: ContextualBackButtonProps) {
+    const {
+        defaultHref,
+        label,
+        icon = "arrow",
+        className = "",
+        ariaLabel,
+    } = props;
+
+    const fallback = (
+        <Link
+            href={defaultHref}
+            className={className}
+            aria-label={ariaLabel || label || "Go back"}
+        >
+            {icon === "arrow" && <IconLeftArrow size={16} />}
+            {icon === "close" && <IconX size={24} />}
+            {label && <span>{label}</span>}
+        </Link>
+    );
+
+    return (
+        <Suspense fallback={fallback}>
+            <ContextualBackButtonContent {...props} />
+        </Suspense>
     );
 }

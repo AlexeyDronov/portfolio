@@ -1,21 +1,42 @@
 import Link from "next/link";
 import Image from "next/image";
 
+const SITE_ORIGIN = "https://www.alexeydronov.com";
+const ALLOWED_LINK_PROTOCOLS = new Set(["http:", "https:", "mailto:", "tel:"]);
+
+function getSafeHref(href: React.ComponentProps<typeof Link>["href"]) {
+  if (typeof href !== "string") return "#";
+
+  const trimmedHref = href.trim();
+
+  try {
+    const url = new URL(trimmedHref, SITE_ORIGIN);
+    return ALLOWED_LINK_PROTOCOLS.has(url.protocol) ? trimmedHref : "#";
+  } catch {
+    return "#";
+  }
+}
+
 const StyledLink = ({
   href,
   children,
   className,
   ...props
 }: React.ComponentProps<typeof Link> & React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
-  const isExternal = typeof href === "string" && href.startsWith("http");
+  const safeHref = getSafeHref(href);
+  const parsedHref = new URL(safeHref, SITE_ORIGIN);
+  const isExternal =
+    (parsedHref.protocol === "http:" || parsedHref.protocol === "https:") &&
+    parsedHref.origin !== SITE_ORIGIN;
+
   return (
     <Link
-      href={href || "#"}
+      {...props}
+      href={safeHref}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
       className={`text-primary underline underline-offset-4 cursor-pointer font-sans ${className || ""
         }`}
-      {...props}
     >
       {children}
     </Link>
@@ -105,7 +126,6 @@ export const mdxComponents = {
   ),
   code: ({
     children,
-    className,
     ...props
   }: React.HTMLAttributes<HTMLElement>) => {
     // Check if it's an inline code block (no class usually or simple) or block

@@ -1,7 +1,5 @@
-import React from "react";
 import Link from "next/link";
 import { getAllBlogs } from "@/app/lib/dataUtils";
-import SectionHeading from "../components/SectionHeading";
 
 export default function BlogPage() {
     const blogs = getAllBlogs();

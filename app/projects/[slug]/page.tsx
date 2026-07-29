@@ -1,12 +1,18 @@
 import remarkGfm from "remark-gfm";
 import { notFound } from "next/navigation";
-import { getProjectBySlug } from "@/app/lib/dataUtils";
+import { getAllProjects, getProjectBySlug } from "@/app/lib/dataUtils";
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { mdxComponents } from "@/app/components/mdx-components";
 import ContextualBackButton from "@/app/components/ContextualBackButton";
 
 interface ProjectModalPageProps {
     params: { slug: string };
+}
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+    return getAllProjects().map(({ slug }) => ({ slug }));
 }
 
 export default async function ProjectModalPage(props: ProjectModalPageProps) {
