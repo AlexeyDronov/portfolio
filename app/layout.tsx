@@ -25,10 +25,13 @@ export const viewport: Viewport = {
 
 // 2. SEO and Social config
 export const metadata: Metadata = {
-  title: "Alexey Dronov Portfolio",
-  description: "Cyberpunk Minimal Portfolio",
+  title: {
+    default: "Alexey Dronov | Full Stack Engineer",
+    template: "%s | Alexey Dronov",
+  },
+  description: "Portfolio of Alexey Dronov, a Full Stack Engineer working across web applications, data pipelines, quality assurance, and automation.",
   appleWebApp: {
-    title: "website",
+    title: "Alexey Dronov",
   },
 };
 

@@ -4,9 +4,9 @@ import React from "react";
 import { LogoGitHub, LogoLinkedin, IconMail } from "./Icons";
 
 const SOCIALS = [
-    { icon: LogoGitHub, href: "https://github.com/alexeydronov", key: 1 },
-    { icon: LogoLinkedin, href: "https://linkedin.com/in/alexey-dronov", key: 2 },
-    { icon: IconMail, href: "mailto:alexey.dronov@outlook.com", key: 3 },
+    { icon: LogoGitHub, href: "https://github.com/alexeydronov", label: "GitHub" },
+    { icon: LogoLinkedin, href: "https://linkedin.com/in/alexey-dronov", label: "LinkedIn" },
+    { icon: IconMail, href: "mailto:alexey.dronov@outlook.com", label: "Email Alexey" },
 ];
 
 
@@ -22,8 +22,9 @@ export default function Contact() {
                 <div className="flex items-center gap-8">
                     {SOCIALS.map((social) => (
                         <a
-                            key={social.key}
+                            key={social.label}
                             href={social.href}
+                            aria-label={social.label}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-text-secondary hover:text-primary hover:shadow-[0_0_20px_rgba(168,85,247,0.4)] transition-all duration-300 p-2 rounded-(--border-radius-sm)"
@@ -34,7 +35,7 @@ export default function Contact() {
                 </div>
 
                 <p className="text-text-dim text-sm font-mono mt-8">
-                    © {new Date().getFullYear()} Alexey. Rights reserved. Vibes present.
+                    © {new Date().getFullYear()} Alexey Dronov. Built with Next.js.
                 </p>
 
             </div>

@@ -1,18 +1,17 @@
 # Portfolio Website
-This is a personal portfolio website I built with Next.js and Tailwind CSS. The whole thing was built using an AI agent end to end, you can check out my thoughts and experience in this blog post: https://www.alexeydronov.com/blog/website-with-ai. Cyberpunk aesthetic was chosen in honour of great Philip K. Dick and because a "robot" essentially built the site for me :)
+This is my personal portfolio, built with Next.js and Tailwind CSS. I wrote about the process of building it with an AI agent in [Building With AI](https://www.alexeydronov.com/blog/website-with-ai). Its cyberpunk-inspired visual direction is a nod to Philip K. Dick and to the AI-assisted build process.
 
-Hosted on vercel and can be visited at [alexeydronov.com](https://www.alexeydronov.com/)
+The site is hosted on Vercel at [alexeydronov.com](https://www.alexeydronov.com/).
 
 ## Tech Stack
 - **Framework:** Next.js 16
-- **Styling:** Tailwind CSS 4 and Styled Components
+- **Styling:** Tailwind CSS 4
 - **Animations:** Framer Motion
-- **Content:** MDX and React Markdown for blog posts and project details
-- **Icons:** Lucide React
+- **Content:** Markdown and MDX for blog posts and project details
 
 
 ## Using as a Template
-Feel free to use this website as a template for your own portfolio!
+Feel free to adapt this website as a starting point for your own portfolio.
 
 ### Getting Started
 First, install the dependencies:

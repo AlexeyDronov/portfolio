@@ -17,11 +17,19 @@ interface ExperienceItem {
 const EXPERIENCES: ExperienceItem[] = [
     {
         id: 1,
-        title: "Business Analyst",
-        company: "Blackmont Consulting",
-        date: "Nov 2025 - Jan 2026",
-        description: "Led a team of 3 consultants developing legal and operational business toolkits that enabled client expansion into North American and Indian markets (50% growth)",
-        icon: '/blackmont.jpeg'
+        title: "Full Stack Engineer",
+        company: "Really Good Culture",
+        date: "Jul 2026 - Present",
+        description: "Supporting frontend, backend, QA, and data infrastructure for a predictive retail intelligence platform, with a focus on reliable internal data pipelines.",
+        icon: "/rgc-logo.png",
+    },
+    {
+        id: 2,
+        title: "Data Engineer (Freelance)",
+        company: "Infometeos LLC",
+        date: "Jan 2026 - Present",
+        description: "Developing weather-risk probability methods, analytical inputs, dashboards, and validation tooling that automate data ingestion, cleaning, and aggregation.",
+        icon: "/logoinfometeos.png",
     },
 ];
 
@@ -45,20 +53,20 @@ const EDUCATION: ExperienceItem[] = [
 ];
 
 const SKILLS = [
-    "Python", "Scala", "SQL",
-    "PyTorch", "Sklearn", "TensorFlow",
-    "Docker", "FastAPI"
+    "TypeScript", "React", "Next.js",
+    "Python", "SQL", "PySpark",
+    "Docker", "FastAPI", "Automated Testing"
 ];
 
 const ABOUT = [
     `
-    Hey everyone! I'm Alexey Dronov, I grew up in Russia and later moved to the UK, choosing Edinburgh as my home to pursue better education and career opportunities. 
+    I'm Alexey, a Full Stack Engineer at Really Good Culture, working across product development, quality assurance, and data infrastructure.
     `,
     `
-    During my undergraduate years I studied Mathematics and started taking programming courses, quickly becoming drawn to tech and deciding to pivot into a CS career. As a result, I enrolled into a Data Science Masters programme, where I specialised in NLP and Data Engineering.
+    Alongside my full-time role, I work as a freelance Data Engineer with Infometeos, building weather-risk methodologies and automating analytical data workflows.
     `,
     `
-    Currently, I make cool projects, build and deploy ML/AI - driven apps, and write my thoughts in blog posts. Hope you enjoy this little corner of the internet!
+    My background spans mathematics, data science, and software engineering. I enjoy building reliable data products, exploring how systems behave at scale, and writing about what I learn.
     `
 ]
 
@@ -68,7 +76,7 @@ export default function About() {
     const CompanyIcon = ({ company, icon }: { company: string, icon?: string }) => {
         if (icon) {
             return (
-                <Image src={icon} alt={company} width={48} height={48} className="w-12 h-12 rounded-(--border-radius-sm) object-cover" />
+                <Image src={icon} alt={company} width={48} height={48} className="w-12 h-12 rounded-(--border-radius-sm) object-contain bg-slate-950/70 p-1" />
             );
         }
 
@@ -105,7 +113,7 @@ export default function About() {
 
                                 {/* Content Section - Right */}
                                 <div className="flex flex-col w-full">
-                                    <div className="flex items-start justify-between mb-2">
+                                    <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between mb-2">
                                         <div>
                                             <h3 className="text-xl font-bold text-white font-mono">{exp.title}</h3>
                                             <h4 className="text-secondary font-mono text-sm">{exp.company}</h4>
@@ -148,7 +156,7 @@ export default function About() {
 
                                 {/* Content Section - Right */}
                                 <div className="flex flex-col w-full">
-                                    <div className="flex items-start justify-between mb-2">
+                                    <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between mb-2">
                                         <div>
                                             <h3 className="text-xl font-bold text-white font-mono">{edu.title}</h3>
                                             <h4 className="text-secondary font-mono text-sm">{edu.company}</h4>
@@ -178,7 +186,7 @@ export default function About() {
                         ))}
 
                         <Link
-                            href="/resume.pdf"
+                            href="/Alexey_Dronov_Resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-text-primary hover:text-primary transition-colors duration-300 ease-out flex items-center gap-2 border-main w-fit mt-2 font-mono tracking-wide"

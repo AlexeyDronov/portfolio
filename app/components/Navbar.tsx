@@ -15,9 +15,9 @@ export default function Navbar() {
     ];
 
     const socialIcons = [
-        { icon: LogoGitHub, href: "https://github.com/alexeydronov" },
-        { icon: LogoLinkedin, href: "https://linkedin.com/in/alexey-dronov" },
-        { icon: IconMail, href: "mailto:alexey.dronov@outlook.com" },
+        { icon: LogoGitHub, href: "https://github.com/alexeydronov", label: "GitHub" },
+        { icon: LogoLinkedin, href: "https://linkedin.com/in/alexey-dronov", label: "LinkedIn" },
+        { icon: IconMail, href: "mailto:alexey.dronov@outlook.com", label: "Email Alexey" },
     ];
 
     /* Helpers for Active State */
@@ -75,6 +75,7 @@ export default function Navbar() {
                         <a
                             key={idx}
                             href={social.href}
+                            aria-label={social.label}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-text-secondary hover:text-primary transition-all duration-300 hover:text-glow p-2 rounded-sm cursor-pointer"

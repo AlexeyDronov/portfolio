@@ -3,8 +3,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
-const SUBTITLE = 'Graduate Data Scientist and a nerd who loves tech and computers.'
-const HERO_ANIMATION_KEY = 'hero-animation-played';
+const SUBTITLE = "Full Stack Engineer building reliable data products.";
+const HERO_ANIMATION_KEY = "hero-animation-played";
 
 export default function Hero() {
     // ===== ANIMATION CONFIGURATION =====
@@ -87,7 +87,7 @@ export default function Hero() {
         typeNextChar();
 
         return () => clearTimeout(timeoutId);
-    }, [fullText]);
+    }, []);
 
     // Parsing the display text for coloring
     const renderText = () => {

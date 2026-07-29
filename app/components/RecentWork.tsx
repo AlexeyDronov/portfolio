@@ -13,8 +13,6 @@ export default function RecentWork() {
 
     const allBlogs = getAllBlogs();
     const recentBlogs = allBlogs.slice(0, 3);
-    const missingBlogCount = Math.max(0, 3 - recentBlogs.length);
-
     return (
         <section className="w-full max-w-[1200px] mx-auto min-h-screen py-24 px-4 flex flex-col gap-24">
 
@@ -116,15 +114,6 @@ export default function RecentWork() {
                         </Link>
                     ))}
 
-                    {/* Coming Soon Cards */}
-                    {Array.from({ length: missingBlogCount }).map((_, i) => (
-                        <div
-                            key={`missing-${i}`}
-                            className="border border-slate-800 bg-slate-900/30 backdrop-blur-md p-6 rounded-(--border-radius-sm) flex items-center justify-center min-h-[200px]"
-                        >
-                            <span className="text-text-dim italic font-mono">More posts coming soon...</span>
-                        </div>
-                    ))}
                 </div>
             </div>
 
